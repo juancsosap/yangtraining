@@ -1,0 +1,11 @@
+module server-module {
+    namespace "http://models.training.com/server-module";
+    prefix server;
+
+    organization "Training Corporation";
+    contact juan.sosa@training-corp.com;
+    description "Module describing Server Object Model";
+    revision 2019-07-19 {
+        description "Initial Version";
+    }
+}

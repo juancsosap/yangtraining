@@ -1,0 +1,24 @@
+submodule admin-server-module {
+    belongs-to server-module {
+        prefix admin;
+    }
+
+    container admin {
+        container configuration {
+            container services {
+                container ssh {
+                    presence "Enables SSH";
+                    leaf version {
+                        type int32;
+                        description "SSH version";
+                        default 2;
+                    }
+                }
+
+                container ftp {
+                    presence "Enables FTP";
+                }
+            }
+        }
+    }
+}

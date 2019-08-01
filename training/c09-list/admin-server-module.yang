@@ -1,0 +1,39 @@
+submodule admin-server-module {
+    belongs-to server-module {
+        prefix admin;
+    }
+
+    container admin {
+        container configuration {
+            container users {
+                list user {
+                    key username;
+                    min-elements 1;
+
+                    leaf username {
+                        type string;
+                    }
+
+                    leaf password {
+                        type string;
+                    }
+                }
+            }
+
+            container services {
+                container ssh {
+                    presence "Enables SSH";
+                    leaf version {
+                        type int32;
+                        description "SSH version";
+                        default 2;
+                    }
+                }
+
+                container ftp {
+                    presence "Enables FTP";
+                }
+            }
+        }
+    }
+}

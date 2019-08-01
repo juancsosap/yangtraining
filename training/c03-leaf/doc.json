@@ -1,0 +1,11 @@
+{
+    "server:base": {
+        "hostname": "esxi01",
+        "ram-memory": 16384,
+        "application": "Web Server"
+    },
+    "server:network": {
+        "ip-address": "192.168.1.1",
+        "mac-address": "00:20:60:AF:15:BC"
+    }
+}

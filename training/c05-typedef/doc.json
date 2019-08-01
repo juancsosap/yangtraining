@@ -1,0 +1,32 @@
+{
+    "server:base": {
+        "configuration": {
+            "hostname": "esxi01",
+            "application": "Web Server",
+            "location": "Santiago de Chile",
+            "contact": "+56912345678"
+        },
+        "operational": {
+            "ram-memory": 16384,
+            "temperature": 25
+        }
+    },
+    "server:admin": {
+        "services": {
+            "ssh": {
+                "version": 2
+            },
+            "ftp": {}
+        }
+    },
+    "server:network": {
+        "configuration": {
+            "ip-address": "192.168.1.1",
+            "mac-address": "00:20:60:AF:15:BC"
+        },
+        "operational": {
+            "interface-load": 45,
+            "interface-state": "up"
+        }        
+    }  
+}

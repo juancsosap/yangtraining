@@ -1,0 +1,9 @@
+submodule base-server-module {
+    belongs-to server-module {
+        prefix base;
+    }
+
+    container base {
+        
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "server:base": {
+        "configuration": {
+            "hostname": "esxi01",
+            "application": "Web Server",
+            "location": "Santiago de Chile",
+            "contact-information": [
+                "+56912345678",
+                "+56223456789",
+                "juan.sosa@gmail.com"
+            ]
+        },
+        "operational": {
+            "ram-memory": 16384,
+            "temperature": 25
+        }
+    },
+    "server:admin": {
+        "services": {
+            "ssh": {
+                "version": 2
+            },
+            "ftp": {}
+        }
+    },
+    "server:network": {
+        "configuration": {
+            "ip-address": "192.168.1.1",
+            "ethernet": {
+                "mac-address": "00:20:60:AF:15:BC",
+                "vlan": 10
+            },
+            "protocols": {
+                "dns-server": [
+                    "8.8.8.8",
+                    "9.9.9.9"
+                ],
+                "ntp-server": [
+                    "4.4.4.4",
+                    "5.5.5.5"
+                ]
+            }
+        },
+        "operational": {
+            "interface-load": 45,
+            "interface-state": "up"
+        }        
+    }  
+}

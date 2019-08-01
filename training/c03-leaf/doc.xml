@@ -1,0 +1,11 @@
+<data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <base xmlns="http://models.training.com/server-module">
+    <hostname>esxi01</hostname>
+    <ram-memory>16384</ram-memory>
+    <application>Web Server</application>
+  </base>
+  <network xmlns="http://models.training.com/server-module">
+    <ip-address>192.168.1.1</ip-address>
+    <mac-address>00:20:60:AF:15:BC</mac-address>
+  </network>
+</data>

@@ -1,0 +1,89 @@
+submodule base-server-module {
+    belongs-to server-module {
+        prefix base;
+    }
+
+    typedef text-data {
+        type string {
+            length "1 .. 255";
+            pattern "[a-zA-Z0-9 .,-@]*";
+        }
+    }
+
+    typedef short-text-data {
+        type text-data {
+            length "1 .. 31";
+        }
+    }
+
+    typedef phone-number {
+        type short-text-data {
+            length "4 .. max";
+            pattern "[0-9]{7,12}";
+        }
+    }
+
+    typedef email-address {
+        type text-data {
+            length "4 .. max";
+            pattern "[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z]+";
+        }
+    }
+
+    typedef contact-data {
+        description "Contact Information";
+        type union {
+            type phone-number;
+            type email-address;
+            type enumeration {
+                enum not-available {
+                    description "No Info available";
+                }
+            }
+        }
+    }
+
+    container base {
+        container configuration {
+            leaf hostname {
+                type short-text-data;
+                mandatory true;
+                config true; // default value
+                description "Server Hostname";
+            }
+
+            leaf application {
+                type text-data;
+                description "Server Application";
+                default "Undefined";
+            }
+            
+            leaf location {
+                type text-data;
+                description "Server Location";
+                default "Undefined";
+            }
+
+            leaf-list contact-information {
+                type contact-data;
+                max-elements 4;
+            }
+        }
+
+        container operational {
+            leaf ram-memory {
+                type int64;
+                units mega-bytes;
+                config false;
+                description "RAM memory available";
+            }
+
+            leaf temperature {
+                type int32;
+                units celcius-degress;
+                config false;
+                description "Server temperature";
+            }
+        }
+    }
+}

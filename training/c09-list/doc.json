@@ -1,0 +1,113 @@
+{
+    "server:base": {
+        "configuration": {
+            "hostname": "esxi01",
+            "application": "Web Server",
+            "location": "Santiago de Chile",
+            "contact-information": [
+                "+56912345678",
+                "+56223456789",
+                "juan.sosa@gmail.com"
+            ]
+        },
+        "operational": {
+            "ram-memory": 16384,
+            "temperature": 25
+        }
+    },
+    "server:admin": {
+        "users": [
+            {
+                "username": "admin",
+                "password": "admin123!"
+            },
+            {
+                "username": "oper",
+                "password": "oper123!"
+            }                
+        ],
+        "services": {
+            "ssh": {
+                "version": 2
+            },
+            "ftp": {}
+        }
+    },
+    "server:network": {
+        "configuration": {
+            "interfaces": [
+                {
+                    "name": "eth0.10",
+                    "ip-address": "192.168.1.1",
+                    "ethernet": {
+                        "mac-address": "00:20:60:AF:15:BC",
+                        "vlan": 10
+                    }
+                },
+                {
+                    "name": "eth0.20",
+                    "ip-address": "192.168.2.1",
+                    "ethernet": {
+                        "mac-address": "00:20:60:AF:15:BC",
+                        "vlan": 20
+                    }
+                },
+                {
+                    "name": "eth1.10",
+                    "ip-address": "10.0.0.1",
+                    "ethernet": {
+                        "mac-address": "00:20:60:12:32:AB",
+                        "vlan": 10
+                    }
+                }
+            ],
+            "protocols": {
+                "dns-server": [
+                    "8.8.8.8",
+                    "9.9.9.9"
+                ],
+                "ntp-server": [
+                    "4.4.4.4",
+                    "5.5.5.5"
+                ]
+            }
+        },
+        "operational": {
+            "interfaces": {
+                "interface": [
+                    {
+                        "name": "eth0.10",
+                        "interface-load": 45,
+                        "interface-state": "up"
+                    },
+                    {
+                        "name": "eth0.20",
+                        "interface-load": 75,
+                        "interface-state": "up"
+                    },
+                    {
+                        "name": "eth1.10",
+                        "interface-load": 0,
+                        "interface-state": "down"
+                    }
+                ]
+            },
+            "routing-table": {
+                "route-entry": [
+                    {
+                        "ip": "0.0.0.0",
+                        "prefix": 0,
+                        "next-hop": "192.168.1.100",
+                        "metric": 250
+                    },
+                    {
+                        "ip": "192.168.0.0",
+                        "prefix": 16,
+                        "next-hop": "192.168.2.100",
+                        "metric": 150
+                    }
+                ]
+            }
+        }        
+    }  
+}

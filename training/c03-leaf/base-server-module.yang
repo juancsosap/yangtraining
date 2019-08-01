@@ -1,0 +1,27 @@
+submodule base-server-module {
+    belongs-to server-module {
+        prefix base;
+    }
+
+    container base {
+        leaf hostname {
+            type string;
+            mandatory true;
+            config true; // default value
+            description "Server Hostname";
+        }
+
+        leaf ram-memory {
+            type int64;
+            units mega-bytes;
+            config false;
+            description "RAM memory available";
+        }
+
+        leaf application {
+            type string;
+            description "Server Application";
+            default "Undefined";
+        }
+    }
+}

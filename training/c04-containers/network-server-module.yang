@@ -1,0 +1,33 @@
+submodule network-server-module {
+    belongs-to server-module {
+        prefix network;
+    }
+
+    import "ietf-inet-types" { // From another namespace 
+        prefix inet; 
+    }
+    import "ieee802-types" {
+        prefix ieee;
+    }
+
+    container network {
+        container configuration {
+            leaf ip-address {
+                type inet:ipv4-address;
+            }
+
+            leaf mac-address {
+                type ieee:mac-address;
+            }
+        }
+
+        container operational {
+            leaf interface-load {
+                type int32;
+                units percentage;
+                config false;
+                description "Percentage of Load in the interface";
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <base xmlns="http://models.training.com/server-module">
+    <configuration>
+      <hostname>esxi01</hostname>
+      <application>Web Server</application>
+      <location>Santiago de Chile</location>
+      <contact>+56912345678</contact>
+    </configuration>
+    <operational>
+      <ram-memory>16384</ram-memory>
+      <temperature>25</temperature>
+    </operational>
+  </base>
+  <admin xmlns="http://models.training.com/server-module">
+    <configuration>
+      <services>
+        <ssh>
+          <version>2</version>
+        </ssh>
+        <ftp>
+        </ftp>
+      </services>
+    </configuration>
+  </admin>
+  <network xmlns="http://models.training.com/server-module">
+    <configuration>
+      <ip-address>192.168.1.1</ip-address>
+      <mac-address>00:20:60:AF:15:BC</mac-address>
+    </configuration>
+    <operational>
+      <interface-load>45</interface-load>
+      <interface-state>up</interface-state>
+    </operational>
+  </network>
+</data>

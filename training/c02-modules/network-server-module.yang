@@ -1,0 +1,16 @@
+submodule network-server-module {
+    belongs-to server-module {
+        prefix network;
+    }
+
+    import "ietf-inet-types" { // From another namespace 
+        prefix inet; 
+    }
+    import "ieee802-types" {
+        prefix ieee;
+    }
+
+    container network {
+        
+    }
+}

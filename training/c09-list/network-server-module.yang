@@ -1,0 +1,153 @@
+submodule network-server-module {
+    belongs-to server-module {
+        prefix network;
+    }
+
+    import "ietf-inet-types" { // From another namespace 
+        prefix inet; 
+    }
+    import "ieee802-types" {
+        prefix ieee;
+    }
+
+    typedef byte-value {
+        type uint16 {
+            range "1 .. 255";
+        }
+    }
+
+    typedef percentage {
+        type uint16 {
+            range "0 .. 100";
+        }
+    }
+
+    typedef oper-state {
+        type enumeration {
+            enum up;
+            enum down;
+        }
+    }
+
+    typedef text-reference {
+        type string {
+            length "1 .. 31";
+            pattern "[a-zA-Z0-9/-]*";
+        }
+    }
+
+    typedef vlan {
+        type union {
+            type ieee:vlanid;
+            type enumeration {
+                enum null {
+                    description "No VLAN";
+                }
+            }
+        }
+    }
+
+    grouping physical-address {
+        leaf mac-address {
+            type ieee:mac-address;
+        }
+
+        leaf vlan {
+            type vlan;
+            default null;
+        }
+    }
+
+    container network {
+        container configuration {
+            container interfaces {
+                list interface {
+                    key name;
+                    unique ip-address;
+                    ordered-by user;
+
+                    leaf name {
+                        type text-reference;
+                    }
+
+                    leaf ip-address {
+                        type inet:ipv4-address;
+                    }
+
+                    container ethernet {
+                        uses physical-address {
+                            refine vlan {
+                                default 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            container protocols {
+                leaf-list dns-server {
+                    type inet:ipv4-address;
+                    ordered-by user;
+                }
+
+                leaf-list ntp-server {
+                    type inet:ipv4-address;
+                    ordered-by system; // default value
+                }
+            }
+        }
+
+        container operational {
+            container interfaces {
+                list interface {
+                    key name;
+                    ordered-by user;
+                    min-elements 1;
+
+                    leaf name {
+                        type text-reference;
+                        // config false;
+                    }
+
+                    leaf interface-load {
+                        type percentage;
+                        units percentage;
+                        config false;
+                        description "Percentage of Load in the interface";
+                    }
+
+                    leaf interface-state {
+                        type oper-state;
+                        config false;
+                    }
+                }
+            }
+
+            container routing-table {
+                list route-entry {
+                    key "ip prefix";
+
+                    leaf ip {
+                        type inet:ipv4-address;
+                        // config false;
+                    }
+
+                    leaf prefix {
+                        type inet:ipv4-prefix;
+                        // config false;
+                    }
+                    
+                    leaf next-hop {
+                        type inet:ipv4-address;
+                        config false;
+                    }
+
+                    leaf metric {
+                        type byte-value;
+                        config false;
+                    }
+                }
+            }
+        }
+    }
+}
