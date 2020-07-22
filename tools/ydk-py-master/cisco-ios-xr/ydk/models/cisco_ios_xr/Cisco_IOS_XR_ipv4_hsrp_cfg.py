@@ -173,7 +173,7 @@ class Hsrp(Entity):
             
             .. attribute:: mac_refresh
             
-            	HSRP MGO slave MAC refresh rate
+            	HSRP MGO subordinate MAC refresh rate
             	**type**\:  int
             
             	**range:** 0..10000
@@ -263,10 +263,10 @@ class Hsrp(Entity):
                 """
                 IPv6 HSRP configuration
                 
-                .. attribute:: slave_groups
+                .. attribute:: subordinate_groups
                 
-                	The HSRP slave group configuration table
-                	**type**\:   :py:class:`SlaveGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups>`
+                	The HSRP subordinate group configuration table
+                	**type**\:   :py:class:`SubordinateGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups>`
                 
                 .. attribute:: version2
                 
@@ -286,10 +286,10 @@ class Hsrp(Entity):
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "interface"
 
-                    self.slave_groups = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups()
-                    self.slave_groups.parent = self
-                    self._children_name_map["slave_groups"] = "slave-groups"
-                    self._children_yang_names.add("slave-groups")
+                    self.subordinate_groups = Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups()
+                    self.subordinate_groups.parent = self
+                    self._children_name_map["subordinate_groups"] = "subordinate-groups"
+                    self._children_yang_names.add("subordinate-groups")
 
                     self.version2 = Hsrp.Interfaces.Interface.Ipv6.Version2()
                     self.version2.parent = self
@@ -1854,14 +1854,14 @@ class Hsrp(Entity):
                         pass
 
 
-                class SlaveGroups(Entity):
+                class SubordinateGroups(Entity):
                     """
-                    The HSRP slave group configuration table
+                    The HSRP subordinate group configuration table
                     
-                    .. attribute:: slave_group
+                    .. attribute:: subordinate_group
                     
-                    	The HSRP slave group being configured
-                    	**type**\: list of    :py:class:`SlaveGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup>`
+                    	The HSRP subordinate group being configured
+                    	**type**\: list of    :py:class:`SubordinateGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup>`
                     
                     
 
@@ -1871,12 +1871,12 @@ class Hsrp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups, self).__init__()
+                        super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups, self).__init__()
 
-                        self.yang_name = "slave-groups"
+                        self.yang_name = "subordinate-groups"
                         self.yang_parent_name = "ipv6"
 
-                        self.slave_group = YList(self)
+                        self.subordinate_group = YList(self)
 
                     def __setattr__(self, name, value):
                         self._check_monkey_patching_error(name, value)
@@ -1891,7 +1891,7 @@ class Hsrp(Entity):
                                 if isinstance(value, YLeaf):
                                     self.__dict__[name].set(value.get())
                                 elif isinstance(value, YLeafList):
-                                    super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups, self).__setattr__(name, value)
+                                    super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups, self).__setattr__(name, value)
                                 else:
                                     self.__dict__[name].set(value)
                             else:
@@ -1900,14 +1900,14 @@ class Hsrp(Entity):
                                         value.parent = self
                                     elif value.parent is None and value.yang_name in self._children_yang_names:
                                         value.parent = self
-                                super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups, self).__setattr__(name, value)
+                                super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups, self).__setattr__(name, value)
 
 
-                    class SlaveGroup(Entity):
+                    class SubordinateGroup(Entity):
                         """
-                        The HSRP slave group being configured
+                        The HSRP subordinate group being configured
                         
-                        .. attribute:: slave_group_number  <key>
+                        .. attribute:: subordinate_group_number  <key>
                         
                         	HSRP group number
                         	**type**\:  int
@@ -1916,18 +1916,18 @@ class Hsrp(Entity):
                         
                         .. attribute:: follow
                         
-                        	HSRP Group name for this slave to follow
+                        	HSRP Group name for this subordinate to follow
                         	**type**\:  str
                         
                         .. attribute:: global_ipv6_addresses
                         
                         	The table of HSRP virtual global IPv6 addresses
-                        	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses>`
+                        	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses>`
                         
                         .. attribute:: link_local_ipv6_address
                         
                         	The HSRP IPv6 virtual linklocal address
-                        	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address>`
+                        	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.LinkLocalIpv6Address>`
                         
                         .. attribute:: virtual_mac_address
                         
@@ -1944,23 +1944,23 @@ class Hsrp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup, self).__init__()
+                            super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup, self).__init__()
 
-                            self.yang_name = "slave-group"
-                            self.yang_parent_name = "slave-groups"
+                            self.yang_name = "subordinate-group"
+                            self.yang_parent_name = "subordinate-groups"
 
-                            self.slave_group_number = YLeaf(YType.uint32, "slave-group-number")
+                            self.subordinate_group_number = YLeaf(YType.uint32, "subordinate-group-number")
 
                             self.follow = YLeaf(YType.str, "follow")
 
                             self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
 
-                            self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses()
+                            self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses()
                             self.global_ipv6_addresses.parent = self
                             self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
                             self._children_yang_names.add("global-ipv6-addresses")
 
-                            self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address()
+                            self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.LinkLocalIpv6Address()
                             self.link_local_ipv6_address.parent = self
                             self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
                             self._children_yang_names.add("link-local-ipv6-address")
@@ -1974,13 +1974,13 @@ class Hsrp(Entity):
                                                         .format(value))
                                 if isinstance(value, Enum.YLeaf):
                                     value = value.name
-                                if name in ("slave_group_number",
+                                if name in ("subordinate_group_number",
                                             "follow",
                                             "virtual_mac_address") and name in self.__dict__:
                                     if isinstance(value, YLeaf):
                                         self.__dict__[name].set(value.get())
                                     elif isinstance(value, YLeafList):
-                                        super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup, self).__setattr__(name, value)
+                                        super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup, self).__setattr__(name, value)
                                     else:
                                         self.__dict__[name].set(value)
                                 else:
@@ -1989,7 +1989,7 @@ class Hsrp(Entity):
                                             value.parent = self
                                         elif value.parent is None and value.yang_name in self._children_yang_names:
                                             value.parent = self
-                                    super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup, self).__setattr__(name, value)
+                                    super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup, self).__setattr__(name, value)
 
 
                         class LinkLocalIpv6Address(Entity):
@@ -2018,10 +2018,10 @@ class Hsrp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address, self).__init__()
+                                super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.LinkLocalIpv6Address, self).__init__()
 
                                 self.yang_name = "link-local-ipv6-address"
-                                self.yang_parent_name = "slave-group"
+                                self.yang_parent_name = "subordinate-group"
 
                                 self.address = YLeaf(YType.str, "address")
 
@@ -2041,7 +2041,7 @@ class Hsrp(Entity):
                                         if isinstance(value, YLeaf):
                                             self.__dict__[name].set(value.get())
                                         elif isinstance(value, YLeafList):
-                                            super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address, self).__setattr__(name, value)
+                                            super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.LinkLocalIpv6Address, self).__setattr__(name, value)
                                         else:
                                             self.__dict__[name].set(value)
                                     else:
@@ -2050,7 +2050,7 @@ class Hsrp(Entity):
                                                 value.parent = self
                                             elif value.parent is None and value.yang_name in self._children_yang_names:
                                                 value.parent = self
-                                        super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address, self).__setattr__(name, value)
+                                        super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.LinkLocalIpv6Address, self).__setattr__(name, value)
 
                             def has_data(self):
                                 return (
@@ -2116,7 +2116,7 @@ class Hsrp(Entity):
                             .. attribute:: global_ipv6_address
                             
                             	A HSRP virtual global IPv6 IP address
-                            	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address>`
+                            	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses.GlobalIpv6Address>`
                             
                             
 
@@ -2126,10 +2126,10 @@ class Hsrp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses, self).__init__()
+                                super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses, self).__init__()
 
                                 self.yang_name = "global-ipv6-addresses"
-                                self.yang_parent_name = "slave-group"
+                                self.yang_parent_name = "subordinate-group"
 
                                 self.global_ipv6_address = YList(self)
 
@@ -2146,7 +2146,7 @@ class Hsrp(Entity):
                                         if isinstance(value, YLeaf):
                                             self.__dict__[name].set(value.get())
                                         elif isinstance(value, YLeafList):
-                                            super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses, self).__setattr__(name, value)
+                                            super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses, self).__setattr__(name, value)
                                         else:
                                             self.__dict__[name].set(value)
                                     else:
@@ -2155,7 +2155,7 @@ class Hsrp(Entity):
                                                 value.parent = self
                                             elif value.parent is None and value.yang_name in self._children_yang_names:
                                                 value.parent = self
-                                        super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses, self).__setattr__(name, value)
+                                        super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses, self).__setattr__(name, value)
 
 
                             class GlobalIpv6Address(Entity):
@@ -2177,7 +2177,7 @@ class Hsrp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
+                                    super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
 
                                     self.yang_name = "global-ipv6-address"
                                     self.yang_parent_name = "global-ipv6-addresses"
@@ -2197,7 +2197,7 @@ class Hsrp(Entity):
                                             if isinstance(value, YLeaf):
                                                 self.__dict__[name].set(value.get())
                                             elif isinstance(value, YLeafList):
-                                                super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
+                                                super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
                                             else:
                                                 self.__dict__[name].set(value)
                                         else:
@@ -2206,7 +2206,7 @@ class Hsrp(Entity):
                                                     value.parent = self
                                                 elif value.parent is None and value.yang_name in self._children_yang_names:
                                                     value.parent = self
-                                            super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
+                                            super(Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
 
                                 def has_data(self):
                                     return self.address.is_set
@@ -2294,7 +2294,7 @@ class Hsrp(Entity):
                                         segment = c.get_segment_path()
                                         if (segment_path == segment):
                                             return c
-                                    c = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address()
+                                    c = Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses.GlobalIpv6Address()
                                     c.parent = self
                                     local_reference_key = "ydk::seg::%s" % segment_path
                                     self._local_refs[local_reference_key] = c
@@ -2313,7 +2313,7 @@ class Hsrp(Entity):
 
                         def has_data(self):
                             return (
-                                self.slave_group_number.is_set or
+                                self.subordinate_group_number.is_set or
                                 self.follow.is_set or
                                 self.virtual_mac_address.is_set or
                                 (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_data()) or
@@ -2322,7 +2322,7 @@ class Hsrp(Entity):
                         def has_operation(self):
                             return (
                                 self.yfilter != YFilter.not_set or
-                                self.slave_group_number.yfilter != YFilter.not_set or
+                                self.subordinate_group_number.yfilter != YFilter.not_set or
                                 self.follow.yfilter != YFilter.not_set or
                                 self.virtual_mac_address.yfilter != YFilter.not_set or
                                 (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_operation()) or
@@ -2330,7 +2330,7 @@ class Hsrp(Entity):
 
                         def get_segment_path(self):
                             path_buffer = ""
-                            path_buffer = "slave-group" + "[slave-group-number='" + self.slave_group_number.get() + "']" + path_buffer
+                            path_buffer = "subordinate-group" + "[subordinate-group-number='" + self.subordinate_group_number.get() + "']" + path_buffer
 
                             return path_buffer
 
@@ -2342,8 +2342,8 @@ class Hsrp(Entity):
                                 path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
                             leaf_name_data = LeafDataList()
-                            if (self.slave_group_number.is_set or self.slave_group_number.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.slave_group_number.get_name_leafdata())
+                            if (self.subordinate_group_number.is_set or self.subordinate_group_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.subordinate_group_number.get_name_leafdata())
                             if (self.follow.is_set or self.follow.yfilter != YFilter.not_set):
                                 leaf_name_data.append(self.follow.get_name_leafdata())
                             if (self.virtual_mac_address.is_set or self.virtual_mac_address.yfilter != YFilter.not_set):
@@ -2359,14 +2359,14 @@ class Hsrp(Entity):
 
                             if (child_yang_name == "global-ipv6-addresses"):
                                 if (self.global_ipv6_addresses is None):
-                                    self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses()
+                                    self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.GlobalIpv6Addresses()
                                     self.global_ipv6_addresses.parent = self
                                     self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
                                 return self.global_ipv6_addresses
 
                             if (child_yang_name == "link-local-ipv6-address"):
                                 if (self.link_local_ipv6_address is None):
-                                    self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address()
+                                    self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup.LinkLocalIpv6Address()
                                     self.link_local_ipv6_address.parent = self
                                     self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
                                 return self.link_local_ipv6_address
@@ -2374,15 +2374,15 @@ class Hsrp(Entity):
                             return None
 
                         def has_leaf_or_child_of_name(self, name):
-                            if(name == "global-ipv6-addresses" or name == "link-local-ipv6-address" or name == "slave-group-number" or name == "follow" or name == "virtual-mac-address"):
+                            if(name == "global-ipv6-addresses" or name == "link-local-ipv6-address" or name == "subordinate-group-number" or name == "follow" or name == "virtual-mac-address"):
                                 return True
                             return False
 
                         def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "slave-group-number"):
-                                self.slave_group_number = value
-                                self.slave_group_number.value_namespace = name_space
-                                self.slave_group_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "subordinate-group-number"):
+                                self.subordinate_group_number = value
+                                self.subordinate_group_number.value_namespace = name_space
+                                self.subordinate_group_number.value_namespace_prefix = name_space_prefix
                             if(value_path == "follow"):
                                 self.follow = value
                                 self.follow.value_namespace = name_space
@@ -2393,20 +2393,20 @@ class Hsrp(Entity):
                                 self.virtual_mac_address.value_namespace_prefix = name_space_prefix
 
                     def has_data(self):
-                        for c in self.slave_group:
+                        for c in self.subordinate_group:
                             if (c.has_data()):
                                 return True
                         return False
 
                     def has_operation(self):
-                        for c in self.slave_group:
+                        for c in self.subordinate_group:
                             if (c.has_operation()):
                                 return True
                         return self.yfilter != YFilter.not_set
 
                     def get_segment_path(self):
                         path_buffer = ""
-                        path_buffer = "slave-groups" + path_buffer
+                        path_buffer = "subordinate-groups" + path_buffer
 
                         return path_buffer
 
@@ -2427,22 +2427,22 @@ class Hsrp(Entity):
                         if child is not None:
                             return child
 
-                        if (child_yang_name == "slave-group"):
-                            for c in self.slave_group:
+                        if (child_yang_name == "subordinate-group"):
+                            for c in self.subordinate_group:
                                 segment = c.get_segment_path()
                                 if (segment_path == segment):
                                     return c
-                            c = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup()
+                            c = Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups.SubordinateGroup()
                             c.parent = self
                             local_reference_key = "ydk::seg::%s" % segment_path
                             self._local_refs[local_reference_key] = c
-                            self.slave_group.append(c)
+                            self.subordinate_group.append(c)
                             return c
 
                         return None
 
                     def has_leaf_or_child_of_name(self, name):
-                        if(name == "slave-group"):
+                        if(name == "subordinate-group"):
                             return True
                         return False
 
@@ -2451,13 +2451,13 @@ class Hsrp(Entity):
 
                 def has_data(self):
                     return (
-                        (self.slave_groups is not None and self.slave_groups.has_data()) or
+                        (self.subordinate_groups is not None and self.subordinate_groups.has_data()) or
                         (self.version2 is not None and self.version2.has_data()))
 
                 def has_operation(self):
                     return (
                         self.yfilter != YFilter.not_set or
-                        (self.slave_groups is not None and self.slave_groups.has_operation()) or
+                        (self.subordinate_groups is not None and self.subordinate_groups.has_operation()) or
                         (self.version2 is not None and self.version2.has_operation()))
 
                 def get_segment_path(self):
@@ -2483,12 +2483,12 @@ class Hsrp(Entity):
                     if child is not None:
                         return child
 
-                    if (child_yang_name == "slave-groups"):
-                        if (self.slave_groups is None):
-                            self.slave_groups = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups()
-                            self.slave_groups.parent = self
-                            self._children_name_map["slave_groups"] = "slave-groups"
-                        return self.slave_groups
+                    if (child_yang_name == "subordinate-groups"):
+                        if (self.subordinate_groups is None):
+                            self.subordinate_groups = Hsrp.Interfaces.Interface.Ipv6.SubordinateGroups()
+                            self.subordinate_groups.parent = self
+                            self._children_name_map["subordinate_groups"] = "subordinate-groups"
+                        return self.subordinate_groups
 
                     if (child_yang_name == "version2"):
                         if (self.version2 is None):
@@ -2500,7 +2500,7 @@ class Hsrp(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "slave-groups" or name == "version2"):
+                    if(name == "subordinate-groups" or name == "version2"):
                         return True
                     return False
 
@@ -2754,10 +2754,10 @@ class Hsrp(Entity):
                 """
                 IPv4 HSRP configuration
                 
-                .. attribute:: slave_groups
+                .. attribute:: subordinate_groups
                 
-                	The HSRP slave group configuration table
-                	**type**\:   :py:class:`SlaveGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups>`
+                	The HSRP subordinate group configuration table
+                	**type**\:   :py:class:`SubordinateGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups>`
                 
                 .. attribute:: version1
                 
@@ -2782,10 +2782,10 @@ class Hsrp(Entity):
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "interface"
 
-                    self.slave_groups = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups()
-                    self.slave_groups.parent = self
-                    self._children_name_map["slave_groups"] = "slave-groups"
-                    self._children_yang_names.add("slave-groups")
+                    self.subordinate_groups = Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups()
+                    self.subordinate_groups.parent = self
+                    self._children_name_map["subordinate_groups"] = "subordinate-groups"
+                    self._children_yang_names.add("subordinate-groups")
 
                     self.version1 = Hsrp.Interfaces.Interface.Ipv4.Version1()
                     self.version1.parent = self
@@ -2798,14 +2798,14 @@ class Hsrp(Entity):
                     self._children_yang_names.add("version2")
 
 
-                class SlaveGroups(Entity):
+                class SubordinateGroups(Entity):
                     """
-                    The HSRP slave group configuration table
+                    The HSRP subordinate group configuration table
                     
-                    .. attribute:: slave_group
+                    .. attribute:: subordinate_group
                     
-                    	The HSRP slave group being configured
-                    	**type**\: list of    :py:class:`SlaveGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup>`
+                    	The HSRP subordinate group being configured
+                    	**type**\: list of    :py:class:`SubordinateGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup>`
                     
                     
 
@@ -2815,12 +2815,12 @@ class Hsrp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups, self).__init__()
+                        super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups, self).__init__()
 
-                        self.yang_name = "slave-groups"
+                        self.yang_name = "subordinate-groups"
                         self.yang_parent_name = "ipv4"
 
-                        self.slave_group = YList(self)
+                        self.subordinate_group = YList(self)
 
                     def __setattr__(self, name, value):
                         self._check_monkey_patching_error(name, value)
@@ -2835,7 +2835,7 @@ class Hsrp(Entity):
                                 if isinstance(value, YLeaf):
                                     self.__dict__[name].set(value.get())
                                 elif isinstance(value, YLeafList):
-                                    super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups, self).__setattr__(name, value)
+                                    super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups, self).__setattr__(name, value)
                                 else:
                                     self.__dict__[name].set(value)
                             else:
@@ -2844,14 +2844,14 @@ class Hsrp(Entity):
                                         value.parent = self
                                     elif value.parent is None and value.yang_name in self._children_yang_names:
                                         value.parent = self
-                                super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups, self).__setattr__(name, value)
+                                super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups, self).__setattr__(name, value)
 
 
-                    class SlaveGroup(Entity):
+                    class SubordinateGroup(Entity):
                         """
-                        The HSRP slave group being configured
+                        The HSRP subordinate group being configured
                         
-                        .. attribute:: slave_group_number  <key>
+                        .. attribute:: subordinate_group_number  <key>
                         
                         	HSRP group number
                         	**type**\:  int
@@ -2860,7 +2860,7 @@ class Hsrp(Entity):
                         
                         .. attribute:: follow
                         
-                        	HSRP Group name for this slave to follow
+                        	HSRP Group name for this subordinate to follow
                         	**type**\:  str
                         
                         .. attribute:: primary_ipv4_address
@@ -2873,7 +2873,7 @@ class Hsrp(Entity):
                         .. attribute:: secondary_ipv4_addresses
                         
                         	Secondary HSRP IP address Table
-                        	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses>`
+                        	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses>`
                         
                         .. attribute:: virtual_mac_address
                         
@@ -2890,12 +2890,12 @@ class Hsrp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup, self).__init__()
+                            super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup, self).__init__()
 
-                            self.yang_name = "slave-group"
-                            self.yang_parent_name = "slave-groups"
+                            self.yang_name = "subordinate-group"
+                            self.yang_parent_name = "subordinate-groups"
 
-                            self.slave_group_number = YLeaf(YType.uint32, "slave-group-number")
+                            self.subordinate_group_number = YLeaf(YType.uint32, "subordinate-group-number")
 
                             self.follow = YLeaf(YType.str, "follow")
 
@@ -2903,7 +2903,7 @@ class Hsrp(Entity):
 
                             self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
 
-                            self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses()
+                            self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses()
                             self.secondary_ipv4_addresses.parent = self
                             self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
                             self._children_yang_names.add("secondary-ipv4-addresses")
@@ -2917,14 +2917,14 @@ class Hsrp(Entity):
                                                         .format(value))
                                 if isinstance(value, Enum.YLeaf):
                                     value = value.name
-                                if name in ("slave_group_number",
+                                if name in ("subordinate_group_number",
                                             "follow",
                                             "primary_ipv4_address",
                                             "virtual_mac_address") and name in self.__dict__:
                                     if isinstance(value, YLeaf):
                                         self.__dict__[name].set(value.get())
                                     elif isinstance(value, YLeafList):
-                                        super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup, self).__setattr__(name, value)
+                                        super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup, self).__setattr__(name, value)
                                     else:
                                         self.__dict__[name].set(value)
                                 else:
@@ -2933,7 +2933,7 @@ class Hsrp(Entity):
                                             value.parent = self
                                         elif value.parent is None and value.yang_name in self._children_yang_names:
                                             value.parent = self
-                                    super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup, self).__setattr__(name, value)
+                                    super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup, self).__setattr__(name, value)
 
 
                         class SecondaryIpv4Addresses(Entity):
@@ -2943,7 +2943,7 @@ class Hsrp(Entity):
                             .. attribute:: secondary_ipv4_address
                             
                             	Secondary HSRP IP address
-                            	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address>`
+                            	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses.SecondaryIpv4Address>`
                             
                             
 
@@ -2953,10 +2953,10 @@ class Hsrp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses, self).__init__()
+                                super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses, self).__init__()
 
                                 self.yang_name = "secondary-ipv4-addresses"
-                                self.yang_parent_name = "slave-group"
+                                self.yang_parent_name = "subordinate-group"
 
                                 self.secondary_ipv4_address = YList(self)
 
@@ -2973,7 +2973,7 @@ class Hsrp(Entity):
                                         if isinstance(value, YLeaf):
                                             self.__dict__[name].set(value.get())
                                         elif isinstance(value, YLeafList):
-                                            super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses, self).__setattr__(name, value)
+                                            super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses, self).__setattr__(name, value)
                                         else:
                                             self.__dict__[name].set(value)
                                     else:
@@ -2982,7 +2982,7 @@ class Hsrp(Entity):
                                                 value.parent = self
                                             elif value.parent is None and value.yang_name in self._children_yang_names:
                                                 value.parent = self
-                                        super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses, self).__setattr__(name, value)
+                                        super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses, self).__setattr__(name, value)
 
 
                             class SecondaryIpv4Address(Entity):
@@ -3004,7 +3004,7 @@ class Hsrp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
+                                    super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
 
                                     self.yang_name = "secondary-ipv4-address"
                                     self.yang_parent_name = "secondary-ipv4-addresses"
@@ -3024,7 +3024,7 @@ class Hsrp(Entity):
                                             if isinstance(value, YLeaf):
                                                 self.__dict__[name].set(value.get())
                                             elif isinstance(value, YLeafList):
-                                                super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
+                                                super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
                                             else:
                                                 self.__dict__[name].set(value)
                                         else:
@@ -3033,7 +3033,7 @@ class Hsrp(Entity):
                                                     value.parent = self
                                                 elif value.parent is None and value.yang_name in self._children_yang_names:
                                                     value.parent = self
-                                            super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
+                                            super(Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
 
                                 def has_data(self):
                                     return self.address.is_set
@@ -3121,7 +3121,7 @@ class Hsrp(Entity):
                                         segment = c.get_segment_path()
                                         if (segment_path == segment):
                                             return c
-                                    c = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address()
+                                    c = Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses.SecondaryIpv4Address()
                                     c.parent = self
                                     local_reference_key = "ydk::seg::%s" % segment_path
                                     self._local_refs[local_reference_key] = c
@@ -3140,7 +3140,7 @@ class Hsrp(Entity):
 
                         def has_data(self):
                             return (
-                                self.slave_group_number.is_set or
+                                self.subordinate_group_number.is_set or
                                 self.follow.is_set or
                                 self.primary_ipv4_address.is_set or
                                 self.virtual_mac_address.is_set or
@@ -3149,7 +3149,7 @@ class Hsrp(Entity):
                         def has_operation(self):
                             return (
                                 self.yfilter != YFilter.not_set or
-                                self.slave_group_number.yfilter != YFilter.not_set or
+                                self.subordinate_group_number.yfilter != YFilter.not_set or
                                 self.follow.yfilter != YFilter.not_set or
                                 self.primary_ipv4_address.yfilter != YFilter.not_set or
                                 self.virtual_mac_address.yfilter != YFilter.not_set or
@@ -3157,7 +3157,7 @@ class Hsrp(Entity):
 
                         def get_segment_path(self):
                             path_buffer = ""
-                            path_buffer = "slave-group" + "[slave-group-number='" + self.slave_group_number.get() + "']" + path_buffer
+                            path_buffer = "subordinate-group" + "[subordinate-group-number='" + self.subordinate_group_number.get() + "']" + path_buffer
 
                             return path_buffer
 
@@ -3169,8 +3169,8 @@ class Hsrp(Entity):
                                 path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
                             leaf_name_data = LeafDataList()
-                            if (self.slave_group_number.is_set or self.slave_group_number.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.slave_group_number.get_name_leafdata())
+                            if (self.subordinate_group_number.is_set or self.subordinate_group_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.subordinate_group_number.get_name_leafdata())
                             if (self.follow.is_set or self.follow.yfilter != YFilter.not_set):
                                 leaf_name_data.append(self.follow.get_name_leafdata())
                             if (self.primary_ipv4_address.is_set or self.primary_ipv4_address.yfilter != YFilter.not_set):
@@ -3188,7 +3188,7 @@ class Hsrp(Entity):
 
                             if (child_yang_name == "secondary-ipv4-addresses"):
                                 if (self.secondary_ipv4_addresses is None):
-                                    self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses()
+                                    self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup.SecondaryIpv4Addresses()
                                     self.secondary_ipv4_addresses.parent = self
                                     self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
                                 return self.secondary_ipv4_addresses
@@ -3196,15 +3196,15 @@ class Hsrp(Entity):
                             return None
 
                         def has_leaf_or_child_of_name(self, name):
-                            if(name == "secondary-ipv4-addresses" or name == "slave-group-number" or name == "follow" or name == "primary-ipv4-address" or name == "virtual-mac-address"):
+                            if(name == "secondary-ipv4-addresses" or name == "subordinate-group-number" or name == "follow" or name == "primary-ipv4-address" or name == "virtual-mac-address"):
                                 return True
                             return False
 
                         def set_value(self, value_path, value, name_space, name_space_prefix):
-                            if(value_path == "slave-group-number"):
-                                self.slave_group_number = value
-                                self.slave_group_number.value_namespace = name_space
-                                self.slave_group_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "subordinate-group-number"):
+                                self.subordinate_group_number = value
+                                self.subordinate_group_number.value_namespace = name_space
+                                self.subordinate_group_number.value_namespace_prefix = name_space_prefix
                             if(value_path == "follow"):
                                 self.follow = value
                                 self.follow.value_namespace = name_space
@@ -3219,20 +3219,20 @@ class Hsrp(Entity):
                                 self.virtual_mac_address.value_namespace_prefix = name_space_prefix
 
                     def has_data(self):
-                        for c in self.slave_group:
+                        for c in self.subordinate_group:
                             if (c.has_data()):
                                 return True
                         return False
 
                     def has_operation(self):
-                        for c in self.slave_group:
+                        for c in self.subordinate_group:
                             if (c.has_operation()):
                                 return True
                         return self.yfilter != YFilter.not_set
 
                     def get_segment_path(self):
                         path_buffer = ""
-                        path_buffer = "slave-groups" + path_buffer
+                        path_buffer = "subordinate-groups" + path_buffer
 
                         return path_buffer
 
@@ -3253,22 +3253,22 @@ class Hsrp(Entity):
                         if child is not None:
                             return child
 
-                        if (child_yang_name == "slave-group"):
-                            for c in self.slave_group:
+                        if (child_yang_name == "subordinate-group"):
+                            for c in self.subordinate_group:
                                 segment = c.get_segment_path()
                                 if (segment_path == segment):
                                     return c
-                            c = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup()
+                            c = Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups.SubordinateGroup()
                             c.parent = self
                             local_reference_key = "ydk::seg::%s" % segment_path
                             self._local_refs[local_reference_key] = c
-                            self.slave_group.append(c)
+                            self.subordinate_group.append(c)
                             return c
 
                         return None
 
                     def has_leaf_or_child_of_name(self, name):
-                        if(name == "slave-group"):
+                        if(name == "subordinate-group"):
                             return True
                         return False
 
@@ -6405,14 +6405,14 @@ class Hsrp(Entity):
 
                 def has_data(self):
                     return (
-                        (self.slave_groups is not None and self.slave_groups.has_data()) or
+                        (self.subordinate_groups is not None and self.subordinate_groups.has_data()) or
                         (self.version1 is not None and self.version1.has_data()) or
                         (self.version2 is not None and self.version2.has_data()))
 
                 def has_operation(self):
                     return (
                         self.yfilter != YFilter.not_set or
-                        (self.slave_groups is not None and self.slave_groups.has_operation()) or
+                        (self.subordinate_groups is not None and self.subordinate_groups.has_operation()) or
                         (self.version1 is not None and self.version1.has_operation()) or
                         (self.version2 is not None and self.version2.has_operation()))
 
@@ -6439,12 +6439,12 @@ class Hsrp(Entity):
                     if child is not None:
                         return child
 
-                    if (child_yang_name == "slave-groups"):
-                        if (self.slave_groups is None):
-                            self.slave_groups = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups()
-                            self.slave_groups.parent = self
-                            self._children_name_map["slave_groups"] = "slave-groups"
-                        return self.slave_groups
+                    if (child_yang_name == "subordinate-groups"):
+                        if (self.subordinate_groups is None):
+                            self.subordinate_groups = Hsrp.Interfaces.Interface.Ipv4.SubordinateGroups()
+                            self.subordinate_groups.parent = self
+                            self._children_name_map["subordinate_groups"] = "subordinate-groups"
+                        return self.subordinate_groups
 
                     if (child_yang_name == "version1"):
                         if (self.version1 is None):
@@ -6463,7 +6463,7 @@ class Hsrp(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "slave-groups" or name == "version1" or name == "version2"):
+                    if(name == "subordinate-groups" or name == "version1" or name == "version2"):
                         return True
                     return False
 

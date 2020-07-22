@@ -45,26 +45,26 @@ class SubscriberRedundancyGroupRole(Enum):
 
     Subscriber redundancy group role
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	Master Role
+    	Main Role
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	Slave Role
+    	Subordinate Role
 
     """
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
-class SubscriberRedundancyGroupSlaveMode(Enum):
+class SubscriberRedundancyGroupSubordinateMode(Enum):
     """
-    SubscriberRedundancyGroupSlaveMode
+    SubscriberRedundancyGroupSubordinateMode
 
-    Subscriber redundancy group slave mode
+    Subscriber redundancy group subordinate mode
 
     .. data:: warm = 1
 
@@ -120,10 +120,10 @@ class SubscriberRedundancy(Entity):
     	None
     	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.RevertiveTimer>`
     
-    .. attribute:: slave_mode
+    .. attribute:: subordinate_mode
     
-    	Set slave
-    	**type**\:   :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
+    	Set subordinate
+    	**type**\:   :py:class:`SubscriberRedundancyGroupSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSubordinateMode>`
     
     .. attribute:: source_interface
     
@@ -161,7 +161,7 @@ class SubscriberRedundancy(Entity):
 
         self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
 
-        self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+        self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
         self.source_interface = YLeaf(YType.str, "source-interface")
 
@@ -190,7 +190,7 @@ class SubscriberRedundancy(Entity):
                         "hold_timer",
                         "preferred_role",
                         "redundancy_disable",
-                        "slave_mode",
+                        "subordinate_mode",
                         "source_interface",
                         "virtual_mac_prefix") and name in self.__dict__:
                 if isinstance(value, YLeaf):
@@ -339,10 +339,10 @@ class SubscriberRedundancy(Entity):
             	None
             	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.RevertiveTimer>`
             
-            .. attribute:: slave_mode
+            .. attribute:: subordinate_mode
             
-            	Set Slave Mode
-            	**type**\:   :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
+            	Set Subordinate Mode
+            	**type**\:   :py:class:`SubscriberRedundancyGroupSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSubordinateMode>`
             
             .. attribute:: state_control_route
             
@@ -389,7 +389,7 @@ class SubscriberRedundancy(Entity):
 
                 self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
 
-                self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+                self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
                 self.interface_list = SubscriberRedundancy.Groups.Group.InterfaceList()
                 self.interface_list.parent = self
@@ -436,7 +436,7 @@ class SubscriberRedundancy(Entity):
                                 "l2tp_source_ip_address",
                                 "preferred_role",
                                 "redundancy_disable",
-                                "slave_mode") and name in self.__dict__:
+                                "subordinate_mode") and name in self.__dict__:
                         if isinstance(value, YLeaf):
                             self.__dict__[name].set(value.get())
                         elif isinstance(value, YLeafList):
@@ -2794,7 +2794,7 @@ class SubscriberRedundancy(Entity):
                     self.l2tp_source_ip_address.is_set or
                     self.preferred_role.is_set or
                     self.redundancy_disable.is_set or
-                    self.slave_mode.is_set or
+                    self.subordinate_mode.is_set or
                     (self.interface_list is not None and self.interface_list.has_data()) or
                     (self.peer is not None and self.peer.has_data()) or
                     (self.revertive_timer is not None and self.revertive_timer.has_data()) or
@@ -2815,7 +2815,7 @@ class SubscriberRedundancy(Entity):
                     self.l2tp_source_ip_address.yfilter != YFilter.not_set or
                     self.preferred_role.yfilter != YFilter.not_set or
                     self.redundancy_disable.yfilter != YFilter.not_set or
-                    self.slave_mode.yfilter != YFilter.not_set or
+                    self.subordinate_mode.yfilter != YFilter.not_set or
                     (self.interface_list is not None and self.interface_list.has_operation()) or
                     (self.peer is not None and self.peer.has_operation()) or
                     (self.revertive_timer is not None and self.revertive_timer.has_operation()) or
@@ -2858,8 +2858,8 @@ class SubscriberRedundancy(Entity):
                     leaf_name_data.append(self.preferred_role.get_name_leafdata())
                 if (self.redundancy_disable.is_set or self.redundancy_disable.yfilter != YFilter.not_set):
                     leaf_name_data.append(self.redundancy_disable.get_name_leafdata())
-                if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.slave_mode.get_name_leafdata())
+                if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
 
                 entity_path = EntityPath(path_buffer, leaf_name_data)
                 return entity_path
@@ -2907,7 +2907,7 @@ class SubscriberRedundancy(Entity):
                 return None
 
             def has_leaf_or_child_of_name(self, name):
-                if(name == "interface-list" or name == "peer" or name == "revertive-timer" or name == "state-control-route" or name == "virtual-mac" or name == "group-id" or name == "access-tracking-object" or name == "core-tracking-object" or name == "description" or name == "disable-tracking-object" or name == "enable" or name == "enable-fast-switchover" or name == "hold-timer" or name == "l2tp-source-ip-address" or name == "preferred-role" or name == "redundancy-disable" or name == "slave-mode"):
+                if(name == "interface-list" or name == "peer" or name == "revertive-timer" or name == "state-control-route" or name == "virtual-mac" or name == "group-id" or name == "access-tracking-object" or name == "core-tracking-object" or name == "description" or name == "disable-tracking-object" or name == "enable" or name == "enable-fast-switchover" or name == "hold-timer" or name == "l2tp-source-ip-address" or name == "preferred-role" or name == "redundancy-disable" or name == "subordinate-mode"):
                     return True
                 return False
 
@@ -2956,10 +2956,10 @@ class SubscriberRedundancy(Entity):
                     self.redundancy_disable = value
                     self.redundancy_disable.value_namespace = name_space
                     self.redundancy_disable.value_namespace_prefix = name_space_prefix
-                if(value_path == "slave-mode"):
-                    self.slave_mode = value
-                    self.slave_mode.value_namespace = name_space
-                    self.slave_mode.value_namespace_prefix = name_space_prefix
+                if(value_path == "subordinate-mode"):
+                    self.subordinate_mode = value
+                    self.subordinate_mode.value_namespace = name_space
+                    self.subordinate_mode.value_namespace_prefix = name_space_prefix
 
         def has_data(self):
             for c in self.group:
@@ -3142,7 +3142,7 @@ class SubscriberRedundancy(Entity):
             self.hold_timer.is_set or
             self.preferred_role.is_set or
             self.redundancy_disable.is_set or
-            self.slave_mode.is_set or
+            self.subordinate_mode.is_set or
             self.source_interface.is_set or
             self.virtual_mac_prefix.is_set or
             (self.groups is not None and self.groups.has_data()) or
@@ -3155,7 +3155,7 @@ class SubscriberRedundancy(Entity):
             self.hold_timer.yfilter != YFilter.not_set or
             self.preferred_role.yfilter != YFilter.not_set or
             self.redundancy_disable.yfilter != YFilter.not_set or
-            self.slave_mode.yfilter != YFilter.not_set or
+            self.subordinate_mode.yfilter != YFilter.not_set or
             self.source_interface.yfilter != YFilter.not_set or
             self.virtual_mac_prefix.yfilter != YFilter.not_set or
             (self.groups is not None and self.groups.has_operation()) or
@@ -3182,8 +3182,8 @@ class SubscriberRedundancy(Entity):
             leaf_name_data.append(self.preferred_role.get_name_leafdata())
         if (self.redundancy_disable.is_set or self.redundancy_disable.yfilter != YFilter.not_set):
             leaf_name_data.append(self.redundancy_disable.get_name_leafdata())
-        if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.slave_mode.get_name_leafdata())
+        if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
         if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
             leaf_name_data.append(self.source_interface.get_name_leafdata())
         if (self.virtual_mac_prefix.is_set or self.virtual_mac_prefix.yfilter != YFilter.not_set):
@@ -3214,7 +3214,7 @@ class SubscriberRedundancy(Entity):
         return None
 
     def has_leaf_or_child_of_name(self, name):
-        if(name == "groups" or name == "revertive-timer" or name == "enable" or name == "hold-timer" or name == "preferred-role" or name == "redundancy-disable" or name == "slave-mode" or name == "source-interface" or name == "virtual-mac-prefix"):
+        if(name == "groups" or name == "revertive-timer" or name == "enable" or name == "hold-timer" or name == "preferred-role" or name == "redundancy-disable" or name == "subordinate-mode" or name == "source-interface" or name == "virtual-mac-prefix"):
             return True
         return False
 
@@ -3235,10 +3235,10 @@ class SubscriberRedundancy(Entity):
             self.redundancy_disable = value
             self.redundancy_disable.value_namespace = name_space
             self.redundancy_disable.value_namespace_prefix = name_space_prefix
-        if(value_path == "slave-mode"):
-            self.slave_mode = value
-            self.slave_mode.value_namespace = name_space
-            self.slave_mode.value_namespace_prefix = name_space_prefix
+        if(value_path == "subordinate-mode"):
+            self.subordinate_mode = value
+            self.subordinate_mode.value_namespace = name_space
+            self.subordinate_mode.value_namespace_prefix = name_space_prefix
         if(value_path == "source-interface"):
             self.source_interface = value
             self.source_interface.value_namespace = name_space

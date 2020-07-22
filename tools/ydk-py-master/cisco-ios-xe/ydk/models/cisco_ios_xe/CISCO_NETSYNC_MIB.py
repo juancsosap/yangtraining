@@ -388,9 +388,9 @@ class Cisconetsyncqualitylevel(Enum):
 
     QL\-PRC     Primary reference clock 
 
-    QL\-SSU\-A   Type I or V slave clock defined in ITU\-T G.811
+    QL\-SSU\-A   Type I or V subordinate clock defined in ITU\-T G.811
 
-    QL\-SSU\-B   Type VI slave clock defined in ITU\-T G.812
+    QL\-SSU\-B   Type VI subordinate clock defined in ITU\-T G.812
 
     QL\-SEC     Synchronous equipment clock
 

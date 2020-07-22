@@ -331,14 +331,14 @@ class ConfdState(Entity):
         """
         
         
-        .. attribute:: connected_slave
+        .. attribute:: connected_subordinate
         
-        	The node identifiers of the currently connected slaves
+        	The node identifiers of the currently connected subordinates
         	**type**\:  list of str
         
-        .. attribute:: master_node_id
+        .. attribute:: main_node_id
         
-        	The node identifier of this node's parent node. This is the HA cluster's master node unless relay slaves are used
+        	The node identifier of this node's parent node. This is the HA cluster's main node unless relay subordinates are used
         	**type**\:  str
         
         .. attribute:: mode
@@ -351,9 +351,9 @@ class ConfdState(Entity):
         	The node identifier of this node in the HA cluster
         	**type**\:  str
         
-        .. attribute:: pending_slave
+        .. attribute:: pending_subordinate
         
-        	The node identifiers of slaves with pending acknowledgement of synchronous replication
+        	The node identifiers of subordinates with pending acknowledgement of synchronous replication
         	**type**\:  list of str
         
         
@@ -372,15 +372,15 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_presence_container = True
 
-            self.connected_slave = YLeafList(YType.str, "connected-slave")
+            self.connected_subordinate = YLeafList(YType.str, "connected-subordinate")
 
-            self.master_node_id = YLeaf(YType.str, "master-node-id")
+            self.main_node_id = YLeaf(YType.str, "main-node-id")
 
             self.mode = YLeaf(YType.enumeration, "mode")
 
             self.node_id = YLeaf(YType.str, "node-id")
 
-            self.pending_slave = YLeafList(YType.str, "pending-slave")
+            self.pending_subordinate = YLeafList(YType.str, "pending-subordinate")
 
         def __setattr__(self, name, value):
             self._check_monkey_patching_error(name, value)
@@ -391,11 +391,11 @@ class ConfdState(Entity):
                                         .format(value))
                 if isinstance(value, Enum.YLeaf):
                     value = value.name
-                if name in ("connected_slave",
-                            "master_node_id",
+                if name in ("connected_subordinate",
+                            "main_node_id",
                             "mode",
                             "node_id",
-                            "pending_slave") and name in self.__dict__:
+                            "pending_subordinate") and name in self.__dict__:
                     if isinstance(value, YLeaf):
                         self.__dict__[name].set(value.get())
                     elif isinstance(value, YLeafList):
@@ -418,49 +418,49 @@ class ConfdState(Entity):
 
             .. data:: none = 0
 
-            .. data:: slave = 1
+            .. data:: subordinate = 1
 
-            .. data:: master = 2
+            .. data:: main = 2
 
-            .. data:: relay_slave = 3
+            .. data:: relay_subordinate = 3
 
             """
 
             none = Enum.YLeaf(0, "none")
 
-            slave = Enum.YLeaf(1, "slave")
+            subordinate = Enum.YLeaf(1, "subordinate")
 
-            master = Enum.YLeaf(2, "master")
+            main = Enum.YLeaf(2, "main")
 
-            relay_slave = Enum.YLeaf(3, "relay-slave")
+            relay_subordinate = Enum.YLeaf(3, "relay-subordinate")
 
 
         def has_data(self):
-            for leaf in self.connected_slave.getYLeafs():
+            for leaf in self.connected_subordinate.getYLeafs():
                 if (leaf.yfilter != YFilter.not_set):
                     return True
-            for leaf in self.pending_slave.getYLeafs():
+            for leaf in self.pending_subordinate.getYLeafs():
                 if (leaf.yfilter != YFilter.not_set):
                     return True
             return (
-                self.master_node_id.is_set or
+                self.main_node_id.is_set or
                 self.mode.is_set or
                 self.node_id.is_set)
 
         def has_operation(self):
-            for leaf in self.connected_slave.getYLeafs():
+            for leaf in self.connected_subordinate.getYLeafs():
                 if (leaf.is_set):
                     return True
-            for leaf in self.pending_slave.getYLeafs():
+            for leaf in self.pending_subordinate.getYLeafs():
                 if (leaf.is_set):
                     return True
             return (
                 self.yfilter != YFilter.not_set or
-                self.connected_slave.yfilter != YFilter.not_set or
-                self.master_node_id.yfilter != YFilter.not_set or
+                self.connected_subordinate.yfilter != YFilter.not_set or
+                self.main_node_id.yfilter != YFilter.not_set or
                 self.mode.yfilter != YFilter.not_set or
                 self.node_id.yfilter != YFilter.not_set or
-                self.pending_slave.yfilter != YFilter.not_set)
+                self.pending_subordinate.yfilter != YFilter.not_set)
 
         def get_segment_path(self):
             path_buffer = ""
@@ -476,16 +476,16 @@ class ConfdState(Entity):
                 path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
             leaf_name_data = LeafDataList()
-            if (self.master_node_id.is_set or self.master_node_id.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.master_node_id.get_name_leafdata())
+            if (self.main_node_id.is_set or self.main_node_id.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.main_node_id.get_name_leafdata())
             if (self.mode.is_set or self.mode.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.mode.get_name_leafdata())
             if (self.node_id.is_set or self.node_id.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.node_id.get_name_leafdata())
 
-            leaf_name_data.extend(self.connected_slave.get_name_leafdata())
+            leaf_name_data.extend(self.connected_subordinate.get_name_leafdata())
 
-            leaf_name_data.extend(self.pending_slave.get_name_leafdata())
+            leaf_name_data.extend(self.pending_subordinate.get_name_leafdata())
 
             entity_path = EntityPath(path_buffer, leaf_name_data)
             return entity_path
@@ -498,17 +498,17 @@ class ConfdState(Entity):
             return None
 
         def has_leaf_or_child_of_name(self, name):
-            if(name == "connected-slave" or name == "master-node-id" or name == "mode" or name == "node-id" or name == "pending-slave"):
+            if(name == "connected-subordinate" or name == "main-node-id" or name == "mode" or name == "node-id" or name == "pending-subordinate"):
                 return True
             return False
 
         def set_value(self, value_path, value, name_space, name_space_prefix):
-            if(value_path == "connected-slave"):
-                self.connected_slave.append(value)
-            if(value_path == "master-node-id"):
-                self.master_node_id = value
-                self.master_node_id.value_namespace = name_space
-                self.master_node_id.value_namespace_prefix = name_space_prefix
+            if(value_path == "connected-subordinate"):
+                self.connected_subordinate.append(value)
+            if(value_path == "main-node-id"):
+                self.main_node_id = value
+                self.main_node_id.value_namespace = name_space
+                self.main_node_id.value_namespace_prefix = name_space_prefix
             if(value_path == "mode"):
                 self.mode = value
                 self.mode.value_namespace = name_space
@@ -517,8 +517,8 @@ class ConfdState(Entity):
                 self.node_id = value
                 self.node_id.value_namespace = name_space
                 self.node_id.value_namespace_prefix = name_space_prefix
-            if(value_path == "pending-slave"):
-                self.pending_slave.append(value)
+            if(value_path == "pending-subordinate"):
+                self.pending_subordinate.append(value)
 
 
     class LoadedDataModels(Entity):
@@ -10201,7 +10201,7 @@ class ConfdState(Entity):
                 
                 .. attribute:: waiting_for_replication_sync
                 
-                	Indicates whether synchronous replication from HA master to HA slave is in progress for the datastore. Not present for the 'operational' datastore
+                	Indicates whether synchronous replication from HA main to HA subordinate is in progress for the datastore. Not present for the 'operational' datastore
                 	**type**\:  bool
                 
                 .. attribute:: write_lock_set
@@ -10211,7 +10211,7 @@ class ConfdState(Entity):
                 
                 .. attribute:: write_queue
                 
-                	Number of pending write requests for the 'operational' datastore on a HA slave that is in the process of syncronizing with the master
+                	Number of pending write requests for the 'operational' datastore on a HA subordinate that is in the process of syncronizing with the main
                 	**type**\:  int
                 
                 	**range:** 0..4294967295

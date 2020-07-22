@@ -1,11 +1,11 @@
-""" Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg 
+""" Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg 
 
 This module contains a collection of YANG definitions
-for Cisco IOS\-XR lib\-keychain\-masterkey\-aes package configuration.
+for Cisco IOS\-XR lib\-keychain\-mainkey\-aes package configuration.
 
 This module contains definitions
 for the following management objects\:
-  password\: Configure masterkey
+  password\: Configure mainkey
 
 Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
@@ -21,18 +21,18 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Password(Entity):
     """
-    Configure masterkey
+    Configure mainkey
     
     .. attribute:: encryption
     
     	Enable password encryption
-    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg.Password.Encryption>`
+    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg.Password.Encryption>`
     
     
 
     """
 
-    _prefix = 'lib-keychain-masterkey-aes-cfg'
+    _prefix = 'lib-keychain-mainkey-aes-cfg'
     _revision = '2015-11-09'
 
     def __init__(self):
@@ -40,7 +40,7 @@ class Password(Entity):
         self._top_entity = None
 
         self.yang_name = "password"
-        self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg"
+        self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-mainkey-aes-cfg"
 
         self.encryption = Password.Encryption()
         self.encryption.parent = self
@@ -65,7 +65,7 @@ class Password(Entity):
 
         """
 
-        _prefix = 'lib-keychain-masterkey-aes-cfg'
+        _prefix = 'lib-keychain-mainkey-aes-cfg'
         _revision = '2015-11-09'
 
         def __init__(self):
@@ -117,7 +117,7 @@ class Password(Entity):
         def get_entity_path(self, ancestor):
             path_buffer = ""
             if (ancestor is None):
-                path_buffer = "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password/%s" % self.get_segment_path()
+                path_buffer = "Cisco-IOS-XR-lib-keychain-mainkey-aes-cfg:password/%s" % self.get_segment_path()
             else:
                 path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
@@ -156,7 +156,7 @@ class Password(Entity):
 
     def get_segment_path(self):
         path_buffer = ""
-        path_buffer = "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password" + path_buffer
+        path_buffer = "Cisco-IOS-XR-lib-keychain-mainkey-aes-cfg:password" + path_buffer
 
         return path_buffer
 

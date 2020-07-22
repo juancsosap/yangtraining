@@ -16284,30 +16284,30 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: slave_create_update
+                        .. attribute:: subordinate_create_update
                         
-                        	Create Update received on slave
+                        	Create Update received on subordinate
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: slave_decode_fail
+                        .. attribute:: subordinate_decode_fail
                         
-                        	Decode failed on Slave
+                        	Decode failed on Subordinate
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: slave_delete
+                        .. attribute:: subordinate_delete
                         
-                        	Delete received on slave
+                        	Delete received on subordinate
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: slave_recv_entry
+                        .. attribute:: subordinate_recv_entry
                         
-                        	Slave Recieved Sync
+                        	Subordinate Recieved Sync
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -16361,9 +16361,9 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: total_master_eoms_pending
+                        .. attribute:: total_main_eoms_pending
                         
-                        	Total No of times Master EOMS Pending
+                        	Total No of times Main EOMS Pending
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -16389,9 +16389,9 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: total_srg_not_master
+                        .. attribute:: total_srg_not_main
                         
-                        	Total No of times SRG Not Master
+                        	Total No of times SRG Not Main
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -16454,7 +16454,7 @@ class Subscriber(Entity):
                         
                         .. attribute:: txlist_remove_all_internal_error
                         
-                        	Number of Internal errors upon Master Txlist remove all call
+                        	Number of Internal errors upon Main Txlist remove all call
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -16541,13 +16541,13 @@ class Subscriber(Entity):
 
                             self.nack_to_srg_fail_cnt = YLeaf(YType.uint32, "nack-to-srg-fail-cnt")
 
-                            self.slave_create_update = YLeaf(YType.uint32, "slave-create-update")
+                            self.subordinate_create_update = YLeaf(YType.uint32, "subordinate-create-update")
 
-                            self.slave_decode_fail = YLeaf(YType.uint32, "slave-decode-fail")
+                            self.subordinate_decode_fail = YLeaf(YType.uint32, "subordinate-decode-fail")
 
-                            self.slave_delete = YLeaf(YType.uint32, "slave-delete")
+                            self.subordinate_delete = YLeaf(YType.uint32, "subordinate-delete")
 
-                            self.slave_recv_entry = YLeaf(YType.uint32, "slave-recv-entry")
+                            self.subordinate_recv_entry = YLeaf(YType.uint32, "subordinate-recv-entry")
 
                             self.sod_count = YLeaf(YType.uint32, "sod-count")
 
@@ -16563,7 +16563,7 @@ class Subscriber(Entity):
 
                             self.total_dont_send_to_txlist = YLeaf(YType.uint32, "total-dont-send-to-txlist")
 
-                            self.total_master_eoms_pending = YLeaf(YType.uint32, "total-master-eoms-pending")
+                            self.total_main_eoms_pending = YLeaf(YType.uint32, "total-main-eoms-pending")
 
                             self.total_pause_count = YLeaf(YType.uint32, "total-pause-count")
 
@@ -16571,7 +16571,7 @@ class Subscriber(Entity):
 
                             self.total_resume_count = YLeaf(YType.uint32, "total-resume-count")
 
-                            self.total_srg_not_master = YLeaf(YType.uint32, "total-srg-not-master")
+                            self.total_srg_not_main = YLeaf(YType.uint32, "total-srg-not-main")
 
                             self.txlist_clean_invalid_state = YLeaf(YType.uint32, "txlist-clean-invalid-state")
 
@@ -16630,10 +16630,10 @@ class Subscriber(Entity):
                                             "max_inflight_sessoin_count",
                                             "nack_to_srg",
                                             "nack_to_srg_fail_cnt",
-                                            "slave_create_update",
-                                            "slave_decode_fail",
-                                            "slave_delete",
-                                            "slave_recv_entry",
+                                            "subordinate_create_update",
+                                            "subordinate_decode_fail",
+                                            "subordinate_delete",
+                                            "subordinate_recv_entry",
                                             "sod_count",
                                             "sod_eod_dirty_delete_count",
                                             "sod_eod_dirty_mark_count",
@@ -16641,11 +16641,11 @@ class Subscriber(Entity):
                                             "srg_context_free",
                                             "srg_context_malloc",
                                             "total_dont_send_to_txlist",
-                                            "total_master_eoms_pending",
+                                            "total_main_eoms_pending",
                                             "total_pause_count",
                                             "total_pause_time",
                                             "total_resume_count",
-                                            "total_srg_not_master",
+                                            "total_srg_not_main",
                                             "txlist_clean_invalid_state",
                                             "txlist_del_app",
                                             "txlist_del_app_notlinked",
@@ -16698,10 +16698,10 @@ class Subscriber(Entity):
                                 self.max_inflight_sessoin_count.is_set or
                                 self.nack_to_srg.is_set or
                                 self.nack_to_srg_fail_cnt.is_set or
-                                self.slave_create_update.is_set or
-                                self.slave_decode_fail.is_set or
-                                self.slave_delete.is_set or
-                                self.slave_recv_entry.is_set or
+                                self.subordinate_create_update.is_set or
+                                self.subordinate_decode_fail.is_set or
+                                self.subordinate_delete.is_set or
+                                self.subordinate_recv_entry.is_set or
                                 self.sod_count.is_set or
                                 self.sod_eod_dirty_delete_count.is_set or
                                 self.sod_eod_dirty_mark_count.is_set or
@@ -16709,11 +16709,11 @@ class Subscriber(Entity):
                                 self.srg_context_free.is_set or
                                 self.srg_context_malloc.is_set or
                                 self.total_dont_send_to_txlist.is_set or
-                                self.total_master_eoms_pending.is_set or
+                                self.total_main_eoms_pending.is_set or
                                 self.total_pause_count.is_set or
                                 self.total_pause_time.is_set or
                                 self.total_resume_count.is_set or
-                                self.total_srg_not_master.is_set or
+                                self.total_srg_not_main.is_set or
                                 self.txlist_clean_invalid_state.is_set or
                                 self.txlist_del_app.is_set or
                                 self.txlist_del_app_notlinked.is_set or
@@ -16754,10 +16754,10 @@ class Subscriber(Entity):
                                 self.max_inflight_sessoin_count.yfilter != YFilter.not_set or
                                 self.nack_to_srg.yfilter != YFilter.not_set or
                                 self.nack_to_srg_fail_cnt.yfilter != YFilter.not_set or
-                                self.slave_create_update.yfilter != YFilter.not_set or
-                                self.slave_decode_fail.yfilter != YFilter.not_set or
-                                self.slave_delete.yfilter != YFilter.not_set or
-                                self.slave_recv_entry.yfilter != YFilter.not_set or
+                                self.subordinate_create_update.yfilter != YFilter.not_set or
+                                self.subordinate_decode_fail.yfilter != YFilter.not_set or
+                                self.subordinate_delete.yfilter != YFilter.not_set or
+                                self.subordinate_recv_entry.yfilter != YFilter.not_set or
                                 self.sod_count.yfilter != YFilter.not_set or
                                 self.sod_eod_dirty_delete_count.yfilter != YFilter.not_set or
                                 self.sod_eod_dirty_mark_count.yfilter != YFilter.not_set or
@@ -16765,11 +16765,11 @@ class Subscriber(Entity):
                                 self.srg_context_free.yfilter != YFilter.not_set or
                                 self.srg_context_malloc.yfilter != YFilter.not_set or
                                 self.total_dont_send_to_txlist.yfilter != YFilter.not_set or
-                                self.total_master_eoms_pending.yfilter != YFilter.not_set or
+                                self.total_main_eoms_pending.yfilter != YFilter.not_set or
                                 self.total_pause_count.yfilter != YFilter.not_set or
                                 self.total_pause_time.yfilter != YFilter.not_set or
                                 self.total_resume_count.yfilter != YFilter.not_set or
-                                self.total_srg_not_master.yfilter != YFilter.not_set or
+                                self.total_srg_not_main.yfilter != YFilter.not_set or
                                 self.txlist_clean_invalid_state.yfilter != YFilter.not_set or
                                 self.txlist_del_app.yfilter != YFilter.not_set or
                                 self.txlist_del_app_notlinked.yfilter != YFilter.not_set or
@@ -16845,14 +16845,14 @@ class Subscriber(Entity):
                                 leaf_name_data.append(self.nack_to_srg.get_name_leafdata())
                             if (self.nack_to_srg_fail_cnt.is_set or self.nack_to_srg_fail_cnt.yfilter != YFilter.not_set):
                                 leaf_name_data.append(self.nack_to_srg_fail_cnt.get_name_leafdata())
-                            if (self.slave_create_update.is_set or self.slave_create_update.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.slave_create_update.get_name_leafdata())
-                            if (self.slave_decode_fail.is_set or self.slave_decode_fail.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.slave_decode_fail.get_name_leafdata())
-                            if (self.slave_delete.is_set or self.slave_delete.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.slave_delete.get_name_leafdata())
-                            if (self.slave_recv_entry.is_set or self.slave_recv_entry.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.slave_recv_entry.get_name_leafdata())
+                            if (self.subordinate_create_update.is_set or self.subordinate_create_update.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.subordinate_create_update.get_name_leafdata())
+                            if (self.subordinate_decode_fail.is_set or self.subordinate_decode_fail.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.subordinate_decode_fail.get_name_leafdata())
+                            if (self.subordinate_delete.is_set or self.subordinate_delete.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.subordinate_delete.get_name_leafdata())
+                            if (self.subordinate_recv_entry.is_set or self.subordinate_recv_entry.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.subordinate_recv_entry.get_name_leafdata())
                             if (self.sod_count.is_set or self.sod_count.yfilter != YFilter.not_set):
                                 leaf_name_data.append(self.sod_count.get_name_leafdata())
                             if (self.sod_eod_dirty_delete_count.is_set or self.sod_eod_dirty_delete_count.yfilter != YFilter.not_set):
@@ -16867,16 +16867,16 @@ class Subscriber(Entity):
                                 leaf_name_data.append(self.srg_context_malloc.get_name_leafdata())
                             if (self.total_dont_send_to_txlist.is_set or self.total_dont_send_to_txlist.yfilter != YFilter.not_set):
                                 leaf_name_data.append(self.total_dont_send_to_txlist.get_name_leafdata())
-                            if (self.total_master_eoms_pending.is_set or self.total_master_eoms_pending.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.total_master_eoms_pending.get_name_leafdata())
+                            if (self.total_main_eoms_pending.is_set or self.total_main_eoms_pending.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.total_main_eoms_pending.get_name_leafdata())
                             if (self.total_pause_count.is_set or self.total_pause_count.yfilter != YFilter.not_set):
                                 leaf_name_data.append(self.total_pause_count.get_name_leafdata())
                             if (self.total_pause_time.is_set or self.total_pause_time.yfilter != YFilter.not_set):
                                 leaf_name_data.append(self.total_pause_time.get_name_leafdata())
                             if (self.total_resume_count.is_set or self.total_resume_count.yfilter != YFilter.not_set):
                                 leaf_name_data.append(self.total_resume_count.get_name_leafdata())
-                            if (self.total_srg_not_master.is_set or self.total_srg_not_master.yfilter != YFilter.not_set):
-                                leaf_name_data.append(self.total_srg_not_master.get_name_leafdata())
+                            if (self.total_srg_not_main.is_set or self.total_srg_not_main.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.total_srg_not_main.get_name_leafdata())
                             if (self.txlist_clean_invalid_state.is_set or self.txlist_clean_invalid_state.yfilter != YFilter.not_set):
                                 leaf_name_data.append(self.txlist_clean_invalid_state.get_name_leafdata())
                             if (self.txlist_del_app.is_set or self.txlist_del_app.yfilter != YFilter.not_set):
@@ -16913,7 +16913,7 @@ class Subscriber(Entity):
                             return None
 
                         def has_leaf_or_child_of_name(self, name):
-                            if(name == "ack-to-srg" or name == "actual-txlist-sent" or name == "alreadyin-txlist" or name == "create-upd-clean-callback" or name == "create-update-encode" or name == "delete-clean-callback" or name == "delete-encode" or name == "eod-count" or name == "flow-control-resume-threshold" or name == "inflight-add-count" or name == "inflight-alloc-fails" or name == "inflight-delete-failures" or name == "inflight-deletes" or name == "inflight-insert-failures" or name == "inflight-not-found" or name == "inflight-session-count" or name == "inflight-under-run-count" or name == "is-srg-flow-control-enabled" or name == "last-pause-period" or name == "last-pause-time" or name == "last-resume-time" or name == "max-inflight-sessoin-count" or name == "nack-to-srg" or name == "nack-to-srg-fail-cnt" or name == "slave-create-update" or name == "slave-decode-fail" or name == "slave-delete" or name == "slave-recv-entry" or name == "sod-count" or name == "sod-eod-dirty-delete-count" or name == "sod-eod-dirty-mark-count" or name == "sod-eod-replay-req-count" or name == "srg-context-free" or name == "srg-context-malloc" or name == "total-dont-send-to-txlist" or name == "total-master-eoms-pending" or name == "total-pause-count" or name == "total-pause-time" or name == "total-resume-count" or name == "total-srg-not-master" or name == "txlist-clean-invalid-state" or name == "txlist-del-app" or name == "txlist-del-app-notlinked" or name == "txlist-del-sync" or name == "txlist-del-sync-notlinked" or name == "txlist-encode" or name == "txlist-encode-fail" or name == "txlist-remove-all" or name == "txlist-remove-all-internal-error" or name == "txlist-send-failed" or name == "txlist-send-failed-notactive" or name == "txlist-send-triggered"):
+                            if(name == "ack-to-srg" or name == "actual-txlist-sent" or name == "alreadyin-txlist" or name == "create-upd-clean-callback" or name == "create-update-encode" or name == "delete-clean-callback" or name == "delete-encode" or name == "eod-count" or name == "flow-control-resume-threshold" or name == "inflight-add-count" or name == "inflight-alloc-fails" or name == "inflight-delete-failures" or name == "inflight-deletes" or name == "inflight-insert-failures" or name == "inflight-not-found" or name == "inflight-session-count" or name == "inflight-under-run-count" or name == "is-srg-flow-control-enabled" or name == "last-pause-period" or name == "last-pause-time" or name == "last-resume-time" or name == "max-inflight-sessoin-count" or name == "nack-to-srg" or name == "nack-to-srg-fail-cnt" or name == "subordinate-create-update" or name == "subordinate-decode-fail" or name == "subordinate-delete" or name == "subordinate-recv-entry" or name == "sod-count" or name == "sod-eod-dirty-delete-count" or name == "sod-eod-dirty-mark-count" or name == "sod-eod-replay-req-count" or name == "srg-context-free" or name == "srg-context-malloc" or name == "total-dont-send-to-txlist" or name == "total-main-eoms-pending" or name == "total-pause-count" or name == "total-pause-time" or name == "total-resume-count" or name == "total-srg-not-main" or name == "txlist-clean-invalid-state" or name == "txlist-del-app" or name == "txlist-del-app-notlinked" or name == "txlist-del-sync" or name == "txlist-del-sync-notlinked" or name == "txlist-encode" or name == "txlist-encode-fail" or name == "txlist-remove-all" or name == "txlist-remove-all-internal-error" or name == "txlist-send-failed" or name == "txlist-send-failed-notactive" or name == "txlist-send-triggered"):
                                 return True
                             return False
 
@@ -17014,22 +17014,22 @@ class Subscriber(Entity):
                                 self.nack_to_srg_fail_cnt = value
                                 self.nack_to_srg_fail_cnt.value_namespace = name_space
                                 self.nack_to_srg_fail_cnt.value_namespace_prefix = name_space_prefix
-                            if(value_path == "slave-create-update"):
-                                self.slave_create_update = value
-                                self.slave_create_update.value_namespace = name_space
-                                self.slave_create_update.value_namespace_prefix = name_space_prefix
-                            if(value_path == "slave-decode-fail"):
-                                self.slave_decode_fail = value
-                                self.slave_decode_fail.value_namespace = name_space
-                                self.slave_decode_fail.value_namespace_prefix = name_space_prefix
-                            if(value_path == "slave-delete"):
-                                self.slave_delete = value
-                                self.slave_delete.value_namespace = name_space
-                                self.slave_delete.value_namespace_prefix = name_space_prefix
-                            if(value_path == "slave-recv-entry"):
-                                self.slave_recv_entry = value
-                                self.slave_recv_entry.value_namespace = name_space
-                                self.slave_recv_entry.value_namespace_prefix = name_space_prefix
+                            if(value_path == "subordinate-create-update"):
+                                self.subordinate_create_update = value
+                                self.subordinate_create_update.value_namespace = name_space
+                                self.subordinate_create_update.value_namespace_prefix = name_space_prefix
+                            if(value_path == "subordinate-decode-fail"):
+                                self.subordinate_decode_fail = value
+                                self.subordinate_decode_fail.value_namespace = name_space
+                                self.subordinate_decode_fail.value_namespace_prefix = name_space_prefix
+                            if(value_path == "subordinate-delete"):
+                                self.subordinate_delete = value
+                                self.subordinate_delete.value_namespace = name_space
+                                self.subordinate_delete.value_namespace_prefix = name_space_prefix
+                            if(value_path == "subordinate-recv-entry"):
+                                self.subordinate_recv_entry = value
+                                self.subordinate_recv_entry.value_namespace = name_space
+                                self.subordinate_recv_entry.value_namespace_prefix = name_space_prefix
                             if(value_path == "sod-count"):
                                 self.sod_count = value
                                 self.sod_count.value_namespace = name_space
@@ -17058,10 +17058,10 @@ class Subscriber(Entity):
                                 self.total_dont_send_to_txlist = value
                                 self.total_dont_send_to_txlist.value_namespace = name_space
                                 self.total_dont_send_to_txlist.value_namespace_prefix = name_space_prefix
-                            if(value_path == "total-master-eoms-pending"):
-                                self.total_master_eoms_pending = value
-                                self.total_master_eoms_pending.value_namespace = name_space
-                                self.total_master_eoms_pending.value_namespace_prefix = name_space_prefix
+                            if(value_path == "total-main-eoms-pending"):
+                                self.total_main_eoms_pending = value
+                                self.total_main_eoms_pending.value_namespace = name_space
+                                self.total_main_eoms_pending.value_namespace_prefix = name_space_prefix
                             if(value_path == "total-pause-count"):
                                 self.total_pause_count = value
                                 self.total_pause_count.value_namespace = name_space
@@ -17074,10 +17074,10 @@ class Subscriber(Entity):
                                 self.total_resume_count = value
                                 self.total_resume_count.value_namespace = name_space
                                 self.total_resume_count.value_namespace_prefix = name_space_prefix
-                            if(value_path == "total-srg-not-master"):
-                                self.total_srg_not_master = value
-                                self.total_srg_not_master.value_namespace = name_space
-                                self.total_srg_not_master.value_namespace_prefix = name_space_prefix
+                            if(value_path == "total-srg-not-main"):
+                                self.total_srg_not_main = value
+                                self.total_srg_not_main.value_namespace = name_space
+                                self.total_srg_not_main.value_namespace_prefix = name_space_prefix
                             if(value_path == "txlist-clean-invalid-state"):
                                 self.txlist_clean_invalid_state = value
                                 self.txlist_clean_invalid_state.value_namespace = name_space

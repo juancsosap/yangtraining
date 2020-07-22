@@ -144,21 +144,21 @@ class SrgShowImRole(Enum):
 
     	Not Determined
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	Master Role
+    	Main Role
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	Slave Role
+    	Subordinate Role
 
     """
 
     none = Enum.YLeaf(0, "none")
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
 class SrgShowRole(Enum):
@@ -171,21 +171,21 @@ class SrgShowRole(Enum):
 
     	Not Configured
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	Master Role
+    	Main Role
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	Slave Role
+    	Subordinate Role
 
     """
 
     none = Enum.YLeaf(0, "none")
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
 class SrgShowSessionError(Enum):
@@ -248,11 +248,11 @@ class SrgShowSessionOperation(Enum):
     in_sync = Enum.YLeaf(3, "in-sync")
 
 
-class SrgShowSlaveMode(Enum):
+class SrgShowSubordinateMode(Enum):
     """
-    SrgShowSlaveMode
+    SrgShowSubordinateMode
 
-    SRG Slave Mode
+    SRG Subordinate Mode
 
     .. data:: none = 0
 
@@ -488,10 +488,10 @@ class SubscriberRedundancyManager(Entity):
             	SRG Role
             	**type**\:   :py:class:`SrgShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowImRole>`
             
-            .. attribute:: slave_mode
+            .. attribute:: subordinate_mode
             
-            	Slave Mode
-            	**type**\:   :py:class:`SrgShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSlaveMode>`
+            	Subordinate Mode
+            	**type**\:   :py:class:`SrgShowSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSubordinateMode>`
             
             .. attribute:: virtual_mac_address
             
@@ -538,7 +538,7 @@ class SubscriberRedundancyManager(Entity):
 
                 self.role = YLeaf(YType.enumeration, "role")
 
-                self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+                self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
                 self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
 
@@ -564,7 +564,7 @@ class SubscriberRedundancyManager(Entity):
                                 "peer_ipv6_address",
                                 "preferred_role",
                                 "role",
-                                "slave_mode",
+                                "subordinate_mode",
                                 "virtual_mac_address",
                                 "virtual_mac_address_disable") and name in self.__dict__:
                         if isinstance(value, YLeaf):
@@ -594,7 +594,7 @@ class SubscriberRedundancyManager(Entity):
                     self.peer_ipv6_address.is_set or
                     self.preferred_role.is_set or
                     self.role.is_set or
-                    self.slave_mode.is_set or
+                    self.subordinate_mode.is_set or
                     self.virtual_mac_address.is_set or
                     self.virtual_mac_address_disable.is_set)
 
@@ -612,7 +612,7 @@ class SubscriberRedundancyManager(Entity):
                     self.peer_ipv6_address.yfilter != YFilter.not_set or
                     self.preferred_role.yfilter != YFilter.not_set or
                     self.role.yfilter != YFilter.not_set or
-                    self.slave_mode.yfilter != YFilter.not_set or
+                    self.subordinate_mode.yfilter != YFilter.not_set or
                     self.virtual_mac_address.yfilter != YFilter.not_set or
                     self.virtual_mac_address_disable.yfilter != YFilter.not_set)
 
@@ -652,8 +652,8 @@ class SubscriberRedundancyManager(Entity):
                     leaf_name_data.append(self.preferred_role.get_name_leafdata())
                 if (self.role.is_set or self.role.yfilter != YFilter.not_set):
                     leaf_name_data.append(self.role.get_name_leafdata())
-                if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.slave_mode.get_name_leafdata())
+                if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
                 if (self.virtual_mac_address.is_set or self.virtual_mac_address.yfilter != YFilter.not_set):
                     leaf_name_data.append(self.virtual_mac_address.get_name_leafdata())
                 if (self.virtual_mac_address_disable.is_set or self.virtual_mac_address_disable.yfilter != YFilter.not_set):
@@ -670,7 +670,7 @@ class SubscriberRedundancyManager(Entity):
                 return None
 
             def has_leaf_or_child_of_name(self, name):
-                if(name == "group" or name == "description" or name == "disabled" or name == "group-id" or name == "interface-count" or name == "node-name" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "preferred-role" or name == "role" or name == "slave-mode" or name == "virtual-mac-address" or name == "virtual-mac-address-disable"):
+                if(name == "group" or name == "description" or name == "disabled" or name == "group-id" or name == "interface-count" or name == "node-name" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "preferred-role" or name == "role" or name == "subordinate-mode" or name == "virtual-mac-address" or name == "virtual-mac-address-disable"):
                     return True
                 return False
 
@@ -719,10 +719,10 @@ class SubscriberRedundancyManager(Entity):
                     self.role = value
                     self.role.value_namespace = name_space
                     self.role.value_namespace_prefix = name_space_prefix
-                if(value_path == "slave-mode"):
-                    self.slave_mode = value
-                    self.slave_mode.value_namespace = name_space
-                    self.slave_mode.value_namespace_prefix = name_space_prefix
+                if(value_path == "subordinate-mode"):
+                    self.subordinate_mode = value
+                    self.subordinate_mode.value_namespace = name_space
+                    self.subordinate_mode.value_namespace_prefix = name_space_prefix
                 if(value_path == "virtual-mac-address"):
                     self.virtual_mac_address = value
                     self.virtual_mac_address.value_namespace = name_space
@@ -832,16 +832,16 @@ class SubscriberRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: master_group_count
+        .. attribute:: main_group_count
         
-        	No. of Master/Active Groups
+        	No. of Main/Active Groups
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: master_interface_count
+        .. attribute:: main_interface_count
         
-        	No. of Master/Active Interfaces
+        	No. of Main/Active Interfaces
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -851,24 +851,24 @@ class SubscriberRedundancyManager(Entity):
         	Preferred Role
         	**type**\:   :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
         
-        .. attribute:: slave_group_count
+        .. attribute:: subordinate_group_count
         
-        	No. of Slave Groups
+        	No. of Subordinate Groups
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: slave_interface_count
+        .. attribute:: subordinate_interface_count
         
-        	No. of Slave Interfaces
+        	No. of Subordinate Interfaces
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: slave_mode
+        .. attribute:: subordinate_mode
         
-        	Slave Mode
-        	**type**\:   :py:class:`SrgShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSlaveMode>`
+        	Subordinate Mode
+        	**type**\:   :py:class:`SrgShowSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSubordinateMode>`
         
         .. attribute:: source_interface_ipv4_address
         
@@ -919,17 +919,17 @@ class SubscriberRedundancyManager(Entity):
 
             self.interface_count = YLeaf(YType.uint32, "interface-count")
 
-            self.master_group_count = YLeaf(YType.uint32, "master-group-count")
+            self.main_group_count = YLeaf(YType.uint32, "main-group-count")
 
-            self.master_interface_count = YLeaf(YType.uint32, "master-interface-count")
+            self.main_interface_count = YLeaf(YType.uint32, "main-interface-count")
 
             self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
 
-            self.slave_group_count = YLeaf(YType.uint32, "slave-group-count")
+            self.subordinate_group_count = YLeaf(YType.uint32, "subordinate-group-count")
 
-            self.slave_interface_count = YLeaf(YType.uint32, "slave-interface-count")
+            self.subordinate_interface_count = YLeaf(YType.uint32, "subordinate-interface-count")
 
-            self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+            self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
             self.source_interface_ipv4_address = YLeaf(YType.str, "source-interface-ipv4-address")
 
@@ -954,12 +954,12 @@ class SubscriberRedundancyManager(Entity):
                             "group_count",
                             "hold_timer",
                             "interface_count",
-                            "master_group_count",
-                            "master_interface_count",
+                            "main_group_count",
+                            "main_interface_count",
                             "preferred_role",
-                            "slave_group_count",
-                            "slave_interface_count",
-                            "slave_mode",
+                            "subordinate_group_count",
+                            "subordinate_interface_count",
+                            "subordinate_mode",
                             "source_interface_ipv4_address",
                             "source_interface_ipv6_address",
                             "source_interface_name",
@@ -986,12 +986,12 @@ class SubscriberRedundancyManager(Entity):
                 self.group_count.is_set or
                 self.hold_timer.is_set or
                 self.interface_count.is_set or
-                self.master_group_count.is_set or
-                self.master_interface_count.is_set or
+                self.main_group_count.is_set or
+                self.main_interface_count.is_set or
                 self.preferred_role.is_set or
-                self.slave_group_count.is_set or
-                self.slave_interface_count.is_set or
-                self.slave_mode.is_set or
+                self.subordinate_group_count.is_set or
+                self.subordinate_interface_count.is_set or
+                self.subordinate_mode.is_set or
                 self.source_interface_ipv4_address.is_set or
                 self.source_interface_ipv6_address.is_set or
                 self.source_interface_name.is_set or
@@ -1006,12 +1006,12 @@ class SubscriberRedundancyManager(Entity):
                 self.group_count.yfilter != YFilter.not_set or
                 self.hold_timer.yfilter != YFilter.not_set or
                 self.interface_count.yfilter != YFilter.not_set or
-                self.master_group_count.yfilter != YFilter.not_set or
-                self.master_interface_count.yfilter != YFilter.not_set or
+                self.main_group_count.yfilter != YFilter.not_set or
+                self.main_interface_count.yfilter != YFilter.not_set or
                 self.preferred_role.yfilter != YFilter.not_set or
-                self.slave_group_count.yfilter != YFilter.not_set or
-                self.slave_interface_count.yfilter != YFilter.not_set or
-                self.slave_mode.yfilter != YFilter.not_set or
+                self.subordinate_group_count.yfilter != YFilter.not_set or
+                self.subordinate_interface_count.yfilter != YFilter.not_set or
+                self.subordinate_mode.yfilter != YFilter.not_set or
                 self.source_interface_ipv4_address.yfilter != YFilter.not_set or
                 self.source_interface_ipv6_address.yfilter != YFilter.not_set or
                 self.source_interface_name.yfilter != YFilter.not_set or
@@ -1043,18 +1043,18 @@ class SubscriberRedundancyManager(Entity):
                 leaf_name_data.append(self.hold_timer.get_name_leafdata())
             if (self.interface_count.is_set or self.interface_count.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.interface_count.get_name_leafdata())
-            if (self.master_group_count.is_set or self.master_group_count.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.master_group_count.get_name_leafdata())
-            if (self.master_interface_count.is_set or self.master_interface_count.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.master_interface_count.get_name_leafdata())
+            if (self.main_group_count.is_set or self.main_group_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.main_group_count.get_name_leafdata())
+            if (self.main_interface_count.is_set or self.main_interface_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.main_interface_count.get_name_leafdata())
             if (self.preferred_role.is_set or self.preferred_role.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.preferred_role.get_name_leafdata())
-            if (self.slave_group_count.is_set or self.slave_group_count.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.slave_group_count.get_name_leafdata())
-            if (self.slave_interface_count.is_set or self.slave_interface_count.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.slave_interface_count.get_name_leafdata())
-            if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.slave_mode.get_name_leafdata())
+            if (self.subordinate_group_count.is_set or self.subordinate_group_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.subordinate_group_count.get_name_leafdata())
+            if (self.subordinate_interface_count.is_set or self.subordinate_interface_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.subordinate_interface_count.get_name_leafdata())
+            if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
             if (self.source_interface_ipv4_address.is_set or self.source_interface_ipv4_address.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.source_interface_ipv4_address.get_name_leafdata())
             if (self.source_interface_ipv6_address.is_set or self.source_interface_ipv6_address.yfilter != YFilter.not_set):
@@ -1075,7 +1075,7 @@ class SubscriberRedundancyManager(Entity):
             return None
 
         def has_leaf_or_child_of_name(self, name):
-            if(name == "active-state" or name == "disabled" or name == "disabled-group-count" or name == "group-count" or name == "hold-timer" or name == "interface-count" or name == "master-group-count" or name == "master-interface-count" or name == "preferred-role" or name == "slave-group-count" or name == "slave-interface-count" or name == "slave-mode" or name == "source-interface-ipv4-address" or name == "source-interface-ipv6-address" or name == "source-interface-name" or name == "vrf-name"):
+            if(name == "active-state" or name == "disabled" or name == "disabled-group-count" or name == "group-count" or name == "hold-timer" or name == "interface-count" or name == "main-group-count" or name == "main-interface-count" or name == "preferred-role" or name == "subordinate-group-count" or name == "subordinate-interface-count" or name == "subordinate-mode" or name == "source-interface-ipv4-address" or name == "source-interface-ipv6-address" or name == "source-interface-name" or name == "vrf-name"):
                 return True
             return False
 
@@ -1104,30 +1104,30 @@ class SubscriberRedundancyManager(Entity):
                 self.interface_count = value
                 self.interface_count.value_namespace = name_space
                 self.interface_count.value_namespace_prefix = name_space_prefix
-            if(value_path == "master-group-count"):
-                self.master_group_count = value
-                self.master_group_count.value_namespace = name_space
-                self.master_group_count.value_namespace_prefix = name_space_prefix
-            if(value_path == "master-interface-count"):
-                self.master_interface_count = value
-                self.master_interface_count.value_namespace = name_space
-                self.master_interface_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "main-group-count"):
+                self.main_group_count = value
+                self.main_group_count.value_namespace = name_space
+                self.main_group_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "main-interface-count"):
+                self.main_interface_count = value
+                self.main_interface_count.value_namespace = name_space
+                self.main_interface_count.value_namespace_prefix = name_space_prefix
             if(value_path == "preferred-role"):
                 self.preferred_role = value
                 self.preferred_role.value_namespace = name_space
                 self.preferred_role.value_namespace_prefix = name_space_prefix
-            if(value_path == "slave-group-count"):
-                self.slave_group_count = value
-                self.slave_group_count.value_namespace = name_space
-                self.slave_group_count.value_namespace_prefix = name_space_prefix
-            if(value_path == "slave-interface-count"):
-                self.slave_interface_count = value
-                self.slave_interface_count.value_namespace = name_space
-                self.slave_interface_count.value_namespace_prefix = name_space_prefix
-            if(value_path == "slave-mode"):
-                self.slave_mode = value
-                self.slave_mode.value_namespace = name_space
-                self.slave_mode.value_namespace_prefix = name_space_prefix
+            if(value_path == "subordinate-group-count"):
+                self.subordinate_group_count = value
+                self.subordinate_group_count.value_namespace = name_space
+                self.subordinate_group_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "subordinate-interface-count"):
+                self.subordinate_interface_count = value
+                self.subordinate_interface_count.value_namespace = name_space
+                self.subordinate_interface_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "subordinate-mode"):
+                self.subordinate_mode = value
+                self.subordinate_mode.value_namespace = name_space
+                self.subordinate_mode.value_namespace_prefix = name_space_prefix
             if(value_path == "source-interface-ipv4-address"):
                 self.source_interface_ipv4_address = value
                 self.source_interface_ipv4_address.value_namespace = name_space
@@ -1778,9 +1778,9 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: role_master
+                    .. attribute:: role_main
                     
-                    	Master Role is Set
+                    	Main Role is Set
                     	**type**\:  bool
                     
                     .. attribute:: session_detailed_information
@@ -1832,7 +1832,7 @@ class SubscriberRedundancyAgent(Entity):
 
                         self.pppoe_session_id = YLeaf(YType.uint16, "pppoe-session-id")
 
-                        self.role_master = YLeaf(YType.boolean, "role-master")
+                        self.role_main = YLeaf(YType.boolean, "role-main")
 
                         self.session_mac_address = YLeaf(YType.str, "session-mac-address")
 
@@ -1858,7 +1858,7 @@ class SubscriberRedundancyAgent(Entity):
                                         "negative_acknowledgement_update_all",
                                         "outer_vlan",
                                         "pppoe_session_id",
-                                        "role_master",
+                                        "role_main",
                                         "session_mac_address",
                                         "valid_mac_address") and name in self.__dict__:
                                 if isinstance(value, YLeaf):
@@ -2183,7 +2183,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.negative_acknowledgement_update_all.is_set or
                             self.outer_vlan.is_set or
                             self.pppoe_session_id.is_set or
-                            self.role_master.is_set or
+                            self.role_main.is_set or
                             self.session_mac_address.is_set or
                             self.valid_mac_address.is_set)
 
@@ -2204,7 +2204,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.negative_acknowledgement_update_all.yfilter != YFilter.not_set or
                             self.outer_vlan.yfilter != YFilter.not_set or
                             self.pppoe_session_id.yfilter != YFilter.not_set or
-                            self.role_master.yfilter != YFilter.not_set or
+                            self.role_main.yfilter != YFilter.not_set or
                             self.session_mac_address.yfilter != YFilter.not_set or
                             self.valid_mac_address.yfilter != YFilter.not_set)
 
@@ -2238,8 +2238,8 @@ class SubscriberRedundancyAgent(Entity):
                             leaf_name_data.append(self.outer_vlan.get_name_leafdata())
                         if (self.pppoe_session_id.is_set or self.pppoe_session_id.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.pppoe_session_id.get_name_leafdata())
-                        if (self.role_master.is_set or self.role_master.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.role_master.get_name_leafdata())
+                        if (self.role_main.is_set or self.role_main.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.role_main.get_name_leafdata())
                         if (self.session_mac_address.is_set or self.session_mac_address.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.session_mac_address.get_name_leafdata())
                         if (self.valid_mac_address.is_set or self.valid_mac_address.yfilter != YFilter.not_set):
@@ -2280,7 +2280,7 @@ class SubscriberRedundancyAgent(Entity):
                         return None
 
                     def has_leaf_or_child_of_name(self, name):
-                        if(name == "session-detailed-information" or name == "session-sync-error-information" or name == "group-id" or name == "group-id-xr" or name == "inner-vlan" or name == "interface-name" or name == "l2tp-tunnel-id" or name == "negative-acknowledgement-update-all" or name == "outer-vlan" or name == "pppoe-session-id" or name == "role-master" or name == "session-mac-address" or name == "valid-mac-address"):
+                        if(name == "session-detailed-information" or name == "session-sync-error-information" or name == "group-id" or name == "group-id-xr" or name == "inner-vlan" or name == "interface-name" or name == "l2tp-tunnel-id" or name == "negative-acknowledgement-update-all" or name == "outer-vlan" or name == "pppoe-session-id" or name == "role-main" or name == "session-mac-address" or name == "valid-mac-address"):
                             return True
                         return False
 
@@ -2317,10 +2317,10 @@ class SubscriberRedundancyAgent(Entity):
                             self.pppoe_session_id = value
                             self.pppoe_session_id.value_namespace = name_space
                             self.pppoe_session_id.value_namespace_prefix = name_space_prefix
-                        if(value_path == "role-master"):
-                            self.role_master = value
-                            self.role_master.value_namespace = name_space
-                            self.role_master.value_namespace_prefix = name_space_prefix
+                        if(value_path == "role-main"):
+                            self.role_main = value
+                            self.role_main.value_namespace = name_space
+                            self.role_main.value_namespace_prefix = name_space_prefix
                         if(value_path == "session-mac-address"):
                             self.session_mac_address = value
                             self.session_mac_address.value_namespace = name_space
@@ -3488,10 +3488,10 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: slave_mode
+                    .. attribute:: subordinate_mode
                     
-                    	Slave Mode
-                    	**type**\:   :py:class:`SrgShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSlaveMode>`
+                    	Subordinate Mode
+                    	**type**\:   :py:class:`SrgShowSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSubordinateMode>`
                     
                     
 
@@ -3530,7 +3530,7 @@ class SubscriberRedundancyAgent(Entity):
 
                         self.session_count = YLeaf(YType.uint32, "session-count")
 
-                        self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+                        self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
                     def __setattr__(self, name, value):
                         self._check_monkey_patching_error(name, value)
@@ -3553,7 +3553,7 @@ class SubscriberRedundancyAgent(Entity):
                                         "preferred_role",
                                         "role",
                                         "session_count",
-                                        "slave_mode") and name in self.__dict__:
+                                        "subordinate_mode") and name in self.__dict__:
                                 if isinstance(value, YLeaf):
                                     self.__dict__[name].set(value.get())
                                 elif isinstance(value, YLeafList):
@@ -3582,7 +3582,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.preferred_role.is_set or
                             self.role.is_set or
                             self.session_count.is_set or
-                            self.slave_mode.is_set)
+                            self.subordinate_mode.is_set)
 
                     def has_operation(self):
                         return (
@@ -3599,7 +3599,7 @@ class SubscriberRedundancyAgent(Entity):
                             self.preferred_role.yfilter != YFilter.not_set or
                             self.role.yfilter != YFilter.not_set or
                             self.session_count.yfilter != YFilter.not_set or
-                            self.slave_mode.yfilter != YFilter.not_set)
+                            self.subordinate_mode.yfilter != YFilter.not_set)
 
                     def get_segment_path(self):
                         path_buffer = ""
@@ -3639,8 +3639,8 @@ class SubscriberRedundancyAgent(Entity):
                             leaf_name_data.append(self.role.get_name_leafdata())
                         if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.session_count.get_name_leafdata())
-                        if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.slave_mode.get_name_leafdata())
+                        if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
 
                         entity_path = EntityPath(path_buffer, leaf_name_data)
                         return entity_path
@@ -3653,7 +3653,7 @@ class SubscriberRedundancyAgent(Entity):
                         return None
 
                     def has_leaf_or_child_of_name(self, name):
-                        if(name == "group-id" or name == "disabled" or name == "group-id-xr" or name == "interface-count" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-status" or name == "pending-add-session-count" or name == "preferred-role" or name == "role" or name == "session-count" or name == "slave-mode"):
+                        if(name == "group-id" or name == "disabled" or name == "group-id-xr" or name == "interface-count" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-status" or name == "pending-add-session-count" or name == "preferred-role" or name == "role" or name == "session-count" or name == "subordinate-mode"):
                             return True
                         return False
 
@@ -3706,10 +3706,10 @@ class SubscriberRedundancyAgent(Entity):
                             self.session_count = value
                             self.session_count.value_namespace = name_space
                             self.session_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "slave-mode"):
-                            self.slave_mode = value
-                            self.slave_mode.value_namespace = name_space
-                            self.slave_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "subordinate-mode"):
+                            self.subordinate_mode = value
+                            self.subordinate_mode.value_namespace = name_space
+                            self.subordinate_mode.value_namespace_prefix = name_space_prefix
 
                 def has_data(self):
                     for c in self.group_summary:
@@ -4004,14 +4004,14 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: slave_mode
+                    .. attribute:: subordinate_mode
                     
-                    	Slave Mode
-                    	**type**\:   :py:class:`SrgShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSlaveMode>`
+                    	Subordinate Mode
+                    	**type**\:   :py:class:`SrgShowSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSubordinateMode>`
                     
-                    .. attribute:: slave_update_failure_count
+                    .. attribute:: subordinate_update_failure_count
                     
-                    	Slave Session update fail count
+                    	Subordinate Session update fail count
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -4133,9 +4133,9 @@ class SubscriberRedundancyAgent(Entity):
 
                         self.session_count = YLeaf(YType.uint32, "session-count")
 
-                        self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+                        self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
-                        self.slave_update_failure_count = YLeaf(YType.uint32, "slave-update-failure-count")
+                        self.subordinate_update_failure_count = YLeaf(YType.uint32, "subordinate-update-failure-count")
 
                         self.switchover_count = YLeaf(YType.uint32, "switchover-count")
 
@@ -4191,8 +4191,8 @@ class SubscriberRedundancyAgent(Entity):
                                         "pending_session_update_count",
                                         "revertive_timer",
                                         "session_count",
-                                        "slave_mode",
-                                        "slave_update_failure_count",
+                                        "subordinate_mode",
+                                        "subordinate_update_failure_count",
                                         "switchover_count",
                                         "switchover_hold_time",
                                         "switchover_revert_time",
@@ -4397,8 +4397,8 @@ class SubscriberRedundancyAgent(Entity):
                             self.pending_session_update_count.is_set or
                             self.revertive_timer.is_set or
                             self.session_count.is_set or
-                            self.slave_mode.is_set or
-                            self.slave_update_failure_count.is_set or
+                            self.subordinate_mode.is_set or
+                            self.subordinate_update_failure_count.is_set or
                             self.switchover_count.is_set or
                             self.switchover_hold_time.is_set or
                             self.switchover_revert_time.is_set or
@@ -4443,8 +4443,8 @@ class SubscriberRedundancyAgent(Entity):
                             self.pending_session_update_count.yfilter != YFilter.not_set or
                             self.revertive_timer.yfilter != YFilter.not_set or
                             self.session_count.yfilter != YFilter.not_set or
-                            self.slave_mode.yfilter != YFilter.not_set or
-                            self.slave_update_failure_count.yfilter != YFilter.not_set or
+                            self.subordinate_mode.yfilter != YFilter.not_set or
+                            self.subordinate_update_failure_count.yfilter != YFilter.not_set or
                             self.switchover_count.yfilter != YFilter.not_set or
                             self.switchover_hold_time.yfilter != YFilter.not_set or
                             self.switchover_revert_time.yfilter != YFilter.not_set or
@@ -4528,10 +4528,10 @@ class SubscriberRedundancyAgent(Entity):
                             leaf_name_data.append(self.revertive_timer.get_name_leafdata())
                         if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.session_count.get_name_leafdata())
-                        if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.slave_mode.get_name_leafdata())
-                        if (self.slave_update_failure_count.is_set or self.slave_update_failure_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.slave_update_failure_count.get_name_leafdata())
+                        if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
+                        if (self.subordinate_update_failure_count.is_set or self.subordinate_update_failure_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.subordinate_update_failure_count.get_name_leafdata())
                         if (self.switchover_count.is_set or self.switchover_count.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.switchover_count.get_name_leafdata())
                         if (self.switchover_hold_time.is_set or self.switchover_hold_time.yfilter != YFilter.not_set):
@@ -4568,7 +4568,7 @@ class SubscriberRedundancyAgent(Entity):
                         return None
 
                     def has_leaf_or_child_of_name(self, name):
-                        if(name == "interface" or name == "group-id" or name == "access-tracking-object-name" or name == "access-tracking-object-status" or name == "core-tracking-object-name" or name == "core-tracking-object-status" or name == "current-role" or name == "description" or name == "disabled" or name == "group-id-xr" or name == "hold-timer" or name == "init-role" or name == "interface-count" or name == "l2tp-source-ip" or name == "last-switchover-reason" or name == "last-switchover-time" or name == "negotiating-role" or name == "object-tracking-status" or name == "peer-current-role" or name == "peer-init-role" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-last-down-time" or name == "peer-last-negotiation-time" or name == "peer-last-up-time" or name == "peer-negotiating-role" or name == "peer-object-tracking-status" or name == "peer-status" or name == "pending-session-delete-count" or name == "pending-session-update-count" or name == "revertive-timer" or name == "session-count" or name == "slave-mode" or name == "slave-update-failure-count" or name == "switchover-count" or name == "switchover-hold-time" or name == "switchover-revert-time" or name == "tunnel-count" or name == "virtual-mac-address" or name == "virtual-mac-address-disable"):
+                        if(name == "interface" or name == "group-id" or name == "access-tracking-object-name" or name == "access-tracking-object-status" or name == "core-tracking-object-name" or name == "core-tracking-object-status" or name == "current-role" or name == "description" or name == "disabled" or name == "group-id-xr" or name == "hold-timer" or name == "init-role" or name == "interface-count" or name == "l2tp-source-ip" or name == "last-switchover-reason" or name == "last-switchover-time" or name == "negotiating-role" or name == "object-tracking-status" or name == "peer-current-role" or name == "peer-init-role" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-last-down-time" or name == "peer-last-negotiation-time" or name == "peer-last-up-time" or name == "peer-negotiating-role" or name == "peer-object-tracking-status" or name == "peer-status" or name == "pending-session-delete-count" or name == "pending-session-update-count" or name == "revertive-timer" or name == "session-count" or name == "subordinate-mode" or name == "subordinate-update-failure-count" or name == "switchover-count" or name == "switchover-hold-time" or name == "switchover-revert-time" or name == "tunnel-count" or name == "virtual-mac-address" or name == "virtual-mac-address-disable"):
                             return True
                         return False
 
@@ -4697,14 +4697,14 @@ class SubscriberRedundancyAgent(Entity):
                             self.session_count = value
                             self.session_count.value_namespace = name_space
                             self.session_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "slave-mode"):
-                            self.slave_mode = value
-                            self.slave_mode.value_namespace = name_space
-                            self.slave_mode.value_namespace_prefix = name_space_prefix
-                        if(value_path == "slave-update-failure-count"):
-                            self.slave_update_failure_count = value
-                            self.slave_update_failure_count.value_namespace = name_space
-                            self.slave_update_failure_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "subordinate-mode"):
+                            self.subordinate_mode = value
+                            self.subordinate_mode.value_namespace = name_space
+                            self.subordinate_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "subordinate-update-failure-count"):
+                            self.subordinate_update_failure_count = value
+                            self.subordinate_update_failure_count.value_namespace = name_space
+                            self.subordinate_update_failure_count.value_namespace_prefix = name_space_prefix
                         if(value_path == "switchover-count"):
                             self.switchover_count = value
                             self.switchover_count.value_namespace = name_space

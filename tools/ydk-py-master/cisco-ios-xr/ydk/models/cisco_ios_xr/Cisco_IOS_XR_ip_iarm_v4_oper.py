@@ -1676,9 +1676,9 @@ class Ipv4Arm(Entity):
         
         	**range:** \-2147483648..2147483647
         
-        .. attribute:: db_master_version
+        .. attribute:: db_main_version
         
-        	IP\-ARM DB master version
+        	IP\-ARM DB main version
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -1719,7 +1719,7 @@ class Ipv4Arm(Entity):
 
             self.address_conflict_count = YLeaf(YType.int32, "address-conflict-count")
 
-            self.db_master_version = YLeaf(YType.uint32, "db-master-version")
+            self.db_main_version = YLeaf(YType.uint32, "db-main-version")
 
             self.producer_count = YLeaf(YType.int32, "producer-count")
 
@@ -1737,7 +1737,7 @@ class Ipv4Arm(Entity):
                 if isinstance(value, Enum.YLeaf):
                     value = value.name
                 if name in ("address_conflict_count",
-                            "db_master_version",
+                            "db_main_version",
                             "producer_count",
                             "unnumbered_conflict_count",
                             "vrf_count") and name in self.__dict__:
@@ -1758,7 +1758,7 @@ class Ipv4Arm(Entity):
         def has_data(self):
             return (
                 self.address_conflict_count.is_set or
-                self.db_master_version.is_set or
+                self.db_main_version.is_set or
                 self.producer_count.is_set or
                 self.unnumbered_conflict_count.is_set or
                 self.vrf_count.is_set)
@@ -1767,7 +1767,7 @@ class Ipv4Arm(Entity):
             return (
                 self.yfilter != YFilter.not_set or
                 self.address_conflict_count.yfilter != YFilter.not_set or
-                self.db_master_version.yfilter != YFilter.not_set or
+                self.db_main_version.yfilter != YFilter.not_set or
                 self.producer_count.yfilter != YFilter.not_set or
                 self.unnumbered_conflict_count.yfilter != YFilter.not_set or
                 self.vrf_count.yfilter != YFilter.not_set)
@@ -1788,8 +1788,8 @@ class Ipv4Arm(Entity):
             leaf_name_data = LeafDataList()
             if (self.address_conflict_count.is_set or self.address_conflict_count.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.address_conflict_count.get_name_leafdata())
-            if (self.db_master_version.is_set or self.db_master_version.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.db_master_version.get_name_leafdata())
+            if (self.db_main_version.is_set or self.db_main_version.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.db_main_version.get_name_leafdata())
             if (self.producer_count.is_set or self.producer_count.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.producer_count.get_name_leafdata())
             if (self.unnumbered_conflict_count.is_set or self.unnumbered_conflict_count.yfilter != YFilter.not_set):
@@ -1808,7 +1808,7 @@ class Ipv4Arm(Entity):
             return None
 
         def has_leaf_or_child_of_name(self, name):
-            if(name == "address-conflict-count" or name == "db-master-version" or name == "producer-count" or name == "unnumbered-conflict-count" or name == "vrf-count"):
+            if(name == "address-conflict-count" or name == "db-main-version" or name == "producer-count" or name == "unnumbered-conflict-count" or name == "vrf-count"):
                 return True
             return False
 
@@ -1817,10 +1817,10 @@ class Ipv4Arm(Entity):
                 self.address_conflict_count = value
                 self.address_conflict_count.value_namespace = name_space
                 self.address_conflict_count.value_namespace_prefix = name_space_prefix
-            if(value_path == "db-master-version"):
-                self.db_master_version = value
-                self.db_master_version.value_namespace = name_space
-                self.db_master_version.value_namespace_prefix = name_space_prefix
+            if(value_path == "db-main-version"):
+                self.db_main_version = value
+                self.db_main_version.value_namespace = name_space
+                self.db_main_version.value_namespace_prefix = name_space_prefix
             if(value_path == "producer-count"):
                 self.producer_count = value
                 self.producer_count.value_namespace = name_space

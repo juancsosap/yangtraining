@@ -59,9 +59,9 @@ class VrrpBagProtocolState(Enum):
 
     	Backup
 
-    .. data:: state_master = 3
+    .. data:: state_main = 3
 
-    	Master
+    	Main
 
     """
 
@@ -69,7 +69,7 @@ class VrrpBagProtocolState(Enum):
 
     state_backup = Enum.YLeaf(2, "state-backup")
 
-    state_master = Enum.YLeaf(3, "state-master")
+    state_main = Enum.YLeaf(3, "state-main")
 
 
 class VrrpBfdSessionState(Enum):
@@ -166,11 +166,11 @@ class VrrpStateChangeReason(Enum):
 
     	Interface Down update
 
-    .. data:: state_change_master_down_timer = 7
+    .. data:: state_change_main_down_timer = 7
 
-    	Master down timer expired
+    	Main down timer expired
 
-    .. data:: state_change_higher_priority_master = 8
+    .. data:: state_change_higher_priority_main = 8
 
     	Higher priority advert received
 
@@ -206,9 +206,9 @@ class VrrpStateChangeReason(Enum):
 
     state_change_interface_down = Enum.YLeaf(6, "state-change-interface-down")
 
-    state_change_master_down_timer = Enum.YLeaf(7, "state-change-master-down-timer")
+    state_change_main_down_timer = Enum.YLeaf(7, "state-change-main-down-timer")
 
-    state_change_higher_priority_master = Enum.YLeaf(8, "state-change-higher-priority-master")
+    state_change_higher_priority_main = Enum.YLeaf(8, "state-change-higher-priority-main")
 
     state_change_fhrp_admin = Enum.YLeaf(9, "state-change-fhrp-admin")
 
@@ -400,37 +400,37 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_sessions_master
+        .. attribute:: ipv4_sessions_main
         
         	Number of IPv4 sessions in MASTER state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_sessions_master_owner
+        .. attribute:: ipv4_sessions_main_owner
         
         	Number of IPv4 sessions in MASTER (owner) state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_slaves_backup
+        .. attribute:: ipv4_subordinates_backup
         
-        	Number of IPv4 slaves in BACKUP state
+        	Number of IPv4 subordinates in BACKUP state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_slaves_init
+        .. attribute:: ipv4_subordinates_init
         
-        	Number of IPv4 slaves in INIT state
+        	Number of IPv4 subordinates in INIT state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_slaves_master
+        .. attribute:: ipv4_subordinates_main
         
-        	Number of IPv4 slaves in MASTER state
+        	Number of IPv4 subordinates in MASTER state
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -463,28 +463,28 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_virtual_ip_addresses_master_down
+        .. attribute:: ipv4_virtual_ip_addresses_main_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in MASTER state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_virtual_ip_addresses_master_owner_down
+        .. attribute:: ipv4_virtual_ip_addresses_main_owner_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on virtual routers in MASTER (owner) state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_virtual_ip_addresses_master_owner_up
+        .. attribute:: ipv4_virtual_ip_addresses_main_owner_up
         
         	Number of UP IPv4 Virtual IP Addresses on virtual routers in MASTER (owner) state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_virtual_ip_addresses_master_up
+        .. attribute:: ipv4_virtual_ip_addresses_main_up
         
         	Number of UP IPv4 Virtual IP Addresses on virtual routers in MASTER state
         	**type**\:  int
@@ -505,37 +505,37 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_sessions_master
+        .. attribute:: ipv6_sessions_main
         
         	Number of IPv6 sessions in MASTER state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_sessions_master_owner
+        .. attribute:: ipv6_sessions_main_owner
         
         	Number of IPv6 sessions in MASTER (owner) state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_slaves_backup
+        .. attribute:: ipv6_subordinates_backup
         
-        	Number of IPv6 slaves in BACKUP state
+        	Number of IPv6 subordinates in BACKUP state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_slaves_init
+        .. attribute:: ipv6_subordinates_init
         
-        	Number of IPv6 slaves in INIT state
+        	Number of IPv6 subordinates in INIT state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_slaves_master
+        .. attribute:: ipv6_subordinates_main
         
-        	Number of IPv6 slaves in MASTER state
+        	Number of IPv6 subordinates in MASTER state
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -568,28 +568,28 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_virtual_ip_addresses_master_down
+        .. attribute:: ipv6_virtual_ip_addresses_main_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in MASTER state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_virtual_ip_addresses_master_owner_down
+        .. attribute:: ipv6_virtual_ip_addresses_main_owner_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in MASTER (owner) state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_virtual_ip_addresses_master_owner_up
+        .. attribute:: ipv6_virtual_ip_addresses_main_owner_up
         
         	Number of UP IPv6 Virtual IP Addresses on virtual routers in MASTER (owner) state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_virtual_ip_addresses_master_up
+        .. attribute:: ipv6_virtual_ip_addresses_main_up
         
         	Number of UP IPv6 Virtual IP Addresses on virtual routers in MASTER state
         	**type**\:  int
@@ -690,15 +690,15 @@ class Vrrp(Entity):
 
             self.ipv4_sessions_init = YLeaf(YType.uint32, "ipv4-sessions-init")
 
-            self.ipv4_sessions_master = YLeaf(YType.uint32, "ipv4-sessions-master")
+            self.ipv4_sessions_main = YLeaf(YType.uint32, "ipv4-sessions-main")
 
-            self.ipv4_sessions_master_owner = YLeaf(YType.uint32, "ipv4-sessions-master-owner")
+            self.ipv4_sessions_main_owner = YLeaf(YType.uint32, "ipv4-sessions-main-owner")
 
-            self.ipv4_slaves_backup = YLeaf(YType.uint32, "ipv4-slaves-backup")
+            self.ipv4_subordinates_backup = YLeaf(YType.uint32, "ipv4-subordinates-backup")
 
-            self.ipv4_slaves_init = YLeaf(YType.uint32, "ipv4-slaves-init")
+            self.ipv4_subordinates_init = YLeaf(YType.uint32, "ipv4-subordinates-init")
 
-            self.ipv4_slaves_master = YLeaf(YType.uint32, "ipv4-slaves-master")
+            self.ipv4_subordinates_main = YLeaf(YType.uint32, "ipv4-subordinates-main")
 
             self.ipv4_virtual_ip_addresses_backup_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-backup-down")
 
@@ -708,27 +708,27 @@ class Vrrp(Entity):
 
             self.ipv4_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-init-up")
 
-            self.ipv4_virtual_ip_addresses_master_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-down")
+            self.ipv4_virtual_ip_addresses_main_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-main-down")
 
-            self.ipv4_virtual_ip_addresses_master_owner_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-owner-down")
+            self.ipv4_virtual_ip_addresses_main_owner_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-main-owner-down")
 
-            self.ipv4_virtual_ip_addresses_master_owner_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-owner-up")
+            self.ipv4_virtual_ip_addresses_main_owner_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-main-owner-up")
 
-            self.ipv4_virtual_ip_addresses_master_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-master-up")
+            self.ipv4_virtual_ip_addresses_main_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-main-up")
 
             self.ipv6_sessions_backup = YLeaf(YType.uint32, "ipv6-sessions-backup")
 
             self.ipv6_sessions_init = YLeaf(YType.uint32, "ipv6-sessions-init")
 
-            self.ipv6_sessions_master = YLeaf(YType.uint32, "ipv6-sessions-master")
+            self.ipv6_sessions_main = YLeaf(YType.uint32, "ipv6-sessions-main")
 
-            self.ipv6_sessions_master_owner = YLeaf(YType.uint32, "ipv6-sessions-master-owner")
+            self.ipv6_sessions_main_owner = YLeaf(YType.uint32, "ipv6-sessions-main-owner")
 
-            self.ipv6_slaves_backup = YLeaf(YType.uint32, "ipv6-slaves-backup")
+            self.ipv6_subordinates_backup = YLeaf(YType.uint32, "ipv6-subordinates-backup")
 
-            self.ipv6_slaves_init = YLeaf(YType.uint32, "ipv6-slaves-init")
+            self.ipv6_subordinates_init = YLeaf(YType.uint32, "ipv6-subordinates-init")
 
-            self.ipv6_slaves_master = YLeaf(YType.uint32, "ipv6-slaves-master")
+            self.ipv6_subordinates_main = YLeaf(YType.uint32, "ipv6-subordinates-main")
 
             self.ipv6_virtual_ip_addresses_backup_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-backup-down")
 
@@ -738,13 +738,13 @@ class Vrrp(Entity):
 
             self.ipv6_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-init-up")
 
-            self.ipv6_virtual_ip_addresses_master_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-down")
+            self.ipv6_virtual_ip_addresses_main_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-main-down")
 
-            self.ipv6_virtual_ip_addresses_master_owner_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-owner-down")
+            self.ipv6_virtual_ip_addresses_main_owner_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-main-owner-down")
 
-            self.ipv6_virtual_ip_addresses_master_owner_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-owner-up")
+            self.ipv6_virtual_ip_addresses_main_owner_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-main-owner-up")
 
-            self.ipv6_virtual_ip_addresses_master_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-master-up")
+            self.ipv6_virtual_ip_addresses_main_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-main-up")
 
             self.ipv6bfd_session_inactive = YLeaf(YType.uint32, "ipv6bfd-session-inactive")
 
@@ -782,34 +782,34 @@ class Vrrp(Entity):
                             "interfaces_ipv6_state_up",
                             "ipv4_sessions_backup",
                             "ipv4_sessions_init",
-                            "ipv4_sessions_master",
-                            "ipv4_sessions_master_owner",
-                            "ipv4_slaves_backup",
-                            "ipv4_slaves_init",
-                            "ipv4_slaves_master",
+                            "ipv4_sessions_main",
+                            "ipv4_sessions_main_owner",
+                            "ipv4_subordinates_backup",
+                            "ipv4_subordinates_init",
+                            "ipv4_subordinates_main",
                             "ipv4_virtual_ip_addresses_backup_down",
                             "ipv4_virtual_ip_addresses_backup_up",
                             "ipv4_virtual_ip_addresses_init_down",
                             "ipv4_virtual_ip_addresses_init_up",
-                            "ipv4_virtual_ip_addresses_master_down",
-                            "ipv4_virtual_ip_addresses_master_owner_down",
-                            "ipv4_virtual_ip_addresses_master_owner_up",
-                            "ipv4_virtual_ip_addresses_master_up",
+                            "ipv4_virtual_ip_addresses_main_down",
+                            "ipv4_virtual_ip_addresses_main_owner_down",
+                            "ipv4_virtual_ip_addresses_main_owner_up",
+                            "ipv4_virtual_ip_addresses_main_up",
                             "ipv6_sessions_backup",
                             "ipv6_sessions_init",
-                            "ipv6_sessions_master",
-                            "ipv6_sessions_master_owner",
-                            "ipv6_slaves_backup",
-                            "ipv6_slaves_init",
-                            "ipv6_slaves_master",
+                            "ipv6_sessions_main",
+                            "ipv6_sessions_main_owner",
+                            "ipv6_subordinates_backup",
+                            "ipv6_subordinates_init",
+                            "ipv6_subordinates_main",
                             "ipv6_virtual_ip_addresses_backup_down",
                             "ipv6_virtual_ip_addresses_backup_up",
                             "ipv6_virtual_ip_addresses_init_down",
                             "ipv6_virtual_ip_addresses_init_up",
-                            "ipv6_virtual_ip_addresses_master_down",
-                            "ipv6_virtual_ip_addresses_master_owner_down",
-                            "ipv6_virtual_ip_addresses_master_owner_up",
-                            "ipv6_virtual_ip_addresses_master_up",
+                            "ipv6_virtual_ip_addresses_main_down",
+                            "ipv6_virtual_ip_addresses_main_owner_down",
+                            "ipv6_virtual_ip_addresses_main_owner_up",
+                            "ipv6_virtual_ip_addresses_main_up",
                             "ipv6bfd_session_inactive",
                             "ipv6bfd_sessions_down",
                             "ipv6bfd_sessions_up",
@@ -844,34 +844,34 @@ class Vrrp(Entity):
                 self.interfaces_ipv6_state_up.is_set or
                 self.ipv4_sessions_backup.is_set or
                 self.ipv4_sessions_init.is_set or
-                self.ipv4_sessions_master.is_set or
-                self.ipv4_sessions_master_owner.is_set or
-                self.ipv4_slaves_backup.is_set or
-                self.ipv4_slaves_init.is_set or
-                self.ipv4_slaves_master.is_set or
+                self.ipv4_sessions_main.is_set or
+                self.ipv4_sessions_main_owner.is_set or
+                self.ipv4_subordinates_backup.is_set or
+                self.ipv4_subordinates_init.is_set or
+                self.ipv4_subordinates_main.is_set or
                 self.ipv4_virtual_ip_addresses_backup_down.is_set or
                 self.ipv4_virtual_ip_addresses_backup_up.is_set or
                 self.ipv4_virtual_ip_addresses_init_down.is_set or
                 self.ipv4_virtual_ip_addresses_init_up.is_set or
-                self.ipv4_virtual_ip_addresses_master_down.is_set or
-                self.ipv4_virtual_ip_addresses_master_owner_down.is_set or
-                self.ipv4_virtual_ip_addresses_master_owner_up.is_set or
-                self.ipv4_virtual_ip_addresses_master_up.is_set or
+                self.ipv4_virtual_ip_addresses_main_down.is_set or
+                self.ipv4_virtual_ip_addresses_main_owner_down.is_set or
+                self.ipv4_virtual_ip_addresses_main_owner_up.is_set or
+                self.ipv4_virtual_ip_addresses_main_up.is_set or
                 self.ipv6_sessions_backup.is_set or
                 self.ipv6_sessions_init.is_set or
-                self.ipv6_sessions_master.is_set or
-                self.ipv6_sessions_master_owner.is_set or
-                self.ipv6_slaves_backup.is_set or
-                self.ipv6_slaves_init.is_set or
-                self.ipv6_slaves_master.is_set or
+                self.ipv6_sessions_main.is_set or
+                self.ipv6_sessions_main_owner.is_set or
+                self.ipv6_subordinates_backup.is_set or
+                self.ipv6_subordinates_init.is_set or
+                self.ipv6_subordinates_main.is_set or
                 self.ipv6_virtual_ip_addresses_backup_down.is_set or
                 self.ipv6_virtual_ip_addresses_backup_up.is_set or
                 self.ipv6_virtual_ip_addresses_init_down.is_set or
                 self.ipv6_virtual_ip_addresses_init_up.is_set or
-                self.ipv6_virtual_ip_addresses_master_down.is_set or
-                self.ipv6_virtual_ip_addresses_master_owner_down.is_set or
-                self.ipv6_virtual_ip_addresses_master_owner_up.is_set or
-                self.ipv6_virtual_ip_addresses_master_up.is_set or
+                self.ipv6_virtual_ip_addresses_main_down.is_set or
+                self.ipv6_virtual_ip_addresses_main_owner_down.is_set or
+                self.ipv6_virtual_ip_addresses_main_owner_up.is_set or
+                self.ipv6_virtual_ip_addresses_main_up.is_set or
                 self.ipv6bfd_session_inactive.is_set or
                 self.ipv6bfd_sessions_down.is_set or
                 self.ipv6bfd_sessions_up.is_set or
@@ -894,34 +894,34 @@ class Vrrp(Entity):
                 self.interfaces_ipv6_state_up.yfilter != YFilter.not_set or
                 self.ipv4_sessions_backup.yfilter != YFilter.not_set or
                 self.ipv4_sessions_init.yfilter != YFilter.not_set or
-                self.ipv4_sessions_master.yfilter != YFilter.not_set or
-                self.ipv4_sessions_master_owner.yfilter != YFilter.not_set or
-                self.ipv4_slaves_backup.yfilter != YFilter.not_set or
-                self.ipv4_slaves_init.yfilter != YFilter.not_set or
-                self.ipv4_slaves_master.yfilter != YFilter.not_set or
+                self.ipv4_sessions_main.yfilter != YFilter.not_set or
+                self.ipv4_sessions_main_owner.yfilter != YFilter.not_set or
+                self.ipv4_subordinates_backup.yfilter != YFilter.not_set or
+                self.ipv4_subordinates_init.yfilter != YFilter.not_set or
+                self.ipv4_subordinates_main.yfilter != YFilter.not_set or
                 self.ipv4_virtual_ip_addresses_backup_down.yfilter != YFilter.not_set or
                 self.ipv4_virtual_ip_addresses_backup_up.yfilter != YFilter.not_set or
                 self.ipv4_virtual_ip_addresses_init_down.yfilter != YFilter.not_set or
                 self.ipv4_virtual_ip_addresses_init_up.yfilter != YFilter.not_set or
-                self.ipv4_virtual_ip_addresses_master_down.yfilter != YFilter.not_set or
-                self.ipv4_virtual_ip_addresses_master_owner_down.yfilter != YFilter.not_set or
-                self.ipv4_virtual_ip_addresses_master_owner_up.yfilter != YFilter.not_set or
-                self.ipv4_virtual_ip_addresses_master_up.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_main_down.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_main_owner_down.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_main_owner_up.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_main_up.yfilter != YFilter.not_set or
                 self.ipv6_sessions_backup.yfilter != YFilter.not_set or
                 self.ipv6_sessions_init.yfilter != YFilter.not_set or
-                self.ipv6_sessions_master.yfilter != YFilter.not_set or
-                self.ipv6_sessions_master_owner.yfilter != YFilter.not_set or
-                self.ipv6_slaves_backup.yfilter != YFilter.not_set or
-                self.ipv6_slaves_init.yfilter != YFilter.not_set or
-                self.ipv6_slaves_master.yfilter != YFilter.not_set or
+                self.ipv6_sessions_main.yfilter != YFilter.not_set or
+                self.ipv6_sessions_main_owner.yfilter != YFilter.not_set or
+                self.ipv6_subordinates_backup.yfilter != YFilter.not_set or
+                self.ipv6_subordinates_init.yfilter != YFilter.not_set or
+                self.ipv6_subordinates_main.yfilter != YFilter.not_set or
                 self.ipv6_virtual_ip_addresses_backup_down.yfilter != YFilter.not_set or
                 self.ipv6_virtual_ip_addresses_backup_up.yfilter != YFilter.not_set or
                 self.ipv6_virtual_ip_addresses_init_down.yfilter != YFilter.not_set or
                 self.ipv6_virtual_ip_addresses_init_up.yfilter != YFilter.not_set or
-                self.ipv6_virtual_ip_addresses_master_down.yfilter != YFilter.not_set or
-                self.ipv6_virtual_ip_addresses_master_owner_down.yfilter != YFilter.not_set or
-                self.ipv6_virtual_ip_addresses_master_owner_up.yfilter != YFilter.not_set or
-                self.ipv6_virtual_ip_addresses_master_up.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_main_down.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_main_owner_down.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_main_owner_up.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_main_up.yfilter != YFilter.not_set or
                 self.ipv6bfd_session_inactive.yfilter != YFilter.not_set or
                 self.ipv6bfd_sessions_down.yfilter != YFilter.not_set or
                 self.ipv6bfd_sessions_up.yfilter != YFilter.not_set or
@@ -964,16 +964,16 @@ class Vrrp(Entity):
                 leaf_name_data.append(self.ipv4_sessions_backup.get_name_leafdata())
             if (self.ipv4_sessions_init.is_set or self.ipv4_sessions_init.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv4_sessions_init.get_name_leafdata())
-            if (self.ipv4_sessions_master.is_set or self.ipv4_sessions_master.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_sessions_master.get_name_leafdata())
-            if (self.ipv4_sessions_master_owner.is_set or self.ipv4_sessions_master_owner.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_sessions_master_owner.get_name_leafdata())
-            if (self.ipv4_slaves_backup.is_set or self.ipv4_slaves_backup.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_slaves_backup.get_name_leafdata())
-            if (self.ipv4_slaves_init.is_set or self.ipv4_slaves_init.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_slaves_init.get_name_leafdata())
-            if (self.ipv4_slaves_master.is_set or self.ipv4_slaves_master.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_slaves_master.get_name_leafdata())
+            if (self.ipv4_sessions_main.is_set or self.ipv4_sessions_main.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_sessions_main.get_name_leafdata())
+            if (self.ipv4_sessions_main_owner.is_set or self.ipv4_sessions_main_owner.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_sessions_main_owner.get_name_leafdata())
+            if (self.ipv4_subordinates_backup.is_set or self.ipv4_subordinates_backup.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_subordinates_backup.get_name_leafdata())
+            if (self.ipv4_subordinates_init.is_set or self.ipv4_subordinates_init.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_subordinates_init.get_name_leafdata())
+            if (self.ipv4_subordinates_main.is_set or self.ipv4_subordinates_main.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_subordinates_main.get_name_leafdata())
             if (self.ipv4_virtual_ip_addresses_backup_down.is_set or self.ipv4_virtual_ip_addresses_backup_down.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv4_virtual_ip_addresses_backup_down.get_name_leafdata())
             if (self.ipv4_virtual_ip_addresses_backup_up.is_set or self.ipv4_virtual_ip_addresses_backup_up.yfilter != YFilter.not_set):
@@ -982,28 +982,28 @@ class Vrrp(Entity):
                 leaf_name_data.append(self.ipv4_virtual_ip_addresses_init_down.get_name_leafdata())
             if (self.ipv4_virtual_ip_addresses_init_up.is_set or self.ipv4_virtual_ip_addresses_init_up.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv4_virtual_ip_addresses_init_up.get_name_leafdata())
-            if (self.ipv4_virtual_ip_addresses_master_down.is_set or self.ipv4_virtual_ip_addresses_master_down.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_virtual_ip_addresses_master_down.get_name_leafdata())
-            if (self.ipv4_virtual_ip_addresses_master_owner_down.is_set or self.ipv4_virtual_ip_addresses_master_owner_down.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_virtual_ip_addresses_master_owner_down.get_name_leafdata())
-            if (self.ipv4_virtual_ip_addresses_master_owner_up.is_set or self.ipv4_virtual_ip_addresses_master_owner_up.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_virtual_ip_addresses_master_owner_up.get_name_leafdata())
-            if (self.ipv4_virtual_ip_addresses_master_up.is_set or self.ipv4_virtual_ip_addresses_master_up.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_virtual_ip_addresses_master_up.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_main_down.is_set or self.ipv4_virtual_ip_addresses_main_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_main_down.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_main_owner_down.is_set or self.ipv4_virtual_ip_addresses_main_owner_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_main_owner_down.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_main_owner_up.is_set or self.ipv4_virtual_ip_addresses_main_owner_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_main_owner_up.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_main_up.is_set or self.ipv4_virtual_ip_addresses_main_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_main_up.get_name_leafdata())
             if (self.ipv6_sessions_backup.is_set or self.ipv6_sessions_backup.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv6_sessions_backup.get_name_leafdata())
             if (self.ipv6_sessions_init.is_set or self.ipv6_sessions_init.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv6_sessions_init.get_name_leafdata())
-            if (self.ipv6_sessions_master.is_set or self.ipv6_sessions_master.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_sessions_master.get_name_leafdata())
-            if (self.ipv6_sessions_master_owner.is_set or self.ipv6_sessions_master_owner.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_sessions_master_owner.get_name_leafdata())
-            if (self.ipv6_slaves_backup.is_set or self.ipv6_slaves_backup.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_slaves_backup.get_name_leafdata())
-            if (self.ipv6_slaves_init.is_set or self.ipv6_slaves_init.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_slaves_init.get_name_leafdata())
-            if (self.ipv6_slaves_master.is_set or self.ipv6_slaves_master.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_slaves_master.get_name_leafdata())
+            if (self.ipv6_sessions_main.is_set or self.ipv6_sessions_main.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_sessions_main.get_name_leafdata())
+            if (self.ipv6_sessions_main_owner.is_set or self.ipv6_sessions_main_owner.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_sessions_main_owner.get_name_leafdata())
+            if (self.ipv6_subordinates_backup.is_set or self.ipv6_subordinates_backup.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_subordinates_backup.get_name_leafdata())
+            if (self.ipv6_subordinates_init.is_set or self.ipv6_subordinates_init.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_subordinates_init.get_name_leafdata())
+            if (self.ipv6_subordinates_main.is_set or self.ipv6_subordinates_main.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_subordinates_main.get_name_leafdata())
             if (self.ipv6_virtual_ip_addresses_backup_down.is_set or self.ipv6_virtual_ip_addresses_backup_down.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv6_virtual_ip_addresses_backup_down.get_name_leafdata())
             if (self.ipv6_virtual_ip_addresses_backup_up.is_set or self.ipv6_virtual_ip_addresses_backup_up.yfilter != YFilter.not_set):
@@ -1012,14 +1012,14 @@ class Vrrp(Entity):
                 leaf_name_data.append(self.ipv6_virtual_ip_addresses_init_down.get_name_leafdata())
             if (self.ipv6_virtual_ip_addresses_init_up.is_set or self.ipv6_virtual_ip_addresses_init_up.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv6_virtual_ip_addresses_init_up.get_name_leafdata())
-            if (self.ipv6_virtual_ip_addresses_master_down.is_set or self.ipv6_virtual_ip_addresses_master_down.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_virtual_ip_addresses_master_down.get_name_leafdata())
-            if (self.ipv6_virtual_ip_addresses_master_owner_down.is_set or self.ipv6_virtual_ip_addresses_master_owner_down.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_virtual_ip_addresses_master_owner_down.get_name_leafdata())
-            if (self.ipv6_virtual_ip_addresses_master_owner_up.is_set or self.ipv6_virtual_ip_addresses_master_owner_up.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_virtual_ip_addresses_master_owner_up.get_name_leafdata())
-            if (self.ipv6_virtual_ip_addresses_master_up.is_set or self.ipv6_virtual_ip_addresses_master_up.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_virtual_ip_addresses_master_up.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_main_down.is_set or self.ipv6_virtual_ip_addresses_main_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_main_down.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_main_owner_down.is_set or self.ipv6_virtual_ip_addresses_main_owner_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_main_owner_down.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_main_owner_up.is_set or self.ipv6_virtual_ip_addresses_main_owner_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_main_owner_up.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_main_up.is_set or self.ipv6_virtual_ip_addresses_main_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_main_up.get_name_leafdata())
             if (self.ipv6bfd_session_inactive.is_set or self.ipv6bfd_session_inactive.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv6bfd_session_inactive.get_name_leafdata())
             if (self.ipv6bfd_sessions_down.is_set or self.ipv6bfd_sessions_down.yfilter != YFilter.not_set):
@@ -1050,7 +1050,7 @@ class Vrrp(Entity):
             return None
 
         def has_leaf_or_child_of_name(self, name):
-            if(name == "bfd-session-inactive" or name == "bfd-sessions-down" or name == "bfd-sessions-up" or name == "interfaces-ipv4-state-down" or name == "interfaces-ipv4-state-up" or name == "interfaces-ipv6-state-down" or name == "interfaces-ipv6-state-up" or name == "ipv4-sessions-backup" or name == "ipv4-sessions-init" or name == "ipv4-sessions-master" or name == "ipv4-sessions-master-owner" or name == "ipv4-slaves-backup" or name == "ipv4-slaves-init" or name == "ipv4-slaves-master" or name == "ipv4-virtual-ip-addresses-backup-down" or name == "ipv4-virtual-ip-addresses-backup-up" or name == "ipv4-virtual-ip-addresses-init-down" or name == "ipv4-virtual-ip-addresses-init-up" or name == "ipv4-virtual-ip-addresses-master-down" or name == "ipv4-virtual-ip-addresses-master-owner-down" or name == "ipv4-virtual-ip-addresses-master-owner-up" or name == "ipv4-virtual-ip-addresses-master-up" or name == "ipv6-sessions-backup" or name == "ipv6-sessions-init" or name == "ipv6-sessions-master" or name == "ipv6-sessions-master-owner" or name == "ipv6-slaves-backup" or name == "ipv6-slaves-init" or name == "ipv6-slaves-master" or name == "ipv6-virtual-ip-addresses-backup-down" or name == "ipv6-virtual-ip-addresses-backup-up" or name == "ipv6-virtual-ip-addresses-init-down" or name == "ipv6-virtual-ip-addresses-init-up" or name == "ipv6-virtual-ip-addresses-master-down" or name == "ipv6-virtual-ip-addresses-master-owner-down" or name == "ipv6-virtual-ip-addresses-master-owner-up" or name == "ipv6-virtual-ip-addresses-master-up" or name == "ipv6bfd-session-inactive" or name == "ipv6bfd-sessions-down" or name == "ipv6bfd-sessions-up" or name == "tracked-interfaces-ipv4-state-down" or name == "tracked-interfaces-ipv4-state-up" or name == "tracked-interfaces-ipv6-state-down" or name == "tracked-interfaces-ipv6-state-up" or name == "tracked-objects-state-down" or name == "tracked-objects-state-up"):
+            if(name == "bfd-session-inactive" or name == "bfd-sessions-down" or name == "bfd-sessions-up" or name == "interfaces-ipv4-state-down" or name == "interfaces-ipv4-state-up" or name == "interfaces-ipv6-state-down" or name == "interfaces-ipv6-state-up" or name == "ipv4-sessions-backup" or name == "ipv4-sessions-init" or name == "ipv4-sessions-main" or name == "ipv4-sessions-main-owner" or name == "ipv4-subordinates-backup" or name == "ipv4-subordinates-init" or name == "ipv4-subordinates-main" or name == "ipv4-virtual-ip-addresses-backup-down" or name == "ipv4-virtual-ip-addresses-backup-up" or name == "ipv4-virtual-ip-addresses-init-down" or name == "ipv4-virtual-ip-addresses-init-up" or name == "ipv4-virtual-ip-addresses-main-down" or name == "ipv4-virtual-ip-addresses-main-owner-down" or name == "ipv4-virtual-ip-addresses-main-owner-up" or name == "ipv4-virtual-ip-addresses-main-up" or name == "ipv6-sessions-backup" or name == "ipv6-sessions-init" or name == "ipv6-sessions-main" or name == "ipv6-sessions-main-owner" or name == "ipv6-subordinates-backup" or name == "ipv6-subordinates-init" or name == "ipv6-subordinates-main" or name == "ipv6-virtual-ip-addresses-backup-down" or name == "ipv6-virtual-ip-addresses-backup-up" or name == "ipv6-virtual-ip-addresses-init-down" or name == "ipv6-virtual-ip-addresses-init-up" or name == "ipv6-virtual-ip-addresses-main-down" or name == "ipv6-virtual-ip-addresses-main-owner-down" or name == "ipv6-virtual-ip-addresses-main-owner-up" or name == "ipv6-virtual-ip-addresses-main-up" or name == "ipv6bfd-session-inactive" or name == "ipv6bfd-sessions-down" or name == "ipv6bfd-sessions-up" or name == "tracked-interfaces-ipv4-state-down" or name == "tracked-interfaces-ipv4-state-up" or name == "tracked-interfaces-ipv6-state-down" or name == "tracked-interfaces-ipv6-state-up" or name == "tracked-objects-state-down" or name == "tracked-objects-state-up"):
                 return True
             return False
 
@@ -1091,26 +1091,26 @@ class Vrrp(Entity):
                 self.ipv4_sessions_init = value
                 self.ipv4_sessions_init.value_namespace = name_space
                 self.ipv4_sessions_init.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-sessions-master"):
-                self.ipv4_sessions_master = value
-                self.ipv4_sessions_master.value_namespace = name_space
-                self.ipv4_sessions_master.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-sessions-master-owner"):
-                self.ipv4_sessions_master_owner = value
-                self.ipv4_sessions_master_owner.value_namespace = name_space
-                self.ipv4_sessions_master_owner.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-slaves-backup"):
-                self.ipv4_slaves_backup = value
-                self.ipv4_slaves_backup.value_namespace = name_space
-                self.ipv4_slaves_backup.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-slaves-init"):
-                self.ipv4_slaves_init = value
-                self.ipv4_slaves_init.value_namespace = name_space
-                self.ipv4_slaves_init.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-slaves-master"):
-                self.ipv4_slaves_master = value
-                self.ipv4_slaves_master.value_namespace = name_space
-                self.ipv4_slaves_master.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-sessions-main"):
+                self.ipv4_sessions_main = value
+                self.ipv4_sessions_main.value_namespace = name_space
+                self.ipv4_sessions_main.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-sessions-main-owner"):
+                self.ipv4_sessions_main_owner = value
+                self.ipv4_sessions_main_owner.value_namespace = name_space
+                self.ipv4_sessions_main_owner.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-subordinates-backup"):
+                self.ipv4_subordinates_backup = value
+                self.ipv4_subordinates_backup.value_namespace = name_space
+                self.ipv4_subordinates_backup.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-subordinates-init"):
+                self.ipv4_subordinates_init = value
+                self.ipv4_subordinates_init.value_namespace = name_space
+                self.ipv4_subordinates_init.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-subordinates-main"):
+                self.ipv4_subordinates_main = value
+                self.ipv4_subordinates_main.value_namespace = name_space
+                self.ipv4_subordinates_main.value_namespace_prefix = name_space_prefix
             if(value_path == "ipv4-virtual-ip-addresses-backup-down"):
                 self.ipv4_virtual_ip_addresses_backup_down = value
                 self.ipv4_virtual_ip_addresses_backup_down.value_namespace = name_space
@@ -1127,22 +1127,22 @@ class Vrrp(Entity):
                 self.ipv4_virtual_ip_addresses_init_up = value
                 self.ipv4_virtual_ip_addresses_init_up.value_namespace = name_space
                 self.ipv4_virtual_ip_addresses_init_up.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-virtual-ip-addresses-master-down"):
-                self.ipv4_virtual_ip_addresses_master_down = value
-                self.ipv4_virtual_ip_addresses_master_down.value_namespace = name_space
-                self.ipv4_virtual_ip_addresses_master_down.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-virtual-ip-addresses-master-owner-down"):
-                self.ipv4_virtual_ip_addresses_master_owner_down = value
-                self.ipv4_virtual_ip_addresses_master_owner_down.value_namespace = name_space
-                self.ipv4_virtual_ip_addresses_master_owner_down.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-virtual-ip-addresses-master-owner-up"):
-                self.ipv4_virtual_ip_addresses_master_owner_up = value
-                self.ipv4_virtual_ip_addresses_master_owner_up.value_namespace = name_space
-                self.ipv4_virtual_ip_addresses_master_owner_up.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-virtual-ip-addresses-master-up"):
-                self.ipv4_virtual_ip_addresses_master_up = value
-                self.ipv4_virtual_ip_addresses_master_up.value_namespace = name_space
-                self.ipv4_virtual_ip_addresses_master_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-main-down"):
+                self.ipv4_virtual_ip_addresses_main_down = value
+                self.ipv4_virtual_ip_addresses_main_down.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_main_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-main-owner-down"):
+                self.ipv4_virtual_ip_addresses_main_owner_down = value
+                self.ipv4_virtual_ip_addresses_main_owner_down.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_main_owner_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-main-owner-up"):
+                self.ipv4_virtual_ip_addresses_main_owner_up = value
+                self.ipv4_virtual_ip_addresses_main_owner_up.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_main_owner_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-main-up"):
+                self.ipv4_virtual_ip_addresses_main_up = value
+                self.ipv4_virtual_ip_addresses_main_up.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_main_up.value_namespace_prefix = name_space_prefix
             if(value_path == "ipv6-sessions-backup"):
                 self.ipv6_sessions_backup = value
                 self.ipv6_sessions_backup.value_namespace = name_space
@@ -1151,26 +1151,26 @@ class Vrrp(Entity):
                 self.ipv6_sessions_init = value
                 self.ipv6_sessions_init.value_namespace = name_space
                 self.ipv6_sessions_init.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-sessions-master"):
-                self.ipv6_sessions_master = value
-                self.ipv6_sessions_master.value_namespace = name_space
-                self.ipv6_sessions_master.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-sessions-master-owner"):
-                self.ipv6_sessions_master_owner = value
-                self.ipv6_sessions_master_owner.value_namespace = name_space
-                self.ipv6_sessions_master_owner.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-slaves-backup"):
-                self.ipv6_slaves_backup = value
-                self.ipv6_slaves_backup.value_namespace = name_space
-                self.ipv6_slaves_backup.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-slaves-init"):
-                self.ipv6_slaves_init = value
-                self.ipv6_slaves_init.value_namespace = name_space
-                self.ipv6_slaves_init.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-slaves-master"):
-                self.ipv6_slaves_master = value
-                self.ipv6_slaves_master.value_namespace = name_space
-                self.ipv6_slaves_master.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-sessions-main"):
+                self.ipv6_sessions_main = value
+                self.ipv6_sessions_main.value_namespace = name_space
+                self.ipv6_sessions_main.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-sessions-main-owner"):
+                self.ipv6_sessions_main_owner = value
+                self.ipv6_sessions_main_owner.value_namespace = name_space
+                self.ipv6_sessions_main_owner.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-subordinates-backup"):
+                self.ipv6_subordinates_backup = value
+                self.ipv6_subordinates_backup.value_namespace = name_space
+                self.ipv6_subordinates_backup.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-subordinates-init"):
+                self.ipv6_subordinates_init = value
+                self.ipv6_subordinates_init.value_namespace = name_space
+                self.ipv6_subordinates_init.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-subordinates-main"):
+                self.ipv6_subordinates_main = value
+                self.ipv6_subordinates_main.value_namespace = name_space
+                self.ipv6_subordinates_main.value_namespace_prefix = name_space_prefix
             if(value_path == "ipv6-virtual-ip-addresses-backup-down"):
                 self.ipv6_virtual_ip_addresses_backup_down = value
                 self.ipv6_virtual_ip_addresses_backup_down.value_namespace = name_space
@@ -1187,22 +1187,22 @@ class Vrrp(Entity):
                 self.ipv6_virtual_ip_addresses_init_up = value
                 self.ipv6_virtual_ip_addresses_init_up.value_namespace = name_space
                 self.ipv6_virtual_ip_addresses_init_up.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-virtual-ip-addresses-master-down"):
-                self.ipv6_virtual_ip_addresses_master_down = value
-                self.ipv6_virtual_ip_addresses_master_down.value_namespace = name_space
-                self.ipv6_virtual_ip_addresses_master_down.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-virtual-ip-addresses-master-owner-down"):
-                self.ipv6_virtual_ip_addresses_master_owner_down = value
-                self.ipv6_virtual_ip_addresses_master_owner_down.value_namespace = name_space
-                self.ipv6_virtual_ip_addresses_master_owner_down.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-virtual-ip-addresses-master-owner-up"):
-                self.ipv6_virtual_ip_addresses_master_owner_up = value
-                self.ipv6_virtual_ip_addresses_master_owner_up.value_namespace = name_space
-                self.ipv6_virtual_ip_addresses_master_owner_up.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-virtual-ip-addresses-master-up"):
-                self.ipv6_virtual_ip_addresses_master_up = value
-                self.ipv6_virtual_ip_addresses_master_up.value_namespace = name_space
-                self.ipv6_virtual_ip_addresses_master_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-main-down"):
+                self.ipv6_virtual_ip_addresses_main_down = value
+                self.ipv6_virtual_ip_addresses_main_down.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_main_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-main-owner-down"):
+                self.ipv6_virtual_ip_addresses_main_owner_down = value
+                self.ipv6_virtual_ip_addresses_main_owner_down.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_main_owner_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-main-owner-up"):
+                self.ipv6_virtual_ip_addresses_main_owner_up = value
+                self.ipv6_virtual_ip_addresses_main_owner_up.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_main_owner_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-main-up"):
+                self.ipv6_virtual_ip_addresses_main_up = value
+                self.ipv6_virtual_ip_addresses_main_up.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_main_up.value_namespace_prefix = name_space_prefix
             if(value_path == "ipv6bfd-session-inactive"):
                 self.ipv6bfd_session_inactive = value
                 self.ipv6bfd_session_inactive.value_namespace = name_space
@@ -1917,35 +1917,35 @@ class Vrrp(Entity):
                 	Is accept mode
                 	**type**\:  bool
                 
-                .. attribute:: is_slave
+                .. attribute:: is_subordinate
                 
-                	Group is a slave group
+                	Group is a subordinate group
                 	**type**\:  bool
                 
-                .. attribute:: master_count
+                .. attribute:: main_count
                 
-                	No. of times become Master
+                	No. of times become Main
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: master_ip_address
+                .. attribute:: main_ip_address
                 
-                	Master router real IP address
+                	Main router real IP address
                 	**type**\:  str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: master_ipv6_address
+                .. attribute:: main_ipv6_address
                 
-                	Master router real IPv6 address
+                	Main router real IPv6 address
                 	**type**\:  str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: master_priority
+                .. attribute:: main_priority
                 
-                	Master router priority
+                	Main router priority
                 	**type**\:  int
                 
                 	**range:** 0..255
@@ -2072,9 +2072,9 @@ class Vrrp(Entity):
                 
                 	**length:** 0..16
                 
-                .. attribute:: slaves
+                .. attribute:: subordinates
                 
-                	Number of slaves following state
+                	Number of subordinates following state
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -2273,15 +2273,15 @@ class Vrrp(Entity):
 
                     self.is_accept_mode = YLeaf(YType.boolean, "is-accept-mode")
 
-                    self.is_slave = YLeaf(YType.boolean, "is-slave")
+                    self.is_subordinate = YLeaf(YType.boolean, "is-subordinate")
 
-                    self.master_count = YLeaf(YType.uint32, "master-count")
+                    self.main_count = YLeaf(YType.uint32, "main-count")
 
-                    self.master_ip_address = YLeaf(YType.str, "master-ip-address")
+                    self.main_ip_address = YLeaf(YType.str, "main-ip-address")
 
-                    self.master_ipv6_address = YLeaf(YType.str, "master-ipv6-address")
+                    self.main_ipv6_address = YLeaf(YType.str, "main-ipv6-address")
 
-                    self.master_priority = YLeaf(YType.uint8, "master-priority")
+                    self.main_priority = YLeaf(YType.uint8, "main-priority")
 
                     self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
 
@@ -2315,7 +2315,7 @@ class Vrrp(Entity):
 
                     self.session_name = YLeaf(YType.str, "session-name")
 
-                    self.slaves = YLeaf(YType.uint32, "slaves")
+                    self.subordinates = YLeaf(YType.uint32, "subordinates")
 
                     self.state_change_count = YLeaf(YType.uint32, "state-change-count")
 
@@ -2405,11 +2405,11 @@ class Vrrp(Entity):
                                     "ip_address_owner_flag",
                                     "ipv4_configured_down_address",
                                     "is_accept_mode",
-                                    "is_slave",
-                                    "master_count",
-                                    "master_ip_address",
-                                    "master_ipv6_address",
-                                    "master_priority",
+                                    "is_subordinate",
+                                    "main_count",
+                                    "main_ip_address",
+                                    "main_ipv6_address",
+                                    "main_priority",
                                     "min_delay_time",
                                     "oper_advertize_time",
                                     "operational_address",
@@ -2426,7 +2426,7 @@ class Vrrp(Entity):
                                     "reload_delay_time",
                                     "secondary_address_count",
                                     "session_name",
-                                    "slaves",
+                                    "subordinates",
                                     "state_change_count",
                                     "state_from_checkpoint",
                                     "time_in_current_state",
@@ -3207,11 +3207,11 @@ class Vrrp(Entity):
                         self.invalid_packet_count.is_set or
                         self.ip_address_owner_flag.is_set or
                         self.is_accept_mode.is_set or
-                        self.is_slave.is_set or
-                        self.master_count.is_set or
-                        self.master_ip_address.is_set or
-                        self.master_ipv6_address.is_set or
-                        self.master_priority.is_set or
+                        self.is_subordinate.is_set or
+                        self.main_count.is_set or
+                        self.main_ip_address.is_set or
+                        self.main_ipv6_address.is_set or
+                        self.main_priority.is_set or
                         self.min_delay_time.is_set or
                         self.oper_advertize_time.is_set or
                         self.operational_address_count.is_set or
@@ -3227,7 +3227,7 @@ class Vrrp(Entity):
                         self.reload_delay_time.is_set or
                         self.secondary_address_count.is_set or
                         self.session_name.is_set or
-                        self.slaves.is_set or
+                        self.subordinates.is_set or
                         self.state_change_count.is_set or
                         self.state_from_checkpoint.is_set or
                         self.time_in_current_state.is_set or
@@ -3298,11 +3298,11 @@ class Vrrp(Entity):
                         self.ip_address_owner_flag.yfilter != YFilter.not_set or
                         self.ipv4_configured_down_address.yfilter != YFilter.not_set or
                         self.is_accept_mode.yfilter != YFilter.not_set or
-                        self.is_slave.yfilter != YFilter.not_set or
-                        self.master_count.yfilter != YFilter.not_set or
-                        self.master_ip_address.yfilter != YFilter.not_set or
-                        self.master_ipv6_address.yfilter != YFilter.not_set or
-                        self.master_priority.yfilter != YFilter.not_set or
+                        self.is_subordinate.yfilter != YFilter.not_set or
+                        self.main_count.yfilter != YFilter.not_set or
+                        self.main_ip_address.yfilter != YFilter.not_set or
+                        self.main_ipv6_address.yfilter != YFilter.not_set or
+                        self.main_priority.yfilter != YFilter.not_set or
                         self.min_delay_time.yfilter != YFilter.not_set or
                         self.oper_advertize_time.yfilter != YFilter.not_set or
                         self.operational_address.yfilter != YFilter.not_set or
@@ -3319,7 +3319,7 @@ class Vrrp(Entity):
                         self.reload_delay_time.yfilter != YFilter.not_set or
                         self.secondary_address_count.yfilter != YFilter.not_set or
                         self.session_name.yfilter != YFilter.not_set or
-                        self.slaves.yfilter != YFilter.not_set or
+                        self.subordinates.yfilter != YFilter.not_set or
                         self.state_change_count.yfilter != YFilter.not_set or
                         self.state_from_checkpoint.yfilter != YFilter.not_set or
                         self.time_in_current_state.yfilter != YFilter.not_set or
@@ -3417,16 +3417,16 @@ class Vrrp(Entity):
                         leaf_name_data.append(self.ip_address_owner_flag.get_name_leafdata())
                     if (self.is_accept_mode.is_set or self.is_accept_mode.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.is_accept_mode.get_name_leafdata())
-                    if (self.is_slave.is_set or self.is_slave.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.is_slave.get_name_leafdata())
-                    if (self.master_count.is_set or self.master_count.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.master_count.get_name_leafdata())
-                    if (self.master_ip_address.is_set or self.master_ip_address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.master_ip_address.get_name_leafdata())
-                    if (self.master_ipv6_address.is_set or self.master_ipv6_address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.master_ipv6_address.get_name_leafdata())
-                    if (self.master_priority.is_set or self.master_priority.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.master_priority.get_name_leafdata())
+                    if (self.is_subordinate.is_set or self.is_subordinate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_subordinate.get_name_leafdata())
+                    if (self.main_count.is_set or self.main_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.main_count.get_name_leafdata())
+                    if (self.main_ip_address.is_set or self.main_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.main_ip_address.get_name_leafdata())
+                    if (self.main_ipv6_address.is_set or self.main_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.main_ipv6_address.get_name_leafdata())
+                    if (self.main_priority.is_set or self.main_priority.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.main_priority.get_name_leafdata())
                     if (self.min_delay_time.is_set or self.min_delay_time.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.min_delay_time.get_name_leafdata())
                     if (self.oper_advertize_time.is_set or self.oper_advertize_time.yfilter != YFilter.not_set):
@@ -3457,8 +3457,8 @@ class Vrrp(Entity):
                         leaf_name_data.append(self.secondary_address_count.get_name_leafdata())
                     if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.session_name.get_name_leafdata())
-                    if (self.slaves.is_set or self.slaves.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.slaves.get_name_leafdata())
+                    if (self.subordinates.is_set or self.subordinates.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.subordinates.get_name_leafdata())
                     if (self.state_change_count.is_set or self.state_change_count.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.state_change_count.get_name_leafdata())
                     if (self.state_from_checkpoint.is_set or self.state_from_checkpoint.yfilter != YFilter.not_set):
@@ -3557,7 +3557,7 @@ class Vrrp(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "ipv6-configured-down-address" or name == "ipv6-operational-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "interface-name" or name == "virtual-router-id" or name == "address-family" or name == "address-list-error-count" or name == "advert-interval-error-count" or name == "adverts-received-count" or name == "adverts-sent-count" or name == "auth-type-mismatch-count" or name == "authentication-fail-count" or name == "authentication-flag" or name == "authentication-string" or name == "authentication-type" or name == "bfd-cfg-remote-ip" or name == "bfd-configured-remote-ipv6-address" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-session-state" or name == "configured-advertize-time" or name == "configured-down-address-count" or name == "configured-priority" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "force-timer-flag" or name == "interface-ipv4-address" or name == "interface-ipv6-address" or name == "interface-name-xr" or name == "invalid-auth-type-count" or name == "invalid-packet-count" or name == "ip-address-owner-flag" or name == "ipv4-configured-down-address" or name == "is-accept-mode" or name == "is-slave" or name == "master-count" or name == "master-ip-address" or name == "master-ipv6-address" or name == "master-priority" or name == "min-delay-time" or name == "oper-advertize-time" or name == "operational-address" or name == "operational-address-count" or name == "operational-priority" or name == "pkt-length-errors-count" or name == "preempt-delay-time" or name == "preempt-flag" or name == "primary-state" or name == "primary-virtual-ip" or name == "priority-decrement" or name == "priority-zero-received-count" or name == "priority-zero-sent-count" or name == "reload-delay-time" or name == "secondary-address-count" or name == "session-name" or name == "slaves" or name == "state-change-count" or name == "state-from-checkpoint" or name == "time-in-current-state" or name == "time-stats-discontinuity" or name == "time-vrouter-up" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "tracked-item-count" or name == "tracked-item-up-count" or name == "ttl-error-count" or name == "version" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state" or name == "virtual-router-id-xr" or name == "vrrp-state"):
+                    if(name == "ipv6-configured-down-address" or name == "ipv6-operational-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "interface-name" or name == "virtual-router-id" or name == "address-family" or name == "address-list-error-count" or name == "advert-interval-error-count" or name == "adverts-received-count" or name == "adverts-sent-count" or name == "auth-type-mismatch-count" or name == "authentication-fail-count" or name == "authentication-flag" or name == "authentication-string" or name == "authentication-type" or name == "bfd-cfg-remote-ip" or name == "bfd-configured-remote-ipv6-address" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-session-state" or name == "configured-advertize-time" or name == "configured-down-address-count" or name == "configured-priority" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "force-timer-flag" or name == "interface-ipv4-address" or name == "interface-ipv6-address" or name == "interface-name-xr" or name == "invalid-auth-type-count" or name == "invalid-packet-count" or name == "ip-address-owner-flag" or name == "ipv4-configured-down-address" or name == "is-accept-mode" or name == "is-subordinate" or name == "main-count" or name == "main-ip-address" or name == "main-ipv6-address" or name == "main-priority" or name == "min-delay-time" or name == "oper-advertize-time" or name == "operational-address" or name == "operational-address-count" or name == "operational-priority" or name == "pkt-length-errors-count" or name == "preempt-delay-time" or name == "preempt-flag" or name == "primary-state" or name == "primary-virtual-ip" or name == "priority-decrement" or name == "priority-zero-received-count" or name == "priority-zero-sent-count" or name == "reload-delay-time" or name == "secondary-address-count" or name == "session-name" or name == "subordinates" or name == "state-change-count" or name == "state-from-checkpoint" or name == "time-in-current-state" or name == "time-stats-discontinuity" or name == "time-vrouter-up" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "tracked-item-count" or name == "tracked-item-up-count" or name == "ttl-error-count" or name == "version" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state" or name == "virtual-router-id-xr" or name == "vrrp-state"):
                         return True
                     return False
 
@@ -3692,26 +3692,26 @@ class Vrrp(Entity):
                         self.is_accept_mode = value
                         self.is_accept_mode.value_namespace = name_space
                         self.is_accept_mode.value_namespace_prefix = name_space_prefix
-                    if(value_path == "is-slave"):
-                        self.is_slave = value
-                        self.is_slave.value_namespace = name_space
-                        self.is_slave.value_namespace_prefix = name_space_prefix
-                    if(value_path == "master-count"):
-                        self.master_count = value
-                        self.master_count.value_namespace = name_space
-                        self.master_count.value_namespace_prefix = name_space_prefix
-                    if(value_path == "master-ip-address"):
-                        self.master_ip_address = value
-                        self.master_ip_address.value_namespace = name_space
-                        self.master_ip_address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "master-ipv6-address"):
-                        self.master_ipv6_address = value
-                        self.master_ipv6_address.value_namespace = name_space
-                        self.master_ipv6_address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "master-priority"):
-                        self.master_priority = value
-                        self.master_priority.value_namespace = name_space
-                        self.master_priority.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-subordinate"):
+                        self.is_subordinate = value
+                        self.is_subordinate.value_namespace = name_space
+                        self.is_subordinate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "main-count"):
+                        self.main_count = value
+                        self.main_count.value_namespace = name_space
+                        self.main_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "main-ip-address"):
+                        self.main_ip_address = value
+                        self.main_ip_address.value_namespace = name_space
+                        self.main_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "main-ipv6-address"):
+                        self.main_ipv6_address = value
+                        self.main_ipv6_address.value_namespace = name_space
+                        self.main_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "main-priority"):
+                        self.main_priority = value
+                        self.main_priority.value_namespace = name_space
+                        self.main_priority.value_namespace_prefix = name_space_prefix
                     if(value_path == "min-delay-time"):
                         self.min_delay_time = value
                         self.min_delay_time.value_namespace = name_space
@@ -3774,10 +3774,10 @@ class Vrrp(Entity):
                         self.session_name = value
                         self.session_name.value_namespace = name_space
                         self.session_name.value_namespace_prefix = name_space_prefix
-                    if(value_path == "slaves"):
-                        self.slaves = value
-                        self.slaves.value_namespace = name_space
-                        self.slaves.value_namespace_prefix = name_space_prefix
+                    if(value_path == "subordinates"):
+                        self.subordinates = value
+                        self.subordinates.value_namespace = name_space
+                        self.subordinates.value_namespace_prefix = name_space_prefix
                     if(value_path == "state-change-count"):
                         self.state_change_count = value
                         self.state_change_count.value_namespace = name_space
@@ -5232,35 +5232,35 @@ class Vrrp(Entity):
                 	Is accept mode
                 	**type**\:  bool
                 
-                .. attribute:: is_slave
+                .. attribute:: is_subordinate
                 
-                	Group is a slave group
+                	Group is a subordinate group
                 	**type**\:  bool
                 
-                .. attribute:: master_count
+                .. attribute:: main_count
                 
-                	No. of times become Master
+                	No. of times become Main
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: master_ip_address
+                .. attribute:: main_ip_address
                 
-                	Master router real IP address
+                	Main router real IP address
                 	**type**\:  str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: master_ipv6_address
+                .. attribute:: main_ipv6_address
                 
-                	Master router real IPv6 address
+                	Main router real IPv6 address
                 	**type**\:  str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: master_priority
+                .. attribute:: main_priority
                 
-                	Master router priority
+                	Main router priority
                 	**type**\:  int
                 
                 	**range:** 0..255
@@ -5387,9 +5387,9 @@ class Vrrp(Entity):
                 
                 	**length:** 0..16
                 
-                .. attribute:: slaves
+                .. attribute:: subordinates
                 
-                	Number of slaves following state
+                	Number of subordinates following state
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -5588,15 +5588,15 @@ class Vrrp(Entity):
 
                     self.is_accept_mode = YLeaf(YType.boolean, "is-accept-mode")
 
-                    self.is_slave = YLeaf(YType.boolean, "is-slave")
+                    self.is_subordinate = YLeaf(YType.boolean, "is-subordinate")
 
-                    self.master_count = YLeaf(YType.uint32, "master-count")
+                    self.main_count = YLeaf(YType.uint32, "main-count")
 
-                    self.master_ip_address = YLeaf(YType.str, "master-ip-address")
+                    self.main_ip_address = YLeaf(YType.str, "main-ip-address")
 
-                    self.master_ipv6_address = YLeaf(YType.str, "master-ipv6-address")
+                    self.main_ipv6_address = YLeaf(YType.str, "main-ipv6-address")
 
-                    self.master_priority = YLeaf(YType.uint8, "master-priority")
+                    self.main_priority = YLeaf(YType.uint8, "main-priority")
 
                     self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
 
@@ -5630,7 +5630,7 @@ class Vrrp(Entity):
 
                     self.session_name = YLeaf(YType.str, "session-name")
 
-                    self.slaves = YLeaf(YType.uint32, "slaves")
+                    self.subordinates = YLeaf(YType.uint32, "subordinates")
 
                     self.state_change_count = YLeaf(YType.uint32, "state-change-count")
 
@@ -5720,11 +5720,11 @@ class Vrrp(Entity):
                                     "ip_address_owner_flag",
                                     "ipv4_configured_down_address",
                                     "is_accept_mode",
-                                    "is_slave",
-                                    "master_count",
-                                    "master_ip_address",
-                                    "master_ipv6_address",
-                                    "master_priority",
+                                    "is_subordinate",
+                                    "main_count",
+                                    "main_ip_address",
+                                    "main_ipv6_address",
+                                    "main_priority",
                                     "min_delay_time",
                                     "oper_advertize_time",
                                     "operational_address",
@@ -5741,7 +5741,7 @@ class Vrrp(Entity):
                                     "reload_delay_time",
                                     "secondary_address_count",
                                     "session_name",
-                                    "slaves",
+                                    "subordinates",
                                     "state_change_count",
                                     "state_from_checkpoint",
                                     "time_in_current_state",
@@ -6522,11 +6522,11 @@ class Vrrp(Entity):
                         self.invalid_packet_count.is_set or
                         self.ip_address_owner_flag.is_set or
                         self.is_accept_mode.is_set or
-                        self.is_slave.is_set or
-                        self.master_count.is_set or
-                        self.master_ip_address.is_set or
-                        self.master_ipv6_address.is_set or
-                        self.master_priority.is_set or
+                        self.is_subordinate.is_set or
+                        self.main_count.is_set or
+                        self.main_ip_address.is_set or
+                        self.main_ipv6_address.is_set or
+                        self.main_priority.is_set or
                         self.min_delay_time.is_set or
                         self.oper_advertize_time.is_set or
                         self.operational_address_count.is_set or
@@ -6542,7 +6542,7 @@ class Vrrp(Entity):
                         self.reload_delay_time.is_set or
                         self.secondary_address_count.is_set or
                         self.session_name.is_set or
-                        self.slaves.is_set or
+                        self.subordinates.is_set or
                         self.state_change_count.is_set or
                         self.state_from_checkpoint.is_set or
                         self.time_in_current_state.is_set or
@@ -6613,11 +6613,11 @@ class Vrrp(Entity):
                         self.ip_address_owner_flag.yfilter != YFilter.not_set or
                         self.ipv4_configured_down_address.yfilter != YFilter.not_set or
                         self.is_accept_mode.yfilter != YFilter.not_set or
-                        self.is_slave.yfilter != YFilter.not_set or
-                        self.master_count.yfilter != YFilter.not_set or
-                        self.master_ip_address.yfilter != YFilter.not_set or
-                        self.master_ipv6_address.yfilter != YFilter.not_set or
-                        self.master_priority.yfilter != YFilter.not_set or
+                        self.is_subordinate.yfilter != YFilter.not_set or
+                        self.main_count.yfilter != YFilter.not_set or
+                        self.main_ip_address.yfilter != YFilter.not_set or
+                        self.main_ipv6_address.yfilter != YFilter.not_set or
+                        self.main_priority.yfilter != YFilter.not_set or
                         self.min_delay_time.yfilter != YFilter.not_set or
                         self.oper_advertize_time.yfilter != YFilter.not_set or
                         self.operational_address.yfilter != YFilter.not_set or
@@ -6634,7 +6634,7 @@ class Vrrp(Entity):
                         self.reload_delay_time.yfilter != YFilter.not_set or
                         self.secondary_address_count.yfilter != YFilter.not_set or
                         self.session_name.yfilter != YFilter.not_set or
-                        self.slaves.yfilter != YFilter.not_set or
+                        self.subordinates.yfilter != YFilter.not_set or
                         self.state_change_count.yfilter != YFilter.not_set or
                         self.state_from_checkpoint.yfilter != YFilter.not_set or
                         self.time_in_current_state.yfilter != YFilter.not_set or
@@ -6732,16 +6732,16 @@ class Vrrp(Entity):
                         leaf_name_data.append(self.ip_address_owner_flag.get_name_leafdata())
                     if (self.is_accept_mode.is_set or self.is_accept_mode.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.is_accept_mode.get_name_leafdata())
-                    if (self.is_slave.is_set or self.is_slave.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.is_slave.get_name_leafdata())
-                    if (self.master_count.is_set or self.master_count.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.master_count.get_name_leafdata())
-                    if (self.master_ip_address.is_set or self.master_ip_address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.master_ip_address.get_name_leafdata())
-                    if (self.master_ipv6_address.is_set or self.master_ipv6_address.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.master_ipv6_address.get_name_leafdata())
-                    if (self.master_priority.is_set or self.master_priority.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.master_priority.get_name_leafdata())
+                    if (self.is_subordinate.is_set or self.is_subordinate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_subordinate.get_name_leafdata())
+                    if (self.main_count.is_set or self.main_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.main_count.get_name_leafdata())
+                    if (self.main_ip_address.is_set or self.main_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.main_ip_address.get_name_leafdata())
+                    if (self.main_ipv6_address.is_set or self.main_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.main_ipv6_address.get_name_leafdata())
+                    if (self.main_priority.is_set or self.main_priority.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.main_priority.get_name_leafdata())
                     if (self.min_delay_time.is_set or self.min_delay_time.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.min_delay_time.get_name_leafdata())
                     if (self.oper_advertize_time.is_set or self.oper_advertize_time.yfilter != YFilter.not_set):
@@ -6772,8 +6772,8 @@ class Vrrp(Entity):
                         leaf_name_data.append(self.secondary_address_count.get_name_leafdata())
                     if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.session_name.get_name_leafdata())
-                    if (self.slaves.is_set or self.slaves.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.slaves.get_name_leafdata())
+                    if (self.subordinates.is_set or self.subordinates.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.subordinates.get_name_leafdata())
                     if (self.state_change_count.is_set or self.state_change_count.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.state_change_count.get_name_leafdata())
                     if (self.state_from_checkpoint.is_set or self.state_from_checkpoint.yfilter != YFilter.not_set):
@@ -6872,7 +6872,7 @@ class Vrrp(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "ipv6-configured-down-address" or name == "ipv6-operational-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "interface-name" or name == "virtual-router-id" or name == "address-family" or name == "address-list-error-count" or name == "advert-interval-error-count" or name == "adverts-received-count" or name == "adverts-sent-count" or name == "auth-type-mismatch-count" or name == "authentication-fail-count" or name == "authentication-flag" or name == "authentication-string" or name == "authentication-type" or name == "bfd-cfg-remote-ip" or name == "bfd-configured-remote-ipv6-address" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-session-state" or name == "configured-advertize-time" or name == "configured-down-address-count" or name == "configured-priority" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "force-timer-flag" or name == "interface-ipv4-address" or name == "interface-ipv6-address" or name == "interface-name-xr" or name == "invalid-auth-type-count" or name == "invalid-packet-count" or name == "ip-address-owner-flag" or name == "ipv4-configured-down-address" or name == "is-accept-mode" or name == "is-slave" or name == "master-count" or name == "master-ip-address" or name == "master-ipv6-address" or name == "master-priority" or name == "min-delay-time" or name == "oper-advertize-time" or name == "operational-address" or name == "operational-address-count" or name == "operational-priority" or name == "pkt-length-errors-count" or name == "preempt-delay-time" or name == "preempt-flag" or name == "primary-state" or name == "primary-virtual-ip" or name == "priority-decrement" or name == "priority-zero-received-count" or name == "priority-zero-sent-count" or name == "reload-delay-time" or name == "secondary-address-count" or name == "session-name" or name == "slaves" or name == "state-change-count" or name == "state-from-checkpoint" or name == "time-in-current-state" or name == "time-stats-discontinuity" or name == "time-vrouter-up" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "tracked-item-count" or name == "tracked-item-up-count" or name == "ttl-error-count" or name == "version" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state" or name == "virtual-router-id-xr" or name == "vrrp-state"):
+                    if(name == "ipv6-configured-down-address" or name == "ipv6-operational-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "interface-name" or name == "virtual-router-id" or name == "address-family" or name == "address-list-error-count" or name == "advert-interval-error-count" or name == "adverts-received-count" or name == "adverts-sent-count" or name == "auth-type-mismatch-count" or name == "authentication-fail-count" or name == "authentication-flag" or name == "authentication-string" or name == "authentication-type" or name == "bfd-cfg-remote-ip" or name == "bfd-configured-remote-ipv6-address" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-session-state" or name == "configured-advertize-time" or name == "configured-down-address-count" or name == "configured-priority" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "force-timer-flag" or name == "interface-ipv4-address" or name == "interface-ipv6-address" or name == "interface-name-xr" or name == "invalid-auth-type-count" or name == "invalid-packet-count" or name == "ip-address-owner-flag" or name == "ipv4-configured-down-address" or name == "is-accept-mode" or name == "is-subordinate" or name == "main-count" or name == "main-ip-address" or name == "main-ipv6-address" or name == "main-priority" or name == "min-delay-time" or name == "oper-advertize-time" or name == "operational-address" or name == "operational-address-count" or name == "operational-priority" or name == "pkt-length-errors-count" or name == "preempt-delay-time" or name == "preempt-flag" or name == "primary-state" or name == "primary-virtual-ip" or name == "priority-decrement" or name == "priority-zero-received-count" or name == "priority-zero-sent-count" or name == "reload-delay-time" or name == "secondary-address-count" or name == "session-name" or name == "subordinates" or name == "state-change-count" or name == "state-from-checkpoint" or name == "time-in-current-state" or name == "time-stats-discontinuity" or name == "time-vrouter-up" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "tracked-item-count" or name == "tracked-item-up-count" or name == "ttl-error-count" or name == "version" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state" or name == "virtual-router-id-xr" or name == "vrrp-state"):
                         return True
                     return False
 
@@ -7007,26 +7007,26 @@ class Vrrp(Entity):
                         self.is_accept_mode = value
                         self.is_accept_mode.value_namespace = name_space
                         self.is_accept_mode.value_namespace_prefix = name_space_prefix
-                    if(value_path == "is-slave"):
-                        self.is_slave = value
-                        self.is_slave.value_namespace = name_space
-                        self.is_slave.value_namespace_prefix = name_space_prefix
-                    if(value_path == "master-count"):
-                        self.master_count = value
-                        self.master_count.value_namespace = name_space
-                        self.master_count.value_namespace_prefix = name_space_prefix
-                    if(value_path == "master-ip-address"):
-                        self.master_ip_address = value
-                        self.master_ip_address.value_namespace = name_space
-                        self.master_ip_address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "master-ipv6-address"):
-                        self.master_ipv6_address = value
-                        self.master_ipv6_address.value_namespace = name_space
-                        self.master_ipv6_address.value_namespace_prefix = name_space_prefix
-                    if(value_path == "master-priority"):
-                        self.master_priority = value
-                        self.master_priority.value_namespace = name_space
-                        self.master_priority.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-subordinate"):
+                        self.is_subordinate = value
+                        self.is_subordinate.value_namespace = name_space
+                        self.is_subordinate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "main-count"):
+                        self.main_count = value
+                        self.main_count.value_namespace = name_space
+                        self.main_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "main-ip-address"):
+                        self.main_ip_address = value
+                        self.main_ip_address.value_namespace = name_space
+                        self.main_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "main-ipv6-address"):
+                        self.main_ipv6_address = value
+                        self.main_ipv6_address.value_namespace = name_space
+                        self.main_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "main-priority"):
+                        self.main_priority = value
+                        self.main_priority.value_namespace = name_space
+                        self.main_priority.value_namespace_prefix = name_space_prefix
                     if(value_path == "min-delay-time"):
                         self.min_delay_time = value
                         self.min_delay_time.value_namespace = name_space
@@ -7089,10 +7089,10 @@ class Vrrp(Entity):
                         self.session_name = value
                         self.session_name.value_namespace = name_space
                         self.session_name.value_namespace_prefix = name_space_prefix
-                    if(value_path == "slaves"):
-                        self.slaves = value
-                        self.slaves.value_namespace = name_space
-                        self.slaves.value_namespace_prefix = name_space_prefix
+                    if(value_path == "subordinates"):
+                        self.subordinates = value
+                        self.subordinates.value_namespace = name_space
+                        self.subordinates.value_namespace_prefix = name_space_prefix
                     if(value_path == "state-change-count"):
                         self.state_change_count = value
                         self.state_change_count.value_namespace = name_space
@@ -7374,10 +7374,10 @@ class Vrrp(Entity):
             	State of primary session
             	**type**\:   :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
             
-            .. attribute:: slave
+            .. attribute:: subordinate
             
-            	List of slaves following this primary session
-            	**type**\: list of    :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions.MgoSession.Slave>`
+            	List of subordinates following this primary session
+            	**type**\: list of    :py:class:`Subordinate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions.MgoSession.Subordinate>`
             
             
 
@@ -7404,7 +7404,7 @@ class Vrrp(Entity):
 
                 self.primary_session_state = YLeaf(YType.enumeration, "primary-session-state")
 
-                self.slave = YList(self)
+                self.subordinate = YList(self)
 
             def __setattr__(self, name, value):
                 self._check_monkey_patching_error(name, value)
@@ -7436,20 +7436,20 @@ class Vrrp(Entity):
                         super(Vrrp.MgoSessions.MgoSession, self).__setattr__(name, value)
 
 
-            class Slave(Entity):
+            class Subordinate(Entity):
                 """
-                List of slaves following this primary session
+                List of subordinates following this primary session
                 
-                .. attribute:: slave_interface
+                .. attribute:: subordinate_interface
                 
-                	Interface of slave
+                	Interface of subordinate
                 	**type**\:  str
                 
                 	**length:** 0..64
                 
-                .. attribute:: slave_virtual_router_id
+                .. attribute:: subordinate_virtual_router_id
                 
-                	VRID of slave
+                	VRID of subordinate
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -7462,14 +7462,14 @@ class Vrrp(Entity):
                 _revision = '2016-12-16'
 
                 def __init__(self):
-                    super(Vrrp.MgoSessions.MgoSession.Slave, self).__init__()
+                    super(Vrrp.MgoSessions.MgoSession.Subordinate, self).__init__()
 
-                    self.yang_name = "slave"
+                    self.yang_name = "subordinate"
                     self.yang_parent_name = "mgo-session"
 
-                    self.slave_interface = YLeaf(YType.str, "slave-interface")
+                    self.subordinate_interface = YLeaf(YType.str, "subordinate-interface")
 
-                    self.slave_virtual_router_id = YLeaf(YType.uint32, "slave-virtual-router-id")
+                    self.subordinate_virtual_router_id = YLeaf(YType.uint32, "subordinate-virtual-router-id")
 
                 def __setattr__(self, name, value):
                     self._check_monkey_patching_error(name, value)
@@ -7480,12 +7480,12 @@ class Vrrp(Entity):
                                                 .format(value))
                         if isinstance(value, Enum.YLeaf):
                             value = value.name
-                        if name in ("slave_interface",
-                                    "slave_virtual_router_id") and name in self.__dict__:
+                        if name in ("subordinate_interface",
+                                    "subordinate_virtual_router_id") and name in self.__dict__:
                             if isinstance(value, YLeaf):
                                 self.__dict__[name].set(value.get())
                             elif isinstance(value, YLeafList):
-                                super(Vrrp.MgoSessions.MgoSession.Slave, self).__setattr__(name, value)
+                                super(Vrrp.MgoSessions.MgoSession.Subordinate, self).__setattr__(name, value)
                             else:
                                 self.__dict__[name].set(value)
                         else:
@@ -7494,22 +7494,22 @@ class Vrrp(Entity):
                                     value.parent = self
                                 elif value.parent is None and value.yang_name in self._children_yang_names:
                                     value.parent = self
-                            super(Vrrp.MgoSessions.MgoSession.Slave, self).__setattr__(name, value)
+                            super(Vrrp.MgoSessions.MgoSession.Subordinate, self).__setattr__(name, value)
 
                 def has_data(self):
                     return (
-                        self.slave_interface.is_set or
-                        self.slave_virtual_router_id.is_set)
+                        self.subordinate_interface.is_set or
+                        self.subordinate_virtual_router_id.is_set)
 
                 def has_operation(self):
                     return (
                         self.yfilter != YFilter.not_set or
-                        self.slave_interface.yfilter != YFilter.not_set or
-                        self.slave_virtual_router_id.yfilter != YFilter.not_set)
+                        self.subordinate_interface.yfilter != YFilter.not_set or
+                        self.subordinate_virtual_router_id.yfilter != YFilter.not_set)
 
                 def get_segment_path(self):
                     path_buffer = ""
-                    path_buffer = "slave" + path_buffer
+                    path_buffer = "subordinate" + path_buffer
 
                     return path_buffer
 
@@ -7521,10 +7521,10 @@ class Vrrp(Entity):
                         path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
                     leaf_name_data = LeafDataList()
-                    if (self.slave_interface.is_set or self.slave_interface.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.slave_interface.get_name_leafdata())
-                    if (self.slave_virtual_router_id.is_set or self.slave_virtual_router_id.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.slave_virtual_router_id.get_name_leafdata())
+                    if (self.subordinate_interface.is_set or self.subordinate_interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.subordinate_interface.get_name_leafdata())
+                    if (self.subordinate_virtual_router_id.is_set or self.subordinate_virtual_router_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.subordinate_virtual_router_id.get_name_leafdata())
 
                     entity_path = EntityPath(path_buffer, leaf_name_data)
                     return entity_path
@@ -7537,22 +7537,22 @@ class Vrrp(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "slave-interface" or name == "slave-virtual-router-id"):
+                    if(name == "subordinate-interface" or name == "subordinate-virtual-router-id"):
                         return True
                     return False
 
                 def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "slave-interface"):
-                        self.slave_interface = value
-                        self.slave_interface.value_namespace = name_space
-                        self.slave_interface.value_namespace_prefix = name_space_prefix
-                    if(value_path == "slave-virtual-router-id"):
-                        self.slave_virtual_router_id = value
-                        self.slave_virtual_router_id.value_namespace = name_space
-                        self.slave_virtual_router_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "subordinate-interface"):
+                        self.subordinate_interface = value
+                        self.subordinate_interface.value_namespace = name_space
+                        self.subordinate_interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "subordinate-virtual-router-id"):
+                        self.subordinate_virtual_router_id = value
+                        self.subordinate_virtual_router_id.value_namespace = name_space
+                        self.subordinate_virtual_router_id.value_namespace_prefix = name_space_prefix
 
             def has_data(self):
-                for c in self.slave:
+                for c in self.subordinate:
                     if (c.has_data()):
                         return True
                 return (
@@ -7564,7 +7564,7 @@ class Vrrp(Entity):
                     self.primary_session_state.is_set)
 
             def has_operation(self):
-                for c in self.slave:
+                for c in self.subordinate:
                     if (c.has_operation()):
                         return True
                 return (
@@ -7611,22 +7611,22 @@ class Vrrp(Entity):
                 if child is not None:
                     return child
 
-                if (child_yang_name == "slave"):
-                    for c in self.slave:
+                if (child_yang_name == "subordinate"):
+                    for c in self.subordinate:
                         segment = c.get_segment_path()
                         if (segment_path == segment):
                             return c
-                    c = Vrrp.MgoSessions.MgoSession.Slave()
+                    c = Vrrp.MgoSessions.MgoSession.Subordinate()
                     c.parent = self
                     local_reference_key = "ydk::seg::%s" % segment_path
                     self._local_refs[local_reference_key] = c
-                    self.slave.append(c)
+                    self.subordinate.append(c)
                     return c
 
                 return None
 
             def has_leaf_or_child_of_name(self, name):
-                if(name == "slave" or name == "session-name" or name == "primary-af-name" or name == "primary-session-interface" or name == "primary-session-name" or name == "primary-session-number" or name == "primary-session-state"):
+                if(name == "subordinate" or name == "session-name" or name == "primary-af-name" or name == "primary-session-interface" or name == "primary-session-name" or name == "primary-session-number" or name == "primary-session-state"):
                     return True
                 return False
 

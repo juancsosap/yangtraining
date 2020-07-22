@@ -141,7 +141,7 @@ def send_to_indexing(modules_to_index, credentials, confd_ip, sdo_type=False, de
         else:
             for module in sdos_json['module']:
                 if module.get('schema'):
-                    path = module['schema'].split('master')[1]
+                    path = module['schema'].split('main')[1]
                 else:
                     path = 'module does not exist'
                 post_body[module['name'] + '@' + module['revision'] + '/' + module['organization']] = path

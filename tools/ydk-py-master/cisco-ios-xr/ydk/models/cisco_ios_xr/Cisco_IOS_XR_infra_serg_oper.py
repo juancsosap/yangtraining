@@ -120,21 +120,21 @@ class SergShowImRole(Enum):
 
     	Not Determined
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	Master Role
+    	Main Role
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	Slave Role
+    	Subordinate Role
 
     """
 
     none = Enum.YLeaf(0, "none")
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
 class SergShowMem(Enum):
@@ -192,21 +192,21 @@ class SergShowRole(Enum):
 
     	Not Configured
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	Master Role
+    	Main Role
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	Slave Role
+    	Subordinate Role
 
     """
 
     none = Enum.YLeaf(0, "none")
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
 class SergShowSessionError(Enum):
@@ -269,11 +269,11 @@ class SergShowSessionOperation(Enum):
     in_sync = Enum.YLeaf(3, "in-sync")
 
 
-class SergShowSlaveMode(Enum):
+class SergShowSubordinateMode(Enum):
     """
-    SergShowSlaveMode
+    SergShowSubordinateMode
 
-    SERG Slave Mode
+    SERG Subordinate Mode
 
     .. data:: none = 0
 
@@ -797,10 +797,10 @@ class SessionRedundancyManager(Entity):
             	SERG Role
             	**type**\:   :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
             
-            .. attribute:: slave_mode
+            .. attribute:: subordinate_mode
             
-            	Slave Mode
-            	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+            	Subordinate Mode
+            	**type**\:   :py:class:`SergShowSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSubordinateMode>`
             
             
 
@@ -837,7 +837,7 @@ class SessionRedundancyManager(Entity):
 
                 self.role = YLeaf(YType.enumeration, "role")
 
-                self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+                self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
             def __setattr__(self, name, value):
                 self._check_monkey_patching_error(name, value)
@@ -859,7 +859,7 @@ class SessionRedundancyManager(Entity):
                                 "peer_ipv6_address",
                                 "preferred_role",
                                 "role",
-                                "slave_mode") and name in self.__dict__:
+                                "subordinate_mode") and name in self.__dict__:
                         if isinstance(value, YLeaf):
                             self.__dict__[name].set(value.get())
                         elif isinstance(value, YLeafList):
@@ -887,7 +887,7 @@ class SessionRedundancyManager(Entity):
                     self.peer_ipv6_address.is_set or
                     self.preferred_role.is_set or
                     self.role.is_set or
-                    self.slave_mode.is_set)
+                    self.subordinate_mode.is_set)
 
             def has_operation(self):
                 return (
@@ -903,7 +903,7 @@ class SessionRedundancyManager(Entity):
                     self.peer_ipv6_address.yfilter != YFilter.not_set or
                     self.preferred_role.yfilter != YFilter.not_set or
                     self.role.yfilter != YFilter.not_set or
-                    self.slave_mode.yfilter != YFilter.not_set)
+                    self.subordinate_mode.yfilter != YFilter.not_set)
 
             def get_segment_path(self):
                 path_buffer = ""
@@ -941,8 +941,8 @@ class SessionRedundancyManager(Entity):
                     leaf_name_data.append(self.preferred_role.get_name_leafdata())
                 if (self.role.is_set or self.role.yfilter != YFilter.not_set):
                     leaf_name_data.append(self.role.get_name_leafdata())
-                if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                    leaf_name_data.append(self.slave_mode.get_name_leafdata())
+                if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
 
                 entity_path = EntityPath(path_buffer, leaf_name_data)
                 return entity_path
@@ -955,7 +955,7 @@ class SessionRedundancyManager(Entity):
                 return None
 
             def has_leaf_or_child_of_name(self, name):
-                if(name == "group" or name == "description" or name == "disabled" or name == "group-id" or name == "interface-count" or name == "node-name" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "preferred-role" or name == "role" or name == "slave-mode"):
+                if(name == "group" or name == "description" or name == "disabled" or name == "group-id" or name == "interface-count" or name == "node-name" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "preferred-role" or name == "role" or name == "subordinate-mode"):
                     return True
                 return False
 
@@ -1004,10 +1004,10 @@ class SessionRedundancyManager(Entity):
                     self.role = value
                     self.role.value_namespace = name_space
                     self.role.value_namespace_prefix = name_space_prefix
-                if(value_path == "slave-mode"):
-                    self.slave_mode = value
-                    self.slave_mode.value_namespace = name_space
-                    self.slave_mode.value_namespace_prefix = name_space_prefix
+                if(value_path == "subordinate-mode"):
+                    self.subordinate_mode = value
+                    self.subordinate_mode.value_namespace = name_space
+                    self.subordinate_mode.value_namespace_prefix = name_space_prefix
 
         def has_data(self):
             for c in self.group:
@@ -1109,16 +1109,16 @@ class SessionRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: master_group_count
+        .. attribute:: main_group_count
         
-        	No. of Master/Active Groups
+        	No. of Main/Active Groups
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: master_interface_count
+        .. attribute:: main_interface_count
         
-        	No. of Master/Active Interfaces
+        	No. of Main/Active Interfaces
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -1128,24 +1128,24 @@ class SessionRedundancyManager(Entity):
         	Preferred Role
         	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
         
-        .. attribute:: slave_group_count
+        .. attribute:: subordinate_group_count
         
-        	No. of Slave Groups
+        	No. of Subordinate Groups
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: slave_interface_count
+        .. attribute:: subordinate_interface_count
         
-        	No. of Slave Interfaces
+        	No. of Subordinate Interfaces
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: slave_mode
+        .. attribute:: subordinate_mode
         
-        	Slave Mode
-        	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+        	Subordinate Mode
+        	**type**\:   :py:class:`SergShowSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSubordinateMode>`
         
         .. attribute:: source_interface_ipv4_address
         
@@ -1196,17 +1196,17 @@ class SessionRedundancyManager(Entity):
 
             self.interface_count = YLeaf(YType.uint32, "interface-count")
 
-            self.master_group_count = YLeaf(YType.uint32, "master-group-count")
+            self.main_group_count = YLeaf(YType.uint32, "main-group-count")
 
-            self.master_interface_count = YLeaf(YType.uint32, "master-interface-count")
+            self.main_interface_count = YLeaf(YType.uint32, "main-interface-count")
 
             self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
 
-            self.slave_group_count = YLeaf(YType.uint32, "slave-group-count")
+            self.subordinate_group_count = YLeaf(YType.uint32, "subordinate-group-count")
 
-            self.slave_interface_count = YLeaf(YType.uint32, "slave-interface-count")
+            self.subordinate_interface_count = YLeaf(YType.uint32, "subordinate-interface-count")
 
-            self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+            self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
             self.source_interface_ipv4_address = YLeaf(YType.str, "source-interface-ipv4-address")
 
@@ -1231,12 +1231,12 @@ class SessionRedundancyManager(Entity):
                             "group_count",
                             "hold_timer",
                             "interface_count",
-                            "master_group_count",
-                            "master_interface_count",
+                            "main_group_count",
+                            "main_interface_count",
                             "preferred_role",
-                            "slave_group_count",
-                            "slave_interface_count",
-                            "slave_mode",
+                            "subordinate_group_count",
+                            "subordinate_interface_count",
+                            "subordinate_mode",
                             "source_interface_ipv4_address",
                             "source_interface_ipv6_address",
                             "source_interface_name",
@@ -1263,12 +1263,12 @@ class SessionRedundancyManager(Entity):
                 self.group_count.is_set or
                 self.hold_timer.is_set or
                 self.interface_count.is_set or
-                self.master_group_count.is_set or
-                self.master_interface_count.is_set or
+                self.main_group_count.is_set or
+                self.main_interface_count.is_set or
                 self.preferred_role.is_set or
-                self.slave_group_count.is_set or
-                self.slave_interface_count.is_set or
-                self.slave_mode.is_set or
+                self.subordinate_group_count.is_set or
+                self.subordinate_interface_count.is_set or
+                self.subordinate_mode.is_set or
                 self.source_interface_ipv4_address.is_set or
                 self.source_interface_ipv6_address.is_set or
                 self.source_interface_name.is_set or
@@ -1283,12 +1283,12 @@ class SessionRedundancyManager(Entity):
                 self.group_count.yfilter != YFilter.not_set or
                 self.hold_timer.yfilter != YFilter.not_set or
                 self.interface_count.yfilter != YFilter.not_set or
-                self.master_group_count.yfilter != YFilter.not_set or
-                self.master_interface_count.yfilter != YFilter.not_set or
+                self.main_group_count.yfilter != YFilter.not_set or
+                self.main_interface_count.yfilter != YFilter.not_set or
                 self.preferred_role.yfilter != YFilter.not_set or
-                self.slave_group_count.yfilter != YFilter.not_set or
-                self.slave_interface_count.yfilter != YFilter.not_set or
-                self.slave_mode.yfilter != YFilter.not_set or
+                self.subordinate_group_count.yfilter != YFilter.not_set or
+                self.subordinate_interface_count.yfilter != YFilter.not_set or
+                self.subordinate_mode.yfilter != YFilter.not_set or
                 self.source_interface_ipv4_address.yfilter != YFilter.not_set or
                 self.source_interface_ipv6_address.yfilter != YFilter.not_set or
                 self.source_interface_name.yfilter != YFilter.not_set or
@@ -1320,18 +1320,18 @@ class SessionRedundancyManager(Entity):
                 leaf_name_data.append(self.hold_timer.get_name_leafdata())
             if (self.interface_count.is_set or self.interface_count.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.interface_count.get_name_leafdata())
-            if (self.master_group_count.is_set or self.master_group_count.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.master_group_count.get_name_leafdata())
-            if (self.master_interface_count.is_set or self.master_interface_count.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.master_interface_count.get_name_leafdata())
+            if (self.main_group_count.is_set or self.main_group_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.main_group_count.get_name_leafdata())
+            if (self.main_interface_count.is_set or self.main_interface_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.main_interface_count.get_name_leafdata())
             if (self.preferred_role.is_set or self.preferred_role.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.preferred_role.get_name_leafdata())
-            if (self.slave_group_count.is_set or self.slave_group_count.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.slave_group_count.get_name_leafdata())
-            if (self.slave_interface_count.is_set or self.slave_interface_count.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.slave_interface_count.get_name_leafdata())
-            if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.slave_mode.get_name_leafdata())
+            if (self.subordinate_group_count.is_set or self.subordinate_group_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.subordinate_group_count.get_name_leafdata())
+            if (self.subordinate_interface_count.is_set or self.subordinate_interface_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.subordinate_interface_count.get_name_leafdata())
+            if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
             if (self.source_interface_ipv4_address.is_set or self.source_interface_ipv4_address.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.source_interface_ipv4_address.get_name_leafdata())
             if (self.source_interface_ipv6_address.is_set or self.source_interface_ipv6_address.yfilter != YFilter.not_set):
@@ -1352,7 +1352,7 @@ class SessionRedundancyManager(Entity):
             return None
 
         def has_leaf_or_child_of_name(self, name):
-            if(name == "active-state" or name == "disabled" or name == "disabled-group-count" or name == "group-count" or name == "hold-timer" or name == "interface-count" or name == "master-group-count" or name == "master-interface-count" or name == "preferred-role" or name == "slave-group-count" or name == "slave-interface-count" or name == "slave-mode" or name == "source-interface-ipv4-address" or name == "source-interface-ipv6-address" or name == "source-interface-name" or name == "vrf-name"):
+            if(name == "active-state" or name == "disabled" or name == "disabled-group-count" or name == "group-count" or name == "hold-timer" or name == "interface-count" or name == "main-group-count" or name == "main-interface-count" or name == "preferred-role" or name == "subordinate-group-count" or name == "subordinate-interface-count" or name == "subordinate-mode" or name == "source-interface-ipv4-address" or name == "source-interface-ipv6-address" or name == "source-interface-name" or name == "vrf-name"):
                 return True
             return False
 
@@ -1381,30 +1381,30 @@ class SessionRedundancyManager(Entity):
                 self.interface_count = value
                 self.interface_count.value_namespace = name_space
                 self.interface_count.value_namespace_prefix = name_space_prefix
-            if(value_path == "master-group-count"):
-                self.master_group_count = value
-                self.master_group_count.value_namespace = name_space
-                self.master_group_count.value_namespace_prefix = name_space_prefix
-            if(value_path == "master-interface-count"):
-                self.master_interface_count = value
-                self.master_interface_count.value_namespace = name_space
-                self.master_interface_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "main-group-count"):
+                self.main_group_count = value
+                self.main_group_count.value_namespace = name_space
+                self.main_group_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "main-interface-count"):
+                self.main_interface_count = value
+                self.main_interface_count.value_namespace = name_space
+                self.main_interface_count.value_namespace_prefix = name_space_prefix
             if(value_path == "preferred-role"):
                 self.preferred_role = value
                 self.preferred_role.value_namespace = name_space
                 self.preferred_role.value_namespace_prefix = name_space_prefix
-            if(value_path == "slave-group-count"):
-                self.slave_group_count = value
-                self.slave_group_count.value_namespace = name_space
-                self.slave_group_count.value_namespace_prefix = name_space_prefix
-            if(value_path == "slave-interface-count"):
-                self.slave_interface_count = value
-                self.slave_interface_count.value_namespace = name_space
-                self.slave_interface_count.value_namespace_prefix = name_space_prefix
-            if(value_path == "slave-mode"):
-                self.slave_mode = value
-                self.slave_mode.value_namespace = name_space
-                self.slave_mode.value_namespace_prefix = name_space_prefix
+            if(value_path == "subordinate-group-count"):
+                self.subordinate_group_count = value
+                self.subordinate_group_count.value_namespace = name_space
+                self.subordinate_group_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "subordinate-interface-count"):
+                self.subordinate_interface_count = value
+                self.subordinate_interface_count.value_namespace = name_space
+                self.subordinate_interface_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "subordinate-mode"):
+                self.subordinate_mode = value
+                self.subordinate_mode.value_namespace = name_space
+                self.subordinate_mode.value_namespace_prefix = name_space_prefix
             if(value_path == "source-interface-ipv4-address"):
                 self.source_interface_ipv4_address = value
                 self.source_interface_ipv4_address.value_namespace = name_space
@@ -1774,9 +1774,9 @@ class SessionRedundancyAgent(Entity):
                     	Negative Acknowledgement Update Flag is Set
                     	**type**\:  bool
                     
-                    .. attribute:: role_master
+                    .. attribute:: role_main
                     
-                    	Master Role is Set
+                    	Main Role is Set
                     	**type**\:  bool
                     
                     .. attribute:: session_detailed_information
@@ -1812,7 +1812,7 @@ class SessionRedundancyAgent(Entity):
 
                         self.negative_acknowledgement_update_all = YLeaf(YType.boolean, "negative-acknowledgement-update-all")
 
-                        self.role_master = YLeaf(YType.boolean, "role-master")
+                        self.role_main = YLeaf(YType.boolean, "role-main")
 
                         self.session_detailed_information = YList(self)
                         self.session_sync_error_information = YList(self)
@@ -1831,7 +1831,7 @@ class SessionRedundancyAgent(Entity):
                                         "interface_name",
                                         "key_index",
                                         "negative_acknowledgement_update_all",
-                                        "role_master") and name in self.__dict__:
+                                        "role_main") and name in self.__dict__:
                                 if isinstance(value, YLeaf):
                                     self.__dict__[name].set(value.get())
                                 elif isinstance(value, YLeafList):
@@ -2151,7 +2151,7 @@ class SessionRedundancyAgent(Entity):
                             self.interface_name.is_set or
                             self.key_index.is_set or
                             self.negative_acknowledgement_update_all.is_set or
-                            self.role_master.is_set)
+                            self.role_main.is_set)
 
                     def has_operation(self):
                         for c in self.session_detailed_information:
@@ -2167,7 +2167,7 @@ class SessionRedundancyAgent(Entity):
                             self.interface_name.yfilter != YFilter.not_set or
                             self.key_index.yfilter != YFilter.not_set or
                             self.negative_acknowledgement_update_all.yfilter != YFilter.not_set or
-                            self.role_master.yfilter != YFilter.not_set)
+                            self.role_main.yfilter != YFilter.not_set)
 
                     def get_segment_path(self):
                         path_buffer = ""
@@ -2193,8 +2193,8 @@ class SessionRedundancyAgent(Entity):
                             leaf_name_data.append(self.key_index.get_name_leafdata())
                         if (self.negative_acknowledgement_update_all.is_set or self.negative_acknowledgement_update_all.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.negative_acknowledgement_update_all.get_name_leafdata())
-                        if (self.role_master.is_set or self.role_master.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.role_master.get_name_leafdata())
+                        if (self.role_main.is_set or self.role_main.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.role_main.get_name_leafdata())
 
                         entity_path = EntityPath(path_buffer, leaf_name_data)
                         return entity_path
@@ -2231,7 +2231,7 @@ class SessionRedundancyAgent(Entity):
                         return None
 
                     def has_leaf_or_child_of_name(self, name):
-                        if(name == "session-detailed-information" or name == "session-sync-error-information" or name == "group-id" or name == "group-id-xr" or name == "interface-name" or name == "key-index" or name == "negative-acknowledgement-update-all" or name == "role-master"):
+                        if(name == "session-detailed-information" or name == "session-sync-error-information" or name == "group-id" or name == "group-id-xr" or name == "interface-name" or name == "key-index" or name == "negative-acknowledgement-update-all" or name == "role-main"):
                             return True
                         return False
 
@@ -2256,10 +2256,10 @@ class SessionRedundancyAgent(Entity):
                             self.negative_acknowledgement_update_all = value
                             self.negative_acknowledgement_update_all.value_namespace = name_space
                             self.negative_acknowledgement_update_all.value_namespace_prefix = name_space_prefix
-                        if(value_path == "role-master"):
-                            self.role_master = value
-                            self.role_master.value_namespace = name_space
-                            self.role_master.value_namespace_prefix = name_space_prefix
+                        if(value_path == "role-main"):
+                            self.role_main = value
+                            self.role_main.value_namespace = name_space
+                            self.role_main.value_namespace_prefix = name_space_prefix
 
                 def has_data(self):
                     for c in self.group_id:
@@ -4262,14 +4262,14 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: slave_mode
+                    .. attribute:: subordinate_mode
                     
-                    	Slave Mode
-                    	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+                    	Subordinate Mode
+                    	**type**\:   :py:class:`SergShowSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSubordinateMode>`
                     
-                    .. attribute:: slave_update_failure_count
+                    .. attribute:: subordinate_update_failure_count
                     
-                    	Slave Session update fail count
+                    	Subordinate Session update fail count
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -4372,9 +4372,9 @@ class SessionRedundancyAgent(Entity):
 
                         self.session_count = YLeaf(YType.uint32, "session-count")
 
-                        self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+                        self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
-                        self.slave_update_failure_count = YLeaf(YType.uint32, "slave-update-failure-count")
+                        self.subordinate_update_failure_count = YLeaf(YType.uint32, "subordinate-update-failure-count")
 
                         self.switchover_count = YLeaf(YType.uint32, "switchover-count")
 
@@ -4424,8 +4424,8 @@ class SessionRedundancyAgent(Entity):
                                         "pending_session_update_count",
                                         "revertive_timer",
                                         "session_count",
-                                        "slave_mode",
-                                        "slave_update_failure_count",
+                                        "subordinate_mode",
+                                        "subordinate_update_failure_count",
                                         "switchover_count",
                                         "switchover_hold_time",
                                         "switchover_revert_time") and name in self.__dict__:
@@ -4743,8 +4743,8 @@ class SessionRedundancyAgent(Entity):
                             self.pending_session_update_count.is_set or
                             self.revertive_timer.is_set or
                             self.session_count.is_set or
-                            self.slave_mode.is_set or
-                            self.slave_update_failure_count.is_set or
+                            self.subordinate_mode.is_set or
+                            self.subordinate_update_failure_count.is_set or
                             self.switchover_count.is_set or
                             self.switchover_hold_time.is_set or
                             self.switchover_revert_time.is_set)
@@ -4788,8 +4788,8 @@ class SessionRedundancyAgent(Entity):
                             self.pending_session_update_count.yfilter != YFilter.not_set or
                             self.revertive_timer.yfilter != YFilter.not_set or
                             self.session_count.yfilter != YFilter.not_set or
-                            self.slave_mode.yfilter != YFilter.not_set or
-                            self.slave_update_failure_count.yfilter != YFilter.not_set or
+                            self.subordinate_mode.yfilter != YFilter.not_set or
+                            self.subordinate_update_failure_count.yfilter != YFilter.not_set or
                             self.switchover_count.yfilter != YFilter.not_set or
                             self.switchover_hold_time.yfilter != YFilter.not_set or
                             self.switchover_revert_time.yfilter != YFilter.not_set)
@@ -4868,10 +4868,10 @@ class SessionRedundancyAgent(Entity):
                             leaf_name_data.append(self.revertive_timer.get_name_leafdata())
                         if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.session_count.get_name_leafdata())
-                        if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.slave_mode.get_name_leafdata())
-                        if (self.slave_update_failure_count.is_set or self.slave_update_failure_count.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.slave_update_failure_count.get_name_leafdata())
+                        if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
+                        if (self.subordinate_update_failure_count.is_set or self.subordinate_update_failure_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.subordinate_update_failure_count.get_name_leafdata())
                         if (self.switchover_count.is_set or self.switchover_count.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.switchover_count.get_name_leafdata())
                         if (self.switchover_hold_time.is_set or self.switchover_hold_time.yfilter != YFilter.not_set):
@@ -4914,7 +4914,7 @@ class SessionRedundancyAgent(Entity):
                         return None
 
                     def has_leaf_or_child_of_name(self, name):
-                        if(name == "client-session-count" or name == "interface" or name == "group-id" or name == "access-tracking-object-name" or name == "access-tracking-object-status" or name == "core-tracking-object-name" or name == "core-tracking-object-status" or name == "current-role" or name == "description" or name == "disabled" or name == "group-id-xr" or name == "hold-timer" or name == "init-role" or name == "interface-count" or name == "last-switchover-reason" or name == "last-switchover-time" or name == "negotiating-role" or name == "object-tracking-status" or name == "peer-current-role" or name == "peer-init-role" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-last-down-time" or name == "peer-last-negotiation-time" or name == "peer-last-up-time" or name == "peer-negotiating-role" or name == "peer-object-tracking-status" or name == "peer-status" or name == "pending-session-delete-count" or name == "pending-session-update-count" or name == "revertive-timer" or name == "session-count" or name == "slave-mode" or name == "slave-update-failure-count" or name == "switchover-count" or name == "switchover-hold-time" or name == "switchover-revert-time"):
+                        if(name == "client-session-count" or name == "interface" or name == "group-id" or name == "access-tracking-object-name" or name == "access-tracking-object-status" or name == "core-tracking-object-name" or name == "core-tracking-object-status" or name == "current-role" or name == "description" or name == "disabled" or name == "group-id-xr" or name == "hold-timer" or name == "init-role" or name == "interface-count" or name == "last-switchover-reason" or name == "last-switchover-time" or name == "negotiating-role" or name == "object-tracking-status" or name == "peer-current-role" or name == "peer-init-role" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-last-down-time" or name == "peer-last-negotiation-time" or name == "peer-last-up-time" or name == "peer-negotiating-role" or name == "peer-object-tracking-status" or name == "peer-status" or name == "pending-session-delete-count" or name == "pending-session-update-count" or name == "revertive-timer" or name == "session-count" or name == "subordinate-mode" or name == "subordinate-update-failure-count" or name == "switchover-count" or name == "switchover-hold-time" or name == "switchover-revert-time"):
                             return True
                         return False
 
@@ -5039,14 +5039,14 @@ class SessionRedundancyAgent(Entity):
                             self.session_count = value
                             self.session_count.value_namespace = name_space
                             self.session_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "slave-mode"):
-                            self.slave_mode = value
-                            self.slave_mode.value_namespace = name_space
-                            self.slave_mode.value_namespace_prefix = name_space_prefix
-                        if(value_path == "slave-update-failure-count"):
-                            self.slave_update_failure_count = value
-                            self.slave_update_failure_count.value_namespace = name_space
-                            self.slave_update_failure_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "subordinate-mode"):
+                            self.subordinate_mode = value
+                            self.subordinate_mode.value_namespace = name_space
+                            self.subordinate_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "subordinate-update-failure-count"):
+                            self.subordinate_update_failure_count = value
+                            self.subordinate_update_failure_count.value_namespace = name_space
+                            self.subordinate_update_failure_count.value_namespace_prefix = name_space_prefix
                         if(value_path == "switchover-count"):
                             self.switchover_count = value
                             self.switchover_count.value_namespace = name_space
@@ -8265,10 +8265,10 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: slave_mode
+                    .. attribute:: subordinate_mode
                     
-                    	Slave Mode
-                    	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+                    	Subordinate Mode
+                    	**type**\:   :py:class:`SergShowSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSubordinateMode>`
                     
                     
 
@@ -8307,7 +8307,7 @@ class SessionRedundancyAgent(Entity):
 
                         self.session_count = YLeaf(YType.uint32, "session-count")
 
-                        self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+                        self.subordinate_mode = YLeaf(YType.enumeration, "subordinate-mode")
 
                     def __setattr__(self, name, value):
                         self._check_monkey_patching_error(name, value)
@@ -8330,7 +8330,7 @@ class SessionRedundancyAgent(Entity):
                                         "preferred_role",
                                         "role",
                                         "session_count",
-                                        "slave_mode") and name in self.__dict__:
+                                        "subordinate_mode") and name in self.__dict__:
                                 if isinstance(value, YLeaf):
                                     self.__dict__[name].set(value.get())
                                 elif isinstance(value, YLeafList):
@@ -8359,7 +8359,7 @@ class SessionRedundancyAgent(Entity):
                             self.preferred_role.is_set or
                             self.role.is_set or
                             self.session_count.is_set or
-                            self.slave_mode.is_set)
+                            self.subordinate_mode.is_set)
 
                     def has_operation(self):
                         return (
@@ -8376,7 +8376,7 @@ class SessionRedundancyAgent(Entity):
                             self.preferred_role.yfilter != YFilter.not_set or
                             self.role.yfilter != YFilter.not_set or
                             self.session_count.yfilter != YFilter.not_set or
-                            self.slave_mode.yfilter != YFilter.not_set)
+                            self.subordinate_mode.yfilter != YFilter.not_set)
 
                     def get_segment_path(self):
                         path_buffer = ""
@@ -8416,8 +8416,8 @@ class SessionRedundancyAgent(Entity):
                             leaf_name_data.append(self.role.get_name_leafdata())
                         if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.session_count.get_name_leafdata())
-                        if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.slave_mode.get_name_leafdata())
+                        if (self.subordinate_mode.is_set or self.subordinate_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.subordinate_mode.get_name_leafdata())
 
                         entity_path = EntityPath(path_buffer, leaf_name_data)
                         return entity_path
@@ -8430,7 +8430,7 @@ class SessionRedundancyAgent(Entity):
                         return None
 
                     def has_leaf_or_child_of_name(self, name):
-                        if(name == "group-id" or name == "disabled" or name == "group-id-xr" or name == "interface-count" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-status" or name == "pending-add-session-count" or name == "preferred-role" or name == "role" or name == "session-count" or name == "slave-mode"):
+                        if(name == "group-id" or name == "disabled" or name == "group-id-xr" or name == "interface-count" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-status" or name == "pending-add-session-count" or name == "preferred-role" or name == "role" or name == "session-count" or name == "subordinate-mode"):
                             return True
                         return False
 
@@ -8483,10 +8483,10 @@ class SessionRedundancyAgent(Entity):
                             self.session_count = value
                             self.session_count.value_namespace = name_space
                             self.session_count.value_namespace_prefix = name_space_prefix
-                        if(value_path == "slave-mode"):
-                            self.slave_mode = value
-                            self.slave_mode.value_namespace = name_space
-                            self.slave_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "subordinate-mode"):
+                            self.subordinate_mode = value
+                            self.subordinate_mode.value_namespace = name_space
+                            self.subordinate_mode.value_namespace_prefix = name_space_prefix
 
                 def has_data(self):
                     for c in self.group_summary:

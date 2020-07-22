@@ -709,9 +709,9 @@ class Vpdn(Entity):
                 	Elapsed time since last change in hh\:mm\:ss format
                 	**type**\:  str
                 
-                .. attribute:: srg_slave
+                .. attribute:: srg_subordinate
                 
-                	Session SRG Slave
+                	Session SRG Subordinate
                 	**type**\:  bool
                 
                 .. attribute:: state
@@ -747,7 +747,7 @@ class Vpdn(Entity):
 
                     self.last_change = YLeaf(YType.str, "last-change")
 
-                    self.srg_slave = YLeaf(YType.boolean, "srg-slave")
+                    self.srg_subordinate = YLeaf(YType.boolean, "srg-subordinate")
 
                     self.state = YLeaf(YType.enumeration, "state")
 
@@ -767,7 +767,7 @@ class Vpdn(Entity):
                                     "l2tp_session_id",
                                     "l2tp_tunnel_id",
                                     "last_change",
-                                    "srg_slave",
+                                    "srg_subordinate",
                                     "state",
                                     "username") and name in self.__dict__:
                             if isinstance(value, YLeaf):
@@ -791,7 +791,7 @@ class Vpdn(Entity):
                         self.l2tp_session_id.is_set or
                         self.l2tp_tunnel_id.is_set or
                         self.last_change.is_set or
-                        self.srg_slave.is_set or
+                        self.srg_subordinate.is_set or
                         self.state.is_set or
                         self.username.is_set)
 
@@ -803,7 +803,7 @@ class Vpdn(Entity):
                         self.l2tp_session_id.yfilter != YFilter.not_set or
                         self.l2tp_tunnel_id.yfilter != YFilter.not_set or
                         self.last_change.yfilter != YFilter.not_set or
-                        self.srg_slave.yfilter != YFilter.not_set or
+                        self.srg_subordinate.yfilter != YFilter.not_set or
                         self.state.yfilter != YFilter.not_set or
                         self.username.yfilter != YFilter.not_set)
 
@@ -831,8 +831,8 @@ class Vpdn(Entity):
                         leaf_name_data.append(self.l2tp_tunnel_id.get_name_leafdata())
                     if (self.last_change.is_set or self.last_change.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.last_change.get_name_leafdata())
-                    if (self.srg_slave.is_set or self.srg_slave.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.srg_slave.get_name_leafdata())
+                    if (self.srg_subordinate.is_set or self.srg_subordinate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.srg_subordinate.get_name_leafdata())
                     if (self.state.is_set or self.state.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.state.get_name_leafdata())
                     if (self.username.is_set or self.username.yfilter != YFilter.not_set):
@@ -849,7 +849,7 @@ class Vpdn(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "domain-name" or name == "interface-name" or name == "l2tp-session-id" or name == "l2tp-tunnel-id" or name == "last-change" or name == "srg-slave" or name == "state" or name == "username"):
+                    if(name == "domain-name" or name == "interface-name" or name == "l2tp-session-id" or name == "l2tp-tunnel-id" or name == "last-change" or name == "srg-subordinate" or name == "state" or name == "username"):
                         return True
                     return False
 
@@ -874,10 +874,10 @@ class Vpdn(Entity):
                         self.last_change = value
                         self.last_change.value_namespace = name_space
                         self.last_change.value_namespace_prefix = name_space_prefix
-                    if(value_path == "srg-slave"):
-                        self.srg_slave = value
-                        self.srg_slave.value_namespace = name_space
-                        self.srg_slave.value_namespace_prefix = name_space_prefix
+                    if(value_path == "srg-subordinate"):
+                        self.srg_subordinate = value
+                        self.srg_subordinate.value_namespace = name_space
+                        self.srg_subordinate.value_namespace_prefix = name_space_prefix
                     if(value_path == "state"):
                         self.state = value
                         self.state.value_namespace = name_space

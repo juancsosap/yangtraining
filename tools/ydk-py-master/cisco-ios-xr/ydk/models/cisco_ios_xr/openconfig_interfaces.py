@@ -3294,7 +3294,7 @@ class Interfaces(Entity):
                                         
                                         .. attribute:: preempt
                                         
-                                        	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                        	When set to true, enables preemption by a higher priority backup router of a lower priority main router
                                         	**type**\:  bool
                                         
                                         	**default value**\: true
@@ -3528,7 +3528,7 @@ class Interfaces(Entity):
                                         
                                         .. attribute:: preempt
                                         
-                                        	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                        	When set to true, enables preemption by a higher priority backup router of a lower priority main router
                                         	**type**\:  bool
                                         
                                         	**default value**\: true
@@ -3795,7 +3795,7 @@ class Interfaces(Entity):
                                             
                                             .. attribute:: track_interface
                                             
-                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mainship if the tracked interface going down lowers the priority sufficiently
                                             	**type**\:  str
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
@@ -3913,7 +3913,7 @@ class Interfaces(Entity):
                                             
                                             .. attribute:: track_interface
                                             
-                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mainship if the tracked interface going down lowers the priority sufficiently
                                             	**type**\:  str
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
@@ -6518,7 +6518,7 @@ class Interfaces(Entity):
                                         
                                         .. attribute:: preempt
                                         
-                                        	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                        	When set to true, enables preemption by a higher priority backup router of a lower priority main router
                                         	**type**\:  bool
                                         
                                         	**default value**\: true
@@ -6780,7 +6780,7 @@ class Interfaces(Entity):
                                         
                                         .. attribute:: preempt
                                         
-                                        	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                        	When set to true, enables preemption by a higher priority backup router of a lower priority main router
                                         	**type**\:  bool
                                         
                                         	**default value**\: true
@@ -7075,7 +7075,7 @@ class Interfaces(Entity):
                                             
                                             .. attribute:: track_interface
                                             
-                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mainship if the tracked interface going down lowers the priority sufficiently
                                             	**type**\:  str
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
@@ -7193,7 +7193,7 @@ class Interfaces(Entity):
                                             
                                             .. attribute:: track_interface
                                             
-                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mainship if the tracked interface going down lowers the priority sufficiently
                                             	**type**\:  str
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
@@ -12498,7 +12498,7 @@ class Interfaces(Entity):
                                     
                                     .. attribute:: preempt
                                     
-                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                    	When set to true, enables preemption by a higher priority backup router of a lower priority main router
                                     	**type**\:  bool
                                     
                                     	**default value**\: true
@@ -12732,7 +12732,7 @@ class Interfaces(Entity):
                                     
                                     .. attribute:: preempt
                                     
-                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                    	When set to true, enables preemption by a higher priority backup router of a lower priority main router
                                     	**type**\:  bool
                                     
                                     	**default value**\: true
@@ -12999,7 +12999,7 @@ class Interfaces(Entity):
                                         
                                         .. attribute:: track_interface
                                         
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mainship if the tracked interface going down lowers the priority sufficiently
                                         	**type**\:  str
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
@@ -13117,7 +13117,7 @@ class Interfaces(Entity):
                                         
                                         .. attribute:: track_interface
                                         
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mainship if the tracked interface going down lowers the priority sufficiently
                                         	**type**\:  str
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
@@ -15722,7 +15722,7 @@ class Interfaces(Entity):
                                     
                                     .. attribute:: preempt
                                     
-                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                    	When set to true, enables preemption by a higher priority backup router of a lower priority main router
                                     	**type**\:  bool
                                     
                                     	**default value**\: true
@@ -15984,7 +15984,7 @@ class Interfaces(Entity):
                                     
                                     .. attribute:: preempt
                                     
-                                    	When set to true, enables preemption by a higher priority backup router of a lower priority master router
+                                    	When set to true, enables preemption by a higher priority backup router of a lower priority main router
                                     	**type**\:  bool
                                     
                                     	**default value**\: true
@@ -16279,7 +16279,7 @@ class Interfaces(Entity):
                                         
                                         .. attribute:: track_interface
                                         
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mainship if the tracked interface going down lowers the priority sufficiently
                                         	**type**\:  str
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
@@ -16397,7 +16397,7 @@ class Interfaces(Entity):
                                         
                                         .. attribute:: track_interface
                                         
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
+                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mainship if the tracked interface going down lowers the priority sufficiently
                                         	**type**\:  str
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`

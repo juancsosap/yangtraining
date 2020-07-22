@@ -272,8 +272,8 @@ def check_local():
                 json_body = json.loads(json.dumps({
                     "title": "Cron job - every day pull and update of ietf draft yang files.",
                     "body": "ietf extracted yang modules",
-                    "head": "yang-catalog:master",
-                    "base": "master"
+                    "head": "yang-catalog:main",
+                    "base": "main"
                 }))
 
                 r = requests.post(yang_models_url + '/pulls',
@@ -307,7 +307,7 @@ def check_local():
                 "title": "Cron job - every day pull and update of ietf draft yang files.",
                 "body": "ietf extracted yang modules",
                 "state": "closed",
-                "base": "master"
+                "base": "main"
             }))
             requests.patch('https://api.github.com/repos/YangModels/yang/pulls/' + pull_number, json=json_body,
                             headers={'Authorization': 'token ' + token})
@@ -531,7 +531,7 @@ def add_modules():
         if sdo.get('branch'):
             branch = sdo.get('branch')
         else:
-            branch = 'master'
+            branch = 'main'
         save_to = direc + '/temp/' + sdo['owner'] + '/' + sdo['repository'].split('.')[0] \
                   + '/' + branch + '/' + directory
         try:
@@ -664,7 +664,7 @@ def add_vendors():
         if capability.get('branch'):
             branch = capability.get('branch')
         else:
-            branch = 'master'
+            branch = 'main'
         directory = '/'.join(capability['path'].split('/')[:-1])
         save_to = direc + '/temp/' + capability['owner'] + '/' \
                   + capability['repository'].split('.')[0] + '/' + branch + '/' + directory

@@ -1501,9 +1501,9 @@ class PseudowireConfig(Entity):
                 	Our peer(s) are participating in a redundant solution with some form of redundancy protocol running between the peer routers. Only one of the remote peers will advertise a status of UP at a time. The other will advertise standby. Change our configuration so we can send a status of UP on both active and redundant pseudowires
                 	**type**\:  bool
                 
-                .. attribute:: redundancy_master
+                .. attribute:: redundancy_main
                 
-                	Make the PE as master to enables Pseudowire Preferential Forwarding feature to display the status of  the active and backup pseudowires
+                	Make the PE as main to enables Pseudowire Preferential Forwarding feature to display the status of  the active and backup pseudowires
                 	**type**\:  bool
                 
                 	**default value**\: false
@@ -1534,7 +1534,7 @@ class PseudowireConfig(Entity):
 
                     self.peer_topo_dual_homed = YLeaf(YType.boolean, "peer-topo-dual-homed")
 
-                    self.redundancy_master = YLeaf(YType.boolean, "redundancy-master")
+                    self.redundancy_main = YLeaf(YType.boolean, "redundancy-main")
 
                     self.route_watch_disable = YLeaf(YType.boolean, "route-watch-disable")
 
@@ -1550,7 +1550,7 @@ class PseudowireConfig(Entity):
                         if name in ("decoupled",
                                     "disable",
                                     "peer_topo_dual_homed",
-                                    "redundancy_master",
+                                    "redundancy_main",
                                     "route_watch_disable") and name in self.__dict__:
                             if isinstance(value, YLeaf):
                                 self.__dict__[name].set(value.get())
@@ -1571,7 +1571,7 @@ class PseudowireConfig(Entity):
                         self.decoupled.is_set or
                         self.disable.is_set or
                         self.peer_topo_dual_homed.is_set or
-                        self.redundancy_master.is_set or
+                        self.redundancy_main.is_set or
                         self.route_watch_disable.is_set)
 
                 def has_operation(self):
@@ -1580,7 +1580,7 @@ class PseudowireConfig(Entity):
                         self.decoupled.yfilter != YFilter.not_set or
                         self.disable.yfilter != YFilter.not_set or
                         self.peer_topo_dual_homed.yfilter != YFilter.not_set or
-                        self.redundancy_master.yfilter != YFilter.not_set or
+                        self.redundancy_main.yfilter != YFilter.not_set or
                         self.route_watch_disable.yfilter != YFilter.not_set)
 
                 def get_segment_path(self):
@@ -1603,8 +1603,8 @@ class PseudowireConfig(Entity):
                         leaf_name_data.append(self.disable.get_name_leafdata())
                     if (self.peer_topo_dual_homed.is_set or self.peer_topo_dual_homed.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.peer_topo_dual_homed.get_name_leafdata())
-                    if (self.redundancy_master.is_set or self.redundancy_master.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.redundancy_master.get_name_leafdata())
+                    if (self.redundancy_main.is_set or self.redundancy_main.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.redundancy_main.get_name_leafdata())
                     if (self.route_watch_disable.is_set or self.route_watch_disable.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.route_watch_disable.get_name_leafdata())
 
@@ -1619,7 +1619,7 @@ class PseudowireConfig(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "decoupled" or name == "disable" or name == "peer-topo-dual-homed" or name == "redundancy-master" or name == "route-watch-disable"):
+                    if(name == "decoupled" or name == "disable" or name == "peer-topo-dual-homed" or name == "redundancy-main" or name == "route-watch-disable"):
                         return True
                     return False
 
@@ -1636,10 +1636,10 @@ class PseudowireConfig(Entity):
                         self.peer_topo_dual_homed = value
                         self.peer_topo_dual_homed.value_namespace = name_space
                         self.peer_topo_dual_homed.value_namespace_prefix = name_space_prefix
-                    if(value_path == "redundancy-master"):
-                        self.redundancy_master = value
-                        self.redundancy_master.value_namespace = name_space
-                        self.redundancy_master.value_namespace_prefix = name_space_prefix
+                    if(value_path == "redundancy-main"):
+                        self.redundancy_main = value
+                        self.redundancy_main.value_namespace = name_space
+                        self.redundancy_main.value_namespace_prefix = name_space_prefix
                     if(value_path == "route-watch-disable"):
                         self.route_watch_disable = value
                         self.route_watch_disable.value_namespace = name_space

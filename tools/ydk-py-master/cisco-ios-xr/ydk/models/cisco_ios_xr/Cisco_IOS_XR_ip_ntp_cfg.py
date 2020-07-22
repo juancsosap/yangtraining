@@ -164,9 +164,9 @@ class Ntp(Entity):
     	To enable logging internal sync conflicts
     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
-    .. attribute:: master
+    .. attribute:: main
     
-    	Act as NTP master clock
+    	Act as NTP main clock
     	**type**\:  int
     
     	**range:** 1..15
@@ -221,7 +221,7 @@ class Ntp(Entity):
 
         self.log_internal_sync = YLeaf(YType.empty, "log-internal-sync")
 
-        self.master = YLeaf(YType.uint32, "master")
+        self.main = YLeaf(YType.uint32, "main")
 
         self.max_associations = YLeaf(YType.int32, "max-associations")
 
@@ -276,7 +276,7 @@ class Ntp(Entity):
                 value = value.name
             if name in ("broadcast_delay",
                         "log_internal_sync",
-                        "master",
+                        "main",
                         "max_associations",
                         "update_calendar") and name in self.__dict__:
                 if isinstance(value, YLeaf):
@@ -4271,7 +4271,7 @@ class Ntp(Entity):
         return (
             self.broadcast_delay.is_set or
             self.log_internal_sync.is_set or
-            self.master.is_set or
+            self.main.is_set or
             self.max_associations.is_set or
             self.update_calendar.is_set or
             (self.access_group_tables is not None and self.access_group_tables.has_data()) or
@@ -4288,7 +4288,7 @@ class Ntp(Entity):
             self.yfilter != YFilter.not_set or
             self.broadcast_delay.yfilter != YFilter.not_set or
             self.log_internal_sync.yfilter != YFilter.not_set or
-            self.master.yfilter != YFilter.not_set or
+            self.main.yfilter != YFilter.not_set or
             self.max_associations.yfilter != YFilter.not_set or
             self.update_calendar.yfilter != YFilter.not_set or
             (self.access_group_tables is not None and self.access_group_tables.has_operation()) or
@@ -4317,8 +4317,8 @@ class Ntp(Entity):
             leaf_name_data.append(self.broadcast_delay.get_name_leafdata())
         if (self.log_internal_sync.is_set or self.log_internal_sync.yfilter != YFilter.not_set):
             leaf_name_data.append(self.log_internal_sync.get_name_leafdata())
-        if (self.master.is_set or self.master.yfilter != YFilter.not_set):
-            leaf_name_data.append(self.master.get_name_leafdata())
+        if (self.main.is_set or self.main.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.main.get_name_leafdata())
         if (self.max_associations.is_set or self.max_associations.yfilter != YFilter.not_set):
             leaf_name_data.append(self.max_associations.get_name_leafdata())
         if (self.update_calendar.is_set or self.update_calendar.yfilter != YFilter.not_set):
@@ -4391,7 +4391,7 @@ class Ntp(Entity):
         return None
 
     def has_leaf_or_child_of_name(self, name):
-        if(name == "access-group-tables" or name == "authentication" or name == "dscp-ipv4" or name == "dscp-ipv6" or name == "interface-tables" or name == "passive" or name == "peer-vrfs" or name == "sources" or name == "broadcast-delay" or name == "log-internal-sync" or name == "master" or name == "max-associations" or name == "update-calendar"):
+        if(name == "access-group-tables" or name == "authentication" or name == "dscp-ipv4" or name == "dscp-ipv6" or name == "interface-tables" or name == "passive" or name == "peer-vrfs" or name == "sources" or name == "broadcast-delay" or name == "log-internal-sync" or name == "main" or name == "max-associations" or name == "update-calendar"):
             return True
         return False
 
@@ -4404,10 +4404,10 @@ class Ntp(Entity):
             self.log_internal_sync = value
             self.log_internal_sync.value_namespace = name_space
             self.log_internal_sync.value_namespace_prefix = name_space_prefix
-        if(value_path == "master"):
-            self.master = value
-            self.master.value_namespace = name_space
-            self.master.value_namespace_prefix = name_space_prefix
+        if(value_path == "main"):
+            self.main = value
+            self.main.value_namespace = name_space
+            self.main.value_namespace_prefix = name_space_prefix
         if(value_path == "max-associations"):
             self.max_associations = value
             self.max_associations.value_namespace = name_space

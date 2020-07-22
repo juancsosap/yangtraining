@@ -158,7 +158,7 @@ def parse_url(username, request, mode):
     cxml = None
     name = ''
     tpath = []
-    master_segment = None
+    main_segment = None
     op, op_location = get_op(keyvalue, mode)
     paths = []
     url = None
@@ -217,8 +217,8 @@ def parse_url(username, request, mode):
                                     prev_list = t
                         else:
                             prev_list = Segment(n)
-                            if not master_segment:
-                                master_segment = prev_list
+                            if not main_segment:
+                                main_segment = prev_list
                             elif prev_seg:
                                 prev_seg.segments.append(prev_list)
                             prev_list.depth = depth
@@ -235,8 +235,8 @@ def parse_url(username, request, mode):
                         else:
                             cont = Segment(n)
                             cont.depth = depth
-                            if not master_segment:
-                                master_segment = cont
+                            if not main_segment:
+                                main_segment = cont
                             elif prev_seg:
                                 for i, t in enumerate(tpath):
                                     if t.name == prev_seg.name and t.depth == depth-1:

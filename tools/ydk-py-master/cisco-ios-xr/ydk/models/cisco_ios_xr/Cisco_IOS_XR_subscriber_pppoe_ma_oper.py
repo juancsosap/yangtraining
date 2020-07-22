@@ -3329,9 +3329,9 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: packet_on_srg_slave
+                    .. attribute:: packet_on_srg_subordinate
                     
-                    	Packet Received on SRG Slave
+                    	Packet Received on SRG Subordinate
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -3556,7 +3556,7 @@ class Pppoe(Entity):
 
                         self.no_space_left_in_packet = YLeaf(YType.uint32, "no-space-left-in-packet")
 
-                        self.packet_on_srg_slave = YLeaf(YType.uint32, "packet-on-srg-slave")
+                        self.packet_on_srg_subordinate = YLeaf(YType.uint32, "packet-on-srg-subordinate")
 
                         self.packet_too_long = YLeaf(YType.uint32, "packet-too-long")
 
@@ -3639,7 +3639,7 @@ class Pppoe(Entity):
                                         "no_packet_payload",
                                         "no_service_name_tag",
                                         "no_space_left_in_packet",
-                                        "packet_on_srg_slave",
+                                        "packet_on_srg_subordinate",
                                         "packet_too_long",
                                         "pado_received",
                                         "pads_received",
@@ -3707,7 +3707,7 @@ class Pppoe(Entity):
                             self.no_packet_payload.is_set or
                             self.no_service_name_tag.is_set or
                             self.no_space_left_in_packet.is_set or
-                            self.packet_on_srg_slave.is_set or
+                            self.packet_on_srg_subordinate.is_set or
                             self.packet_too_long.is_set or
                             self.pado_received.is_set or
                             self.pads_received.is_set or
@@ -3763,7 +3763,7 @@ class Pppoe(Entity):
                             self.no_packet_payload.yfilter != YFilter.not_set or
                             self.no_service_name_tag.yfilter != YFilter.not_set or
                             self.no_space_left_in_packet.yfilter != YFilter.not_set or
-                            self.packet_on_srg_slave.yfilter != YFilter.not_set or
+                            self.packet_on_srg_subordinate.yfilter != YFilter.not_set or
                             self.packet_too_long.yfilter != YFilter.not_set or
                             self.pado_received.yfilter != YFilter.not_set or
                             self.pads_received.yfilter != YFilter.not_set or
@@ -3860,8 +3860,8 @@ class Pppoe(Entity):
                             leaf_name_data.append(self.no_service_name_tag.get_name_leafdata())
                         if (self.no_space_left_in_packet.is_set or self.no_space_left_in_packet.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.no_space_left_in_packet.get_name_leafdata())
-                        if (self.packet_on_srg_slave.is_set or self.packet_on_srg_slave.yfilter != YFilter.not_set):
-                            leaf_name_data.append(self.packet_on_srg_slave.get_name_leafdata())
+                        if (self.packet_on_srg_subordinate.is_set or self.packet_on_srg_subordinate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packet_on_srg_subordinate.get_name_leafdata())
                         if (self.packet_too_long.is_set or self.packet_too_long.yfilter != YFilter.not_set):
                             leaf_name_data.append(self.packet_too_long.get_name_leafdata())
                         if (self.pado_received.is_set or self.pado_received.yfilter != YFilter.not_set):
@@ -3916,7 +3916,7 @@ class Pppoe(Entity):
                         return None
 
                     def has_leaf_or_child_of_name(self, name):
-                        if(name == "bad-packet-length" or name == "bad-tag-length-field" or name == "bad-vendor-tag-length-field" or name == "duplicate-host-uniq-tag-received" or name == "duplicate-relay-session-id-tag-received" or name == "invalid-ale-tag" or name == "invalid-dsl-tag" or name == "invalid-iana-code-invendor-tag" or name == "invalid-iwf-tag" or name == "invalid-max-payload-tag" or name == "invalid-peer-mac" or name == "invalid-service-name" or name == "invalid-version-type-value" or name == "invalid-vlan-tags" or name == "multiple-ale-tags" or name == "multiple-circuit-id-tags" or name == "multiple-host-uniq-tags" or name == "multiple-iwf-tags" or name == "multiple-max-payload-tags" or name == "multiple-of-the-same-dsl-tag" or name == "multiple-relay-session-id-tags" or name == "multiple-remote-id-tags" or name == "multiple-service-name-tags" or name == "multiple-vendor-specific-tags" or name == "no-iana-code-invendor-tag" or name == "no-interface-handle" or name == "no-packet-mac-address" or name == "no-packet-payload" or name == "no-service-name-tag" or name == "no-space-left-in-packet" or name == "packet-on-srg-slave" or name == "packet-too-long" or name == "pado-received" or name == "pads-received" or name == "padt-before-pads-sent" or name == "padt-for-unknown-session" or name == "padt-with-wrong-peer-mac" or name == "padt-with-wrong-vlan-tags" or name == "session-stage-packet-for-unknown-session" or name == "session-stage-packet-with-no-error" or name == "session-stage-packet-with-wrong-mac" or name == "session-stage-packet-with-wrong-vlan-tags" or name == "tag-too-short" or name == "unexpected-ac-name-tag" or name == "unexpected-error-tags" or name == "unexpected-session-id-in-packet" or name == "unknown-interface" or name == "unknown-packet-type-received" or name == "unknown-tag-received" or name == "unknownvendor-tag" or name == "vendor-tag-too-short" or name == "zero-length-host-uniq"):
+                        if(name == "bad-packet-length" or name == "bad-tag-length-field" or name == "bad-vendor-tag-length-field" or name == "duplicate-host-uniq-tag-received" or name == "duplicate-relay-session-id-tag-received" or name == "invalid-ale-tag" or name == "invalid-dsl-tag" or name == "invalid-iana-code-invendor-tag" or name == "invalid-iwf-tag" or name == "invalid-max-payload-tag" or name == "invalid-peer-mac" or name == "invalid-service-name" or name == "invalid-version-type-value" or name == "invalid-vlan-tags" or name == "multiple-ale-tags" or name == "multiple-circuit-id-tags" or name == "multiple-host-uniq-tags" or name == "multiple-iwf-tags" or name == "multiple-max-payload-tags" or name == "multiple-of-the-same-dsl-tag" or name == "multiple-relay-session-id-tags" or name == "multiple-remote-id-tags" or name == "multiple-service-name-tags" or name == "multiple-vendor-specific-tags" or name == "no-iana-code-invendor-tag" or name == "no-interface-handle" or name == "no-packet-mac-address" or name == "no-packet-payload" or name == "no-service-name-tag" or name == "no-space-left-in-packet" or name == "packet-on-srg-subordinate" or name == "packet-too-long" or name == "pado-received" or name == "pads-received" or name == "padt-before-pads-sent" or name == "padt-for-unknown-session" or name == "padt-with-wrong-peer-mac" or name == "padt-with-wrong-vlan-tags" or name == "session-stage-packet-for-unknown-session" or name == "session-stage-packet-with-no-error" or name == "session-stage-packet-with-wrong-mac" or name == "session-stage-packet-with-wrong-vlan-tags" or name == "tag-too-short" or name == "unexpected-ac-name-tag" or name == "unexpected-error-tags" or name == "unexpected-session-id-in-packet" or name == "unknown-interface" or name == "unknown-packet-type-received" or name == "unknown-tag-received" or name == "unknownvendor-tag" or name == "vendor-tag-too-short" or name == "zero-length-host-uniq"):
                             return True
                         return False
 
@@ -4041,10 +4041,10 @@ class Pppoe(Entity):
                             self.no_space_left_in_packet = value
                             self.no_space_left_in_packet.value_namespace = name_space
                             self.no_space_left_in_packet.value_namespace_prefix = name_space_prefix
-                        if(value_path == "packet-on-srg-slave"):
-                            self.packet_on_srg_slave = value
-                            self.packet_on_srg_slave.value_namespace = name_space
-                            self.packet_on_srg_slave.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packet-on-srg-subordinate"):
+                            self.packet_on_srg_subordinate = value
+                            self.packet_on_srg_subordinate.value_namespace = name_space
+                            self.packet_on_srg_subordinate.value_namespace_prefix = name_space_prefix
                         if(value_path == "packet-too-long"):
                             self.packet_too_long = value
                             self.packet_too_long.value_namespace = name_space

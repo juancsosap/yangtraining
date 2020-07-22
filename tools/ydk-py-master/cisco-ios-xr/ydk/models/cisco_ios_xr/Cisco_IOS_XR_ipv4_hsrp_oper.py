@@ -752,9 +752,9 @@ class Hsrp(Entity):
                 
                 	**length:** 0..64
                 
-                .. attribute:: is_slave
+                .. attribute:: is_subordinate
                 
-                	Group is a slave group
+                	Group is a subordinate group
                 	**type**\:  bool
                 
                 .. attribute:: learned_hello_time
@@ -852,9 +852,9 @@ class Hsrp(Entity):
                 
                 	**length:** 0..16
                 
-                .. attribute:: slaves
+                .. attribute:: subordinates
                 
-                	Number of slaves following state
+                	Number of subordinates following state
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -1065,7 +1065,7 @@ class Hsrp(Entity):
 
                     self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
 
-                    self.is_slave = YLeaf(YType.boolean, "is-slave")
+                    self.is_subordinate = YLeaf(YType.boolean, "is-subordinate")
 
                     self.learned_hello_time = YLeaf(YType.uint32, "learned-hello-time")
 
@@ -1089,7 +1089,7 @@ class Hsrp(Entity):
 
                     self.session_name = YLeaf(YType.str, "session-name")
 
-                    self.slaves = YLeaf(YType.uint32, "slaves")
+                    self.subordinates = YLeaf(YType.uint32, "subordinates")
 
                     self.standby_ip_address = YLeaf(YType.str, "standby-ip-address")
 
@@ -1197,7 +1197,7 @@ class Hsrp(Entity):
                                     "hsrp_router_state",
                                     "interface",
                                     "interface_name_xr",
-                                    "is_slave",
+                                    "is_subordinate",
                                     "learned_hello_time",
                                     "learned_hold_time",
                                     "min_delay_time",
@@ -1209,7 +1209,7 @@ class Hsrp(Entity):
                                     "router_priority",
                                     "secondary_address",
                                     "session_name",
-                                    "slaves",
+                                    "subordinates",
                                     "standby_ip_address",
                                     "standby_ipv6_address",
                                     "standby_mac_address",
@@ -2481,7 +2481,7 @@ class Hsrp(Entity):
                         self.hsrp_router_state.is_set or
                         self.interface.is_set or
                         self.interface_name_xr.is_set or
-                        self.is_slave.is_set or
+                        self.is_subordinate.is_set or
                         self.learned_hello_time.is_set or
                         self.learned_hold_time.is_set or
                         self.min_delay_time.is_set or
@@ -2492,7 +2492,7 @@ class Hsrp(Entity):
                         self.reload_delay_time.is_set or
                         self.router_priority.is_set or
                         self.session_name.is_set or
-                        self.slaves.is_set or
+                        self.subordinates.is_set or
                         self.standby_ip_address.is_set or
                         self.standby_ipv6_address.is_set or
                         self.standby_mac_address.is_set or
@@ -2563,7 +2563,7 @@ class Hsrp(Entity):
                         self.hsrp_router_state.yfilter != YFilter.not_set or
                         self.interface.yfilter != YFilter.not_set or
                         self.interface_name_xr.yfilter != YFilter.not_set or
-                        self.is_slave.yfilter != YFilter.not_set or
+                        self.is_subordinate.yfilter != YFilter.not_set or
                         self.learned_hello_time.yfilter != YFilter.not_set or
                         self.learned_hold_time.yfilter != YFilter.not_set or
                         self.min_delay_time.yfilter != YFilter.not_set or
@@ -2575,7 +2575,7 @@ class Hsrp(Entity):
                         self.router_priority.yfilter != YFilter.not_set or
                         self.secondary_address.yfilter != YFilter.not_set or
                         self.session_name.yfilter != YFilter.not_set or
-                        self.slaves.yfilter != YFilter.not_set or
+                        self.subordinates.yfilter != YFilter.not_set or
                         self.standby_ip_address.yfilter != YFilter.not_set or
                         self.standby_ipv6_address.yfilter != YFilter.not_set or
                         self.standby_mac_address.yfilter != YFilter.not_set or
@@ -2683,8 +2683,8 @@ class Hsrp(Entity):
                         leaf_name_data.append(self.interface.get_name_leafdata())
                     if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
-                    if (self.is_slave.is_set or self.is_slave.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.is_slave.get_name_leafdata())
+                    if (self.is_subordinate.is_set or self.is_subordinate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_subordinate.get_name_leafdata())
                     if (self.learned_hello_time.is_set or self.learned_hello_time.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.learned_hello_time.get_name_leafdata())
                     if (self.learned_hold_time.is_set or self.learned_hold_time.yfilter != YFilter.not_set):
@@ -2705,8 +2705,8 @@ class Hsrp(Entity):
                         leaf_name_data.append(self.router_priority.get_name_leafdata())
                     if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.session_name.get_name_leafdata())
-                    if (self.slaves.is_set or self.slaves.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.slaves.get_name_leafdata())
+                    if (self.subordinates.is_set or self.subordinates.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.subordinates.get_name_leafdata())
                     if (self.standby_ip_address.is_set or self.standby_ip_address.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.standby_ip_address.get_name_leafdata())
                     if (self.standby_ipv6_address.is_set or self.standby_ipv6_address.yfilter != YFilter.not_set):
@@ -2814,7 +2814,7 @@ class Hsrp(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "coup-received-time" or name == "coup-sent-time" or name == "global-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "statistics" or name == "interface-name" or name == "group-number" or name == "active-ip-address" or name == "active-ipv6-address" or name == "active-mac-address" or name == "active-priority" or name == "active-timer-flag" or name == "active-timer-msecs" or name == "active-timer-secs" or name == "address-family" or name == "authentication-string" or name == "bfd-enabled" or name == "bfd-interface" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-peer-ip-address" or name == "bfd-peer-ipv6-address" or name == "bfd-session-state" or name == "configured-mac-address" or name == "configured-priority" or name == "configured-timers" or name == "current-state-timer-secs" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "hello-time" or name == "hello-timer-flag" or name == "hello-timer-msecs" or name == "hello-timer-secs" or name == "hold-time" or name == "hsrp-group-number" or name == "hsrp-router-state" or name == "interface" or name == "interface-name-xr" or name == "is-slave" or name == "learned-hello-time" or name == "learned-hold-time" or name == "min-delay-time" or name == "preempt-delay" or name == "preempt-enabled" or name == "preempt-timer-secs" or name == "redirects-disabled" or name == "reload-delay-time" or name == "router-priority" or name == "secondary-address" or name == "session-name" or name == "slaves" or name == "standby-ip-address" or name == "standby-ipv6-address" or name == "standby-mac-address" or name == "standby-timer-flag" or name == "standby-timer-msecs" or name == "standby-timer-secs" or name == "state-change-count" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "use-bia-configured" or name == "use-configured-timers" or name == "use-configured-virtual-ip" or name == "version" or name == "virtual-ip-address" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state"):
+                    if(name == "coup-received-time" or name == "coup-sent-time" or name == "global-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "statistics" or name == "interface-name" or name == "group-number" or name == "active-ip-address" or name == "active-ipv6-address" or name == "active-mac-address" or name == "active-priority" or name == "active-timer-flag" or name == "active-timer-msecs" or name == "active-timer-secs" or name == "address-family" or name == "authentication-string" or name == "bfd-enabled" or name == "bfd-interface" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-peer-ip-address" or name == "bfd-peer-ipv6-address" or name == "bfd-session-state" or name == "configured-mac-address" or name == "configured-priority" or name == "configured-timers" or name == "current-state-timer-secs" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "hello-time" or name == "hello-timer-flag" or name == "hello-timer-msecs" or name == "hello-timer-secs" or name == "hold-time" or name == "hsrp-group-number" or name == "hsrp-router-state" or name == "interface" or name == "interface-name-xr" or name == "is-subordinate" or name == "learned-hello-time" or name == "learned-hold-time" or name == "min-delay-time" or name == "preempt-delay" or name == "preempt-enabled" or name == "preempt-timer-secs" or name == "redirects-disabled" or name == "reload-delay-time" or name == "router-priority" or name == "secondary-address" or name == "session-name" or name == "subordinates" or name == "standby-ip-address" or name == "standby-ipv6-address" or name == "standby-mac-address" or name == "standby-timer-flag" or name == "standby-timer-msecs" or name == "standby-timer-secs" or name == "state-change-count" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "use-bia-configured" or name == "use-configured-timers" or name == "use-configured-virtual-ip" or name == "version" or name == "virtual-ip-address" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state"):
                         return True
                     return False
 
@@ -2959,10 +2959,10 @@ class Hsrp(Entity):
                         self.interface_name_xr = value
                         self.interface_name_xr.value_namespace = name_space
                         self.interface_name_xr.value_namespace_prefix = name_space_prefix
-                    if(value_path == "is-slave"):
-                        self.is_slave = value
-                        self.is_slave.value_namespace = name_space
-                        self.is_slave.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-subordinate"):
+                        self.is_subordinate = value
+                        self.is_subordinate.value_namespace = name_space
+                        self.is_subordinate.value_namespace_prefix = name_space_prefix
                     if(value_path == "learned-hello-time"):
                         self.learned_hello_time = value
                         self.learned_hello_time.value_namespace = name_space
@@ -3005,10 +3005,10 @@ class Hsrp(Entity):
                         self.session_name = value
                         self.session_name.value_namespace = name_space
                         self.session_name.value_namespace_prefix = name_space_prefix
-                    if(value_path == "slaves"):
-                        self.slaves = value
-                        self.slaves.value_namespace = name_space
-                        self.slaves.value_namespace_prefix = name_space_prefix
+                    if(value_path == "subordinates"):
+                        self.subordinates = value
+                        self.subordinates.value_namespace = name_space
+                        self.subordinates.value_namespace_prefix = name_space_prefix
                     if(value_path == "standby-ip-address"):
                         self.standby_ip_address = value
                         self.standby_ip_address.value_namespace = name_space
@@ -4137,10 +4137,10 @@ class Hsrp(Entity):
             	State of primary session
             	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
             
-            .. attribute:: slave
+            .. attribute:: subordinate
             
-            	List of slaves following this primary session
-            	**type**\: list of    :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession.Slave>`
+            	List of subordinates following this primary session
+            	**type**\: list of    :py:class:`Subordinate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession.Subordinate>`
             
             
 
@@ -4167,7 +4167,7 @@ class Hsrp(Entity):
 
                 self.primary_session_state = YLeaf(YType.enumeration, "primary-session-state")
 
-                self.slave = YList(self)
+                self.subordinate = YList(self)
 
             def __setattr__(self, name, value):
                 self._check_monkey_patching_error(name, value)
@@ -4199,20 +4199,20 @@ class Hsrp(Entity):
                         super(Hsrp.MgoSessions.MgoSession, self).__setattr__(name, value)
 
 
-            class Slave(Entity):
+            class Subordinate(Entity):
                 """
-                List of slaves following this primary session
+                List of subordinates following this primary session
                 
-                .. attribute:: slave_group_interface
+                .. attribute:: subordinate_group_interface
                 
-                	Interface of slave group
+                	Interface of subordinate group
                 	**type**\:  str
                 
                 	**length:** 0..64
                 
-                .. attribute:: slave_group_number
+                .. attribute:: subordinate_group_number
                 
-                	Group number of slave group
+                	Group number of subordinate group
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -4225,14 +4225,14 @@ class Hsrp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Hsrp.MgoSessions.MgoSession.Slave, self).__init__()
+                    super(Hsrp.MgoSessions.MgoSession.Subordinate, self).__init__()
 
-                    self.yang_name = "slave"
+                    self.yang_name = "subordinate"
                     self.yang_parent_name = "mgo-session"
 
-                    self.slave_group_interface = YLeaf(YType.str, "slave-group-interface")
+                    self.subordinate_group_interface = YLeaf(YType.str, "subordinate-group-interface")
 
-                    self.slave_group_number = YLeaf(YType.uint32, "slave-group-number")
+                    self.subordinate_group_number = YLeaf(YType.uint32, "subordinate-group-number")
 
                 def __setattr__(self, name, value):
                     self._check_monkey_patching_error(name, value)
@@ -4243,12 +4243,12 @@ class Hsrp(Entity):
                                                 .format(value))
                         if isinstance(value, Enum.YLeaf):
                             value = value.name
-                        if name in ("slave_group_interface",
-                                    "slave_group_number") and name in self.__dict__:
+                        if name in ("subordinate_group_interface",
+                                    "subordinate_group_number") and name in self.__dict__:
                             if isinstance(value, YLeaf):
                                 self.__dict__[name].set(value.get())
                             elif isinstance(value, YLeafList):
-                                super(Hsrp.MgoSessions.MgoSession.Slave, self).__setattr__(name, value)
+                                super(Hsrp.MgoSessions.MgoSession.Subordinate, self).__setattr__(name, value)
                             else:
                                 self.__dict__[name].set(value)
                         else:
@@ -4257,22 +4257,22 @@ class Hsrp(Entity):
                                     value.parent = self
                                 elif value.parent is None and value.yang_name in self._children_yang_names:
                                     value.parent = self
-                            super(Hsrp.MgoSessions.MgoSession.Slave, self).__setattr__(name, value)
+                            super(Hsrp.MgoSessions.MgoSession.Subordinate, self).__setattr__(name, value)
 
                 def has_data(self):
                     return (
-                        self.slave_group_interface.is_set or
-                        self.slave_group_number.is_set)
+                        self.subordinate_group_interface.is_set or
+                        self.subordinate_group_number.is_set)
 
                 def has_operation(self):
                     return (
                         self.yfilter != YFilter.not_set or
-                        self.slave_group_interface.yfilter != YFilter.not_set or
-                        self.slave_group_number.yfilter != YFilter.not_set)
+                        self.subordinate_group_interface.yfilter != YFilter.not_set or
+                        self.subordinate_group_number.yfilter != YFilter.not_set)
 
                 def get_segment_path(self):
                     path_buffer = ""
-                    path_buffer = "slave" + path_buffer
+                    path_buffer = "subordinate" + path_buffer
 
                     return path_buffer
 
@@ -4284,10 +4284,10 @@ class Hsrp(Entity):
                         path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
                     leaf_name_data = LeafDataList()
-                    if (self.slave_group_interface.is_set or self.slave_group_interface.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.slave_group_interface.get_name_leafdata())
-                    if (self.slave_group_number.is_set or self.slave_group_number.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.slave_group_number.get_name_leafdata())
+                    if (self.subordinate_group_interface.is_set or self.subordinate_group_interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.subordinate_group_interface.get_name_leafdata())
+                    if (self.subordinate_group_number.is_set or self.subordinate_group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.subordinate_group_number.get_name_leafdata())
 
                     entity_path = EntityPath(path_buffer, leaf_name_data)
                     return entity_path
@@ -4300,22 +4300,22 @@ class Hsrp(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "slave-group-interface" or name == "slave-group-number"):
+                    if(name == "subordinate-group-interface" or name == "subordinate-group-number"):
                         return True
                     return False
 
                 def set_value(self, value_path, value, name_space, name_space_prefix):
-                    if(value_path == "slave-group-interface"):
-                        self.slave_group_interface = value
-                        self.slave_group_interface.value_namespace = name_space
-                        self.slave_group_interface.value_namespace_prefix = name_space_prefix
-                    if(value_path == "slave-group-number"):
-                        self.slave_group_number = value
-                        self.slave_group_number.value_namespace = name_space
-                        self.slave_group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "subordinate-group-interface"):
+                        self.subordinate_group_interface = value
+                        self.subordinate_group_interface.value_namespace = name_space
+                        self.subordinate_group_interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "subordinate-group-number"):
+                        self.subordinate_group_number = value
+                        self.subordinate_group_number.value_namespace = name_space
+                        self.subordinate_group_number.value_namespace_prefix = name_space_prefix
 
             def has_data(self):
-                for c in self.slave:
+                for c in self.subordinate:
                     if (c.has_data()):
                         return True
                 return (
@@ -4327,7 +4327,7 @@ class Hsrp(Entity):
                     self.primary_session_state.is_set)
 
             def has_operation(self):
-                for c in self.slave:
+                for c in self.subordinate:
                     if (c.has_operation()):
                         return True
                 return (
@@ -4374,22 +4374,22 @@ class Hsrp(Entity):
                 if child is not None:
                     return child
 
-                if (child_yang_name == "slave"):
-                    for c in self.slave:
+                if (child_yang_name == "subordinate"):
+                    for c in self.subordinate:
                         segment = c.get_segment_path()
                         if (segment_path == segment):
                             return c
-                    c = Hsrp.MgoSessions.MgoSession.Slave()
+                    c = Hsrp.MgoSessions.MgoSession.Subordinate()
                     c.parent = self
                     local_reference_key = "ydk::seg::%s" % segment_path
                     self._local_refs[local_reference_key] = c
-                    self.slave.append(c)
+                    self.subordinate.append(c)
                     return c
 
                 return None
 
             def has_leaf_or_child_of_name(self, name):
-                if(name == "slave" or name == "session-name" or name == "primary-af-name" or name == "primary-session-interface" or name == "primary-session-name" or name == "primary-session-number" or name == "primary-session-state"):
+                if(name == "subordinate" or name == "session-name" or name == "primary-af-name" or name == "primary-session-interface" or name == "primary-session-name" or name == "primary-session-number" or name == "primary-session-state"):
                     return True
                 return False
 
@@ -5182,9 +5182,9 @@ class Hsrp(Entity):
                 
                 	**length:** 0..64
                 
-                .. attribute:: is_slave
+                .. attribute:: is_subordinate
                 
-                	Group is a slave group
+                	Group is a subordinate group
                 	**type**\:  bool
                 
                 .. attribute:: learned_hello_time
@@ -5282,9 +5282,9 @@ class Hsrp(Entity):
                 
                 	**length:** 0..16
                 
-                .. attribute:: slaves
+                .. attribute:: subordinates
                 
-                	Number of slaves following state
+                	Number of subordinates following state
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -5495,7 +5495,7 @@ class Hsrp(Entity):
 
                     self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
 
-                    self.is_slave = YLeaf(YType.boolean, "is-slave")
+                    self.is_subordinate = YLeaf(YType.boolean, "is-subordinate")
 
                     self.learned_hello_time = YLeaf(YType.uint32, "learned-hello-time")
 
@@ -5519,7 +5519,7 @@ class Hsrp(Entity):
 
                     self.session_name = YLeaf(YType.str, "session-name")
 
-                    self.slaves = YLeaf(YType.uint32, "slaves")
+                    self.subordinates = YLeaf(YType.uint32, "subordinates")
 
                     self.standby_ip_address = YLeaf(YType.str, "standby-ip-address")
 
@@ -5627,7 +5627,7 @@ class Hsrp(Entity):
                                     "hsrp_router_state",
                                     "interface",
                                     "interface_name_xr",
-                                    "is_slave",
+                                    "is_subordinate",
                                     "learned_hello_time",
                                     "learned_hold_time",
                                     "min_delay_time",
@@ -5639,7 +5639,7 @@ class Hsrp(Entity):
                                     "router_priority",
                                     "secondary_address",
                                     "session_name",
-                                    "slaves",
+                                    "subordinates",
                                     "standby_ip_address",
                                     "standby_ipv6_address",
                                     "standby_mac_address",
@@ -6911,7 +6911,7 @@ class Hsrp(Entity):
                         self.hsrp_router_state.is_set or
                         self.interface.is_set or
                         self.interface_name_xr.is_set or
-                        self.is_slave.is_set or
+                        self.is_subordinate.is_set or
                         self.learned_hello_time.is_set or
                         self.learned_hold_time.is_set or
                         self.min_delay_time.is_set or
@@ -6922,7 +6922,7 @@ class Hsrp(Entity):
                         self.reload_delay_time.is_set or
                         self.router_priority.is_set or
                         self.session_name.is_set or
-                        self.slaves.is_set or
+                        self.subordinates.is_set or
                         self.standby_ip_address.is_set or
                         self.standby_ipv6_address.is_set or
                         self.standby_mac_address.is_set or
@@ -6993,7 +6993,7 @@ class Hsrp(Entity):
                         self.hsrp_router_state.yfilter != YFilter.not_set or
                         self.interface.yfilter != YFilter.not_set or
                         self.interface_name_xr.yfilter != YFilter.not_set or
-                        self.is_slave.yfilter != YFilter.not_set or
+                        self.is_subordinate.yfilter != YFilter.not_set or
                         self.learned_hello_time.yfilter != YFilter.not_set or
                         self.learned_hold_time.yfilter != YFilter.not_set or
                         self.min_delay_time.yfilter != YFilter.not_set or
@@ -7005,7 +7005,7 @@ class Hsrp(Entity):
                         self.router_priority.yfilter != YFilter.not_set or
                         self.secondary_address.yfilter != YFilter.not_set or
                         self.session_name.yfilter != YFilter.not_set or
-                        self.slaves.yfilter != YFilter.not_set or
+                        self.subordinates.yfilter != YFilter.not_set or
                         self.standby_ip_address.yfilter != YFilter.not_set or
                         self.standby_ipv6_address.yfilter != YFilter.not_set or
                         self.standby_mac_address.yfilter != YFilter.not_set or
@@ -7113,8 +7113,8 @@ class Hsrp(Entity):
                         leaf_name_data.append(self.interface.get_name_leafdata())
                     if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
-                    if (self.is_slave.is_set or self.is_slave.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.is_slave.get_name_leafdata())
+                    if (self.is_subordinate.is_set or self.is_subordinate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_subordinate.get_name_leafdata())
                     if (self.learned_hello_time.is_set or self.learned_hello_time.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.learned_hello_time.get_name_leafdata())
                     if (self.learned_hold_time.is_set or self.learned_hold_time.yfilter != YFilter.not_set):
@@ -7135,8 +7135,8 @@ class Hsrp(Entity):
                         leaf_name_data.append(self.router_priority.get_name_leafdata())
                     if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.session_name.get_name_leafdata())
-                    if (self.slaves.is_set or self.slaves.yfilter != YFilter.not_set):
-                        leaf_name_data.append(self.slaves.get_name_leafdata())
+                    if (self.subordinates.is_set or self.subordinates.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.subordinates.get_name_leafdata())
                     if (self.standby_ip_address.is_set or self.standby_ip_address.yfilter != YFilter.not_set):
                         leaf_name_data.append(self.standby_ip_address.get_name_leafdata())
                     if (self.standby_ipv6_address.is_set or self.standby_ipv6_address.yfilter != YFilter.not_set):
@@ -7244,7 +7244,7 @@ class Hsrp(Entity):
                     return None
 
                 def has_leaf_or_child_of_name(self, name):
-                    if(name == "coup-received-time" or name == "coup-sent-time" or name == "global-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "statistics" or name == "interface-name" or name == "group-number" or name == "active-ip-address" or name == "active-ipv6-address" or name == "active-mac-address" or name == "active-priority" or name == "active-timer-flag" or name == "active-timer-msecs" or name == "active-timer-secs" or name == "address-family" or name == "authentication-string" or name == "bfd-enabled" or name == "bfd-interface" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-peer-ip-address" or name == "bfd-peer-ipv6-address" or name == "bfd-session-state" or name == "configured-mac-address" or name == "configured-priority" or name == "configured-timers" or name == "current-state-timer-secs" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "hello-time" or name == "hello-timer-flag" or name == "hello-timer-msecs" or name == "hello-timer-secs" or name == "hold-time" or name == "hsrp-group-number" or name == "hsrp-router-state" or name == "interface" or name == "interface-name-xr" or name == "is-slave" or name == "learned-hello-time" or name == "learned-hold-time" or name == "min-delay-time" or name == "preempt-delay" or name == "preempt-enabled" or name == "preempt-timer-secs" or name == "redirects-disabled" or name == "reload-delay-time" or name == "router-priority" or name == "secondary-address" or name == "session-name" or name == "slaves" or name == "standby-ip-address" or name == "standby-ipv6-address" or name == "standby-mac-address" or name == "standby-timer-flag" or name == "standby-timer-msecs" or name == "standby-timer-secs" or name == "state-change-count" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "use-bia-configured" or name == "use-configured-timers" or name == "use-configured-virtual-ip" or name == "version" or name == "virtual-ip-address" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state"):
+                    if(name == "coup-received-time" or name == "coup-sent-time" or name == "global-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "statistics" or name == "interface-name" or name == "group-number" or name == "active-ip-address" or name == "active-ipv6-address" or name == "active-mac-address" or name == "active-priority" or name == "active-timer-flag" or name == "active-timer-msecs" or name == "active-timer-secs" or name == "address-family" or name == "authentication-string" or name == "bfd-enabled" or name == "bfd-interface" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-peer-ip-address" or name == "bfd-peer-ipv6-address" or name == "bfd-session-state" or name == "configured-mac-address" or name == "configured-priority" or name == "configured-timers" or name == "current-state-timer-secs" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "hello-time" or name == "hello-timer-flag" or name == "hello-timer-msecs" or name == "hello-timer-secs" or name == "hold-time" or name == "hsrp-group-number" or name == "hsrp-router-state" or name == "interface" or name == "interface-name-xr" or name == "is-subordinate" or name == "learned-hello-time" or name == "learned-hold-time" or name == "min-delay-time" or name == "preempt-delay" or name == "preempt-enabled" or name == "preempt-timer-secs" or name == "redirects-disabled" or name == "reload-delay-time" or name == "router-priority" or name == "secondary-address" or name == "session-name" or name == "subordinates" or name == "standby-ip-address" or name == "standby-ipv6-address" or name == "standby-mac-address" or name == "standby-timer-flag" or name == "standby-timer-msecs" or name == "standby-timer-secs" or name == "state-change-count" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "use-bia-configured" or name == "use-configured-timers" or name == "use-configured-virtual-ip" or name == "version" or name == "virtual-ip-address" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state"):
                         return True
                     return False
 
@@ -7389,10 +7389,10 @@ class Hsrp(Entity):
                         self.interface_name_xr = value
                         self.interface_name_xr.value_namespace = name_space
                         self.interface_name_xr.value_namespace_prefix = name_space_prefix
-                    if(value_path == "is-slave"):
-                        self.is_slave = value
-                        self.is_slave.value_namespace = name_space
-                        self.is_slave.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-subordinate"):
+                        self.is_subordinate = value
+                        self.is_subordinate.value_namespace = name_space
+                        self.is_subordinate.value_namespace_prefix = name_space_prefix
                     if(value_path == "learned-hello-time"):
                         self.learned_hello_time = value
                         self.learned_hello_time.value_namespace = name_space
@@ -7435,10 +7435,10 @@ class Hsrp(Entity):
                         self.session_name = value
                         self.session_name.value_namespace = name_space
                         self.session_name.value_namespace_prefix = name_space_prefix
-                    if(value_path == "slaves"):
-                        self.slaves = value
-                        self.slaves.value_namespace = name_space
-                        self.slaves.value_namespace_prefix = name_space_prefix
+                    if(value_path == "subordinates"):
+                        self.subordinates = value
+                        self.subordinates.value_namespace = name_space
+                        self.subordinates.value_namespace_prefix = name_space_prefix
                     if(value_path == "standby-ip-address"):
                         self.standby_ip_address = value
                         self.standby_ip_address.value_namespace = name_space
@@ -8722,44 +8722,44 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_slaves_active
+        .. attribute:: ipv4_subordinates_active
         
-        	Number of IPv4 slaves in ACTIVE state
+        	Number of IPv4 subordinates in ACTIVE state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_slaves_init
+        .. attribute:: ipv4_subordinates_init
         
-        	Number of IPv4 slaves in INIT state
+        	Number of IPv4 subordinates in INIT state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_slaves_learn
+        .. attribute:: ipv4_subordinates_learn
         
-        	Number of IPv4 slaves in LEARN state
+        	Number of IPv4 subordinates in LEARN state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_slaves_listen
+        .. attribute:: ipv4_subordinates_listen
         
-        	Number of IPv4 slaves in LISTEN state
+        	Number of IPv4 subordinates in LISTEN state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_slaves_speak
+        .. attribute:: ipv4_subordinates_speak
         
-        	Number of IPv4 slaves in SPEAK state
+        	Number of IPv4 subordinates in SPEAK state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv4_slaves_standby
+        .. attribute:: ipv4_subordinates_standby
         
-        	Number of IPv4 slaves in STANDBY state
+        	Number of IPv4 subordinates in STANDBY state
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -8890,44 +8890,44 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_slaves_active
+        .. attribute:: ipv6_subordinates_active
         
-        	Number of IPv6 slaves in ACTIVE state
+        	Number of IPv6 subordinates in ACTIVE state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_slaves_init
+        .. attribute:: ipv6_subordinates_init
         
-        	Number of IPv6 slaves in INIT state
+        	Number of IPv6 subordinates in INIT state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_slaves_learn
+        .. attribute:: ipv6_subordinates_learn
         
-        	Number of IPv6 slaves in LEARN state
+        	Number of IPv6 subordinates in LEARN state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_slaves_listen
+        .. attribute:: ipv6_subordinates_listen
         
-        	Number of IPv6 slaves in LISTEN state
+        	Number of IPv6 subordinates in LISTEN state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_slaves_speak
+        .. attribute:: ipv6_subordinates_speak
         
-        	Number of IPv6 slaves in SPEAK state
+        	Number of IPv6 subordinates in SPEAK state
         	**type**\:  int
         
         	**range:** 0..4294967295
         
-        .. attribute:: ipv6_slaves_standby
+        .. attribute:: ipv6_subordinates_standby
         
-        	Number of IPv6 slaves in STANDBY state
+        	Number of IPv6 subordinates in STANDBY state
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -9097,17 +9097,17 @@ class Hsrp(Entity):
 
             self.ipv4_sessions_standby = YLeaf(YType.uint32, "ipv4-sessions-standby")
 
-            self.ipv4_slaves_active = YLeaf(YType.uint32, "ipv4-slaves-active")
+            self.ipv4_subordinates_active = YLeaf(YType.uint32, "ipv4-subordinates-active")
 
-            self.ipv4_slaves_init = YLeaf(YType.uint32, "ipv4-slaves-init")
+            self.ipv4_subordinates_init = YLeaf(YType.uint32, "ipv4-subordinates-init")
 
-            self.ipv4_slaves_learn = YLeaf(YType.uint32, "ipv4-slaves-learn")
+            self.ipv4_subordinates_learn = YLeaf(YType.uint32, "ipv4-subordinates-learn")
 
-            self.ipv4_slaves_listen = YLeaf(YType.uint32, "ipv4-slaves-listen")
+            self.ipv4_subordinates_listen = YLeaf(YType.uint32, "ipv4-subordinates-listen")
 
-            self.ipv4_slaves_speak = YLeaf(YType.uint32, "ipv4-slaves-speak")
+            self.ipv4_subordinates_speak = YLeaf(YType.uint32, "ipv4-subordinates-speak")
 
-            self.ipv4_slaves_standby = YLeaf(YType.uint32, "ipv4-slaves-standby")
+            self.ipv4_subordinates_standby = YLeaf(YType.uint32, "ipv4-subordinates-standby")
 
             self.ipv4_virtual_ip_addresses_active_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-active-down")
 
@@ -9145,17 +9145,17 @@ class Hsrp(Entity):
 
             self.ipv6_sessions_standby = YLeaf(YType.uint32, "ipv6-sessions-standby")
 
-            self.ipv6_slaves_active = YLeaf(YType.uint32, "ipv6-slaves-active")
+            self.ipv6_subordinates_active = YLeaf(YType.uint32, "ipv6-subordinates-active")
 
-            self.ipv6_slaves_init = YLeaf(YType.uint32, "ipv6-slaves-init")
+            self.ipv6_subordinates_init = YLeaf(YType.uint32, "ipv6-subordinates-init")
 
-            self.ipv6_slaves_learn = YLeaf(YType.uint32, "ipv6-slaves-learn")
+            self.ipv6_subordinates_learn = YLeaf(YType.uint32, "ipv6-subordinates-learn")
 
-            self.ipv6_slaves_listen = YLeaf(YType.uint32, "ipv6-slaves-listen")
+            self.ipv6_subordinates_listen = YLeaf(YType.uint32, "ipv6-subordinates-listen")
 
-            self.ipv6_slaves_speak = YLeaf(YType.uint32, "ipv6-slaves-speak")
+            self.ipv6_subordinates_speak = YLeaf(YType.uint32, "ipv6-subordinates-speak")
 
-            self.ipv6_slaves_standby = YLeaf(YType.uint32, "ipv6-slaves-standby")
+            self.ipv6_subordinates_standby = YLeaf(YType.uint32, "ipv6-subordinates-standby")
 
             self.ipv6_virtual_ip_addresses_active_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-active-down")
 
@@ -9215,12 +9215,12 @@ class Hsrp(Entity):
                             "ipv4_sessions_listen",
                             "ipv4_sessions_speak",
                             "ipv4_sessions_standby",
-                            "ipv4_slaves_active",
-                            "ipv4_slaves_init",
-                            "ipv4_slaves_learn",
-                            "ipv4_slaves_listen",
-                            "ipv4_slaves_speak",
-                            "ipv4_slaves_standby",
+                            "ipv4_subordinates_active",
+                            "ipv4_subordinates_init",
+                            "ipv4_subordinates_learn",
+                            "ipv4_subordinates_listen",
+                            "ipv4_subordinates_speak",
+                            "ipv4_subordinates_standby",
                             "ipv4_virtual_ip_addresses_active_down",
                             "ipv4_virtual_ip_addresses_active_up",
                             "ipv4_virtual_ip_addresses_init_down",
@@ -9239,12 +9239,12 @@ class Hsrp(Entity):
                             "ipv6_sessions_listen",
                             "ipv6_sessions_speak",
                             "ipv6_sessions_standby",
-                            "ipv6_slaves_active",
-                            "ipv6_slaves_init",
-                            "ipv6_slaves_learn",
-                            "ipv6_slaves_listen",
-                            "ipv6_slaves_speak",
-                            "ipv6_slaves_standby",
+                            "ipv6_subordinates_active",
+                            "ipv6_subordinates_init",
+                            "ipv6_subordinates_learn",
+                            "ipv6_subordinates_listen",
+                            "ipv6_subordinates_speak",
+                            "ipv6_subordinates_standby",
                             "ipv6_virtual_ip_addresses_active_down",
                             "ipv6_virtual_ip_addresses_active_up",
                             "ipv6_virtual_ip_addresses_init_down",
@@ -9292,12 +9292,12 @@ class Hsrp(Entity):
                 self.ipv4_sessions_listen.is_set or
                 self.ipv4_sessions_speak.is_set or
                 self.ipv4_sessions_standby.is_set or
-                self.ipv4_slaves_active.is_set or
-                self.ipv4_slaves_init.is_set or
-                self.ipv4_slaves_learn.is_set or
-                self.ipv4_slaves_listen.is_set or
-                self.ipv4_slaves_speak.is_set or
-                self.ipv4_slaves_standby.is_set or
+                self.ipv4_subordinates_active.is_set or
+                self.ipv4_subordinates_init.is_set or
+                self.ipv4_subordinates_learn.is_set or
+                self.ipv4_subordinates_listen.is_set or
+                self.ipv4_subordinates_speak.is_set or
+                self.ipv4_subordinates_standby.is_set or
                 self.ipv4_virtual_ip_addresses_active_down.is_set or
                 self.ipv4_virtual_ip_addresses_active_up.is_set or
                 self.ipv4_virtual_ip_addresses_init_down.is_set or
@@ -9316,12 +9316,12 @@ class Hsrp(Entity):
                 self.ipv6_sessions_listen.is_set or
                 self.ipv6_sessions_speak.is_set or
                 self.ipv6_sessions_standby.is_set or
-                self.ipv6_slaves_active.is_set or
-                self.ipv6_slaves_init.is_set or
-                self.ipv6_slaves_learn.is_set or
-                self.ipv6_slaves_listen.is_set or
-                self.ipv6_slaves_speak.is_set or
-                self.ipv6_slaves_standby.is_set or
+                self.ipv6_subordinates_active.is_set or
+                self.ipv6_subordinates_init.is_set or
+                self.ipv6_subordinates_learn.is_set or
+                self.ipv6_subordinates_listen.is_set or
+                self.ipv6_subordinates_speak.is_set or
+                self.ipv6_subordinates_standby.is_set or
                 self.ipv6_virtual_ip_addresses_active_down.is_set or
                 self.ipv6_virtual_ip_addresses_active_up.is_set or
                 self.ipv6_virtual_ip_addresses_init_down.is_set or
@@ -9357,12 +9357,12 @@ class Hsrp(Entity):
                 self.ipv4_sessions_listen.yfilter != YFilter.not_set or
                 self.ipv4_sessions_speak.yfilter != YFilter.not_set or
                 self.ipv4_sessions_standby.yfilter != YFilter.not_set or
-                self.ipv4_slaves_active.yfilter != YFilter.not_set or
-                self.ipv4_slaves_init.yfilter != YFilter.not_set or
-                self.ipv4_slaves_learn.yfilter != YFilter.not_set or
-                self.ipv4_slaves_listen.yfilter != YFilter.not_set or
-                self.ipv4_slaves_speak.yfilter != YFilter.not_set or
-                self.ipv4_slaves_standby.yfilter != YFilter.not_set or
+                self.ipv4_subordinates_active.yfilter != YFilter.not_set or
+                self.ipv4_subordinates_init.yfilter != YFilter.not_set or
+                self.ipv4_subordinates_learn.yfilter != YFilter.not_set or
+                self.ipv4_subordinates_listen.yfilter != YFilter.not_set or
+                self.ipv4_subordinates_speak.yfilter != YFilter.not_set or
+                self.ipv4_subordinates_standby.yfilter != YFilter.not_set or
                 self.ipv4_virtual_ip_addresses_active_down.yfilter != YFilter.not_set or
                 self.ipv4_virtual_ip_addresses_active_up.yfilter != YFilter.not_set or
                 self.ipv4_virtual_ip_addresses_init_down.yfilter != YFilter.not_set or
@@ -9381,12 +9381,12 @@ class Hsrp(Entity):
                 self.ipv6_sessions_listen.yfilter != YFilter.not_set or
                 self.ipv6_sessions_speak.yfilter != YFilter.not_set or
                 self.ipv6_sessions_standby.yfilter != YFilter.not_set or
-                self.ipv6_slaves_active.yfilter != YFilter.not_set or
-                self.ipv6_slaves_init.yfilter != YFilter.not_set or
-                self.ipv6_slaves_learn.yfilter != YFilter.not_set or
-                self.ipv6_slaves_listen.yfilter != YFilter.not_set or
-                self.ipv6_slaves_speak.yfilter != YFilter.not_set or
-                self.ipv6_slaves_standby.yfilter != YFilter.not_set or
+                self.ipv6_subordinates_active.yfilter != YFilter.not_set or
+                self.ipv6_subordinates_init.yfilter != YFilter.not_set or
+                self.ipv6_subordinates_learn.yfilter != YFilter.not_set or
+                self.ipv6_subordinates_listen.yfilter != YFilter.not_set or
+                self.ipv6_subordinates_speak.yfilter != YFilter.not_set or
+                self.ipv6_subordinates_standby.yfilter != YFilter.not_set or
                 self.ipv6_virtual_ip_addresses_active_down.yfilter != YFilter.not_set or
                 self.ipv6_virtual_ip_addresses_active_up.yfilter != YFilter.not_set or
                 self.ipv6_virtual_ip_addresses_init_down.yfilter != YFilter.not_set or
@@ -9446,18 +9446,18 @@ class Hsrp(Entity):
                 leaf_name_data.append(self.ipv4_sessions_speak.get_name_leafdata())
             if (self.ipv4_sessions_standby.is_set or self.ipv4_sessions_standby.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv4_sessions_standby.get_name_leafdata())
-            if (self.ipv4_slaves_active.is_set or self.ipv4_slaves_active.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_slaves_active.get_name_leafdata())
-            if (self.ipv4_slaves_init.is_set or self.ipv4_slaves_init.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_slaves_init.get_name_leafdata())
-            if (self.ipv4_slaves_learn.is_set or self.ipv4_slaves_learn.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_slaves_learn.get_name_leafdata())
-            if (self.ipv4_slaves_listen.is_set or self.ipv4_slaves_listen.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_slaves_listen.get_name_leafdata())
-            if (self.ipv4_slaves_speak.is_set or self.ipv4_slaves_speak.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_slaves_speak.get_name_leafdata())
-            if (self.ipv4_slaves_standby.is_set or self.ipv4_slaves_standby.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv4_slaves_standby.get_name_leafdata())
+            if (self.ipv4_subordinates_active.is_set or self.ipv4_subordinates_active.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_subordinates_active.get_name_leafdata())
+            if (self.ipv4_subordinates_init.is_set or self.ipv4_subordinates_init.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_subordinates_init.get_name_leafdata())
+            if (self.ipv4_subordinates_learn.is_set or self.ipv4_subordinates_learn.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_subordinates_learn.get_name_leafdata())
+            if (self.ipv4_subordinates_listen.is_set or self.ipv4_subordinates_listen.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_subordinates_listen.get_name_leafdata())
+            if (self.ipv4_subordinates_speak.is_set or self.ipv4_subordinates_speak.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_subordinates_speak.get_name_leafdata())
+            if (self.ipv4_subordinates_standby.is_set or self.ipv4_subordinates_standby.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_subordinates_standby.get_name_leafdata())
             if (self.ipv4_virtual_ip_addresses_active_down.is_set or self.ipv4_virtual_ip_addresses_active_down.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv4_virtual_ip_addresses_active_down.get_name_leafdata())
             if (self.ipv4_virtual_ip_addresses_active_up.is_set or self.ipv4_virtual_ip_addresses_active_up.yfilter != YFilter.not_set):
@@ -9494,18 +9494,18 @@ class Hsrp(Entity):
                 leaf_name_data.append(self.ipv6_sessions_speak.get_name_leafdata())
             if (self.ipv6_sessions_standby.is_set or self.ipv6_sessions_standby.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv6_sessions_standby.get_name_leafdata())
-            if (self.ipv6_slaves_active.is_set or self.ipv6_slaves_active.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_slaves_active.get_name_leafdata())
-            if (self.ipv6_slaves_init.is_set or self.ipv6_slaves_init.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_slaves_init.get_name_leafdata())
-            if (self.ipv6_slaves_learn.is_set or self.ipv6_slaves_learn.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_slaves_learn.get_name_leafdata())
-            if (self.ipv6_slaves_listen.is_set or self.ipv6_slaves_listen.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_slaves_listen.get_name_leafdata())
-            if (self.ipv6_slaves_speak.is_set or self.ipv6_slaves_speak.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_slaves_speak.get_name_leafdata())
-            if (self.ipv6_slaves_standby.is_set or self.ipv6_slaves_standby.yfilter != YFilter.not_set):
-                leaf_name_data.append(self.ipv6_slaves_standby.get_name_leafdata())
+            if (self.ipv6_subordinates_active.is_set or self.ipv6_subordinates_active.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_subordinates_active.get_name_leafdata())
+            if (self.ipv6_subordinates_init.is_set or self.ipv6_subordinates_init.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_subordinates_init.get_name_leafdata())
+            if (self.ipv6_subordinates_learn.is_set or self.ipv6_subordinates_learn.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_subordinates_learn.get_name_leafdata())
+            if (self.ipv6_subordinates_listen.is_set or self.ipv6_subordinates_listen.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_subordinates_listen.get_name_leafdata())
+            if (self.ipv6_subordinates_speak.is_set or self.ipv6_subordinates_speak.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_subordinates_speak.get_name_leafdata())
+            if (self.ipv6_subordinates_standby.is_set or self.ipv6_subordinates_standby.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_subordinates_standby.get_name_leafdata())
             if (self.ipv6_virtual_ip_addresses_active_down.is_set or self.ipv6_virtual_ip_addresses_active_down.yfilter != YFilter.not_set):
                 leaf_name_data.append(self.ipv6_virtual_ip_addresses_active_down.get_name_leafdata())
             if (self.ipv6_virtual_ip_addresses_active_up.is_set or self.ipv6_virtual_ip_addresses_active_up.yfilter != YFilter.not_set):
@@ -9554,7 +9554,7 @@ class Hsrp(Entity):
             return None
 
         def has_leaf_or_child_of_name(self, name):
-            if(name == "bfd-session-inactive" or name == "bfd-sessions-down" or name == "bfd-sessions-up" or name == "interfaces-ipv4-state-down" or name == "interfaces-ipv4-state-up" or name == "interfaces-ipv6-state-down" or name == "interfaces-ipv6-state-up" or name == "ipv4-sessions-active" or name == "ipv4-sessions-init" or name == "ipv4-sessions-learn" or name == "ipv4-sessions-listen" or name == "ipv4-sessions-speak" or name == "ipv4-sessions-standby" or name == "ipv4-slaves-active" or name == "ipv4-slaves-init" or name == "ipv4-slaves-learn" or name == "ipv4-slaves-listen" or name == "ipv4-slaves-speak" or name == "ipv4-slaves-standby" or name == "ipv4-virtual-ip-addresses-active-down" or name == "ipv4-virtual-ip-addresses-active-up" or name == "ipv4-virtual-ip-addresses-init-down" or name == "ipv4-virtual-ip-addresses-init-up" or name == "ipv4-virtual-ip-addresses-learn-down" or name == "ipv4-virtual-ip-addresses-learn-up" or name == "ipv4-virtual-ip-addresses-listen-down" or name == "ipv4-virtual-ip-addresses-listen-up" or name == "ipv4-virtual-ip-addresses-speak-down" or name == "ipv4-virtual-ip-addresses-speak-up" or name == "ipv4-virtual-ip-addresses-standby-down" or name == "ipv4-virtual-ip-addresses-standby-up" or name == "ipv6-sessions-active" or name == "ipv6-sessions-init" or name == "ipv6-sessions-learn" or name == "ipv6-sessions-listen" or name == "ipv6-sessions-speak" or name == "ipv6-sessions-standby" or name == "ipv6-slaves-active" or name == "ipv6-slaves-init" or name == "ipv6-slaves-learn" or name == "ipv6-slaves-listen" or name == "ipv6-slaves-speak" or name == "ipv6-slaves-standby" or name == "ipv6-virtual-ip-addresses-active-down" or name == "ipv6-virtual-ip-addresses-active-up" or name == "ipv6-virtual-ip-addresses-init-down" or name == "ipv6-virtual-ip-addresses-init-up" or name == "ipv6-virtual-ip-addresses-learn-down" or name == "ipv6-virtual-ip-addresses-learn-up" or name == "ipv6-virtual-ip-addresses-listen-down" or name == "ipv6-virtual-ip-addresses-listen-up" or name == "ipv6-virtual-ip-addresses-speak-down" or name == "ipv6-virtual-ip-addresses-speak-up" or name == "ipv6-virtual-ip-addresses-standby-down" or name == "ipv6-virtual-ip-addresses-standby-up" or name == "tracked-interfaces-ipv4-state-down" or name == "tracked-interfaces-ipv4-state-up" or name == "tracked-interfaces-ipv6-state-down" or name == "tracked-interfaces-ipv6-state-up" or name == "tracked-objects-down" or name == "tracked-objects-up"):
+            if(name == "bfd-session-inactive" or name == "bfd-sessions-down" or name == "bfd-sessions-up" or name == "interfaces-ipv4-state-down" or name == "interfaces-ipv4-state-up" or name == "interfaces-ipv6-state-down" or name == "interfaces-ipv6-state-up" or name == "ipv4-sessions-active" or name == "ipv4-sessions-init" or name == "ipv4-sessions-learn" or name == "ipv4-sessions-listen" or name == "ipv4-sessions-speak" or name == "ipv4-sessions-standby" or name == "ipv4-subordinates-active" or name == "ipv4-subordinates-init" or name == "ipv4-subordinates-learn" or name == "ipv4-subordinates-listen" or name == "ipv4-subordinates-speak" or name == "ipv4-subordinates-standby" or name == "ipv4-virtual-ip-addresses-active-down" or name == "ipv4-virtual-ip-addresses-active-up" or name == "ipv4-virtual-ip-addresses-init-down" or name == "ipv4-virtual-ip-addresses-init-up" or name == "ipv4-virtual-ip-addresses-learn-down" or name == "ipv4-virtual-ip-addresses-learn-up" or name == "ipv4-virtual-ip-addresses-listen-down" or name == "ipv4-virtual-ip-addresses-listen-up" or name == "ipv4-virtual-ip-addresses-speak-down" or name == "ipv4-virtual-ip-addresses-speak-up" or name == "ipv4-virtual-ip-addresses-standby-down" or name == "ipv4-virtual-ip-addresses-standby-up" or name == "ipv6-sessions-active" or name == "ipv6-sessions-init" or name == "ipv6-sessions-learn" or name == "ipv6-sessions-listen" or name == "ipv6-sessions-speak" or name == "ipv6-sessions-standby" or name == "ipv6-subordinates-active" or name == "ipv6-subordinates-init" or name == "ipv6-subordinates-learn" or name == "ipv6-subordinates-listen" or name == "ipv6-subordinates-speak" or name == "ipv6-subordinates-standby" or name == "ipv6-virtual-ip-addresses-active-down" or name == "ipv6-virtual-ip-addresses-active-up" or name == "ipv6-virtual-ip-addresses-init-down" or name == "ipv6-virtual-ip-addresses-init-up" or name == "ipv6-virtual-ip-addresses-learn-down" or name == "ipv6-virtual-ip-addresses-learn-up" or name == "ipv6-virtual-ip-addresses-listen-down" or name == "ipv6-virtual-ip-addresses-listen-up" or name == "ipv6-virtual-ip-addresses-speak-down" or name == "ipv6-virtual-ip-addresses-speak-up" or name == "ipv6-virtual-ip-addresses-standby-down" or name == "ipv6-virtual-ip-addresses-standby-up" or name == "tracked-interfaces-ipv4-state-down" or name == "tracked-interfaces-ipv4-state-up" or name == "tracked-interfaces-ipv6-state-down" or name == "tracked-interfaces-ipv6-state-up" or name == "tracked-objects-down" or name == "tracked-objects-up"):
                 return True
             return False
 
@@ -9611,30 +9611,30 @@ class Hsrp(Entity):
                 self.ipv4_sessions_standby = value
                 self.ipv4_sessions_standby.value_namespace = name_space
                 self.ipv4_sessions_standby.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-slaves-active"):
-                self.ipv4_slaves_active = value
-                self.ipv4_slaves_active.value_namespace = name_space
-                self.ipv4_slaves_active.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-slaves-init"):
-                self.ipv4_slaves_init = value
-                self.ipv4_slaves_init.value_namespace = name_space
-                self.ipv4_slaves_init.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-slaves-learn"):
-                self.ipv4_slaves_learn = value
-                self.ipv4_slaves_learn.value_namespace = name_space
-                self.ipv4_slaves_learn.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-slaves-listen"):
-                self.ipv4_slaves_listen = value
-                self.ipv4_slaves_listen.value_namespace = name_space
-                self.ipv4_slaves_listen.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-slaves-speak"):
-                self.ipv4_slaves_speak = value
-                self.ipv4_slaves_speak.value_namespace = name_space
-                self.ipv4_slaves_speak.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv4-slaves-standby"):
-                self.ipv4_slaves_standby = value
-                self.ipv4_slaves_standby.value_namespace = name_space
-                self.ipv4_slaves_standby.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-subordinates-active"):
+                self.ipv4_subordinates_active = value
+                self.ipv4_subordinates_active.value_namespace = name_space
+                self.ipv4_subordinates_active.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-subordinates-init"):
+                self.ipv4_subordinates_init = value
+                self.ipv4_subordinates_init.value_namespace = name_space
+                self.ipv4_subordinates_init.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-subordinates-learn"):
+                self.ipv4_subordinates_learn = value
+                self.ipv4_subordinates_learn.value_namespace = name_space
+                self.ipv4_subordinates_learn.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-subordinates-listen"):
+                self.ipv4_subordinates_listen = value
+                self.ipv4_subordinates_listen.value_namespace = name_space
+                self.ipv4_subordinates_listen.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-subordinates-speak"):
+                self.ipv4_subordinates_speak = value
+                self.ipv4_subordinates_speak.value_namespace = name_space
+                self.ipv4_subordinates_speak.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-subordinates-standby"):
+                self.ipv4_subordinates_standby = value
+                self.ipv4_subordinates_standby.value_namespace = name_space
+                self.ipv4_subordinates_standby.value_namespace_prefix = name_space_prefix
             if(value_path == "ipv4-virtual-ip-addresses-active-down"):
                 self.ipv4_virtual_ip_addresses_active_down = value
                 self.ipv4_virtual_ip_addresses_active_down.value_namespace = name_space
@@ -9707,30 +9707,30 @@ class Hsrp(Entity):
                 self.ipv6_sessions_standby = value
                 self.ipv6_sessions_standby.value_namespace = name_space
                 self.ipv6_sessions_standby.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-slaves-active"):
-                self.ipv6_slaves_active = value
-                self.ipv6_slaves_active.value_namespace = name_space
-                self.ipv6_slaves_active.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-slaves-init"):
-                self.ipv6_slaves_init = value
-                self.ipv6_slaves_init.value_namespace = name_space
-                self.ipv6_slaves_init.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-slaves-learn"):
-                self.ipv6_slaves_learn = value
-                self.ipv6_slaves_learn.value_namespace = name_space
-                self.ipv6_slaves_learn.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-slaves-listen"):
-                self.ipv6_slaves_listen = value
-                self.ipv6_slaves_listen.value_namespace = name_space
-                self.ipv6_slaves_listen.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-slaves-speak"):
-                self.ipv6_slaves_speak = value
-                self.ipv6_slaves_speak.value_namespace = name_space
-                self.ipv6_slaves_speak.value_namespace_prefix = name_space_prefix
-            if(value_path == "ipv6-slaves-standby"):
-                self.ipv6_slaves_standby = value
-                self.ipv6_slaves_standby.value_namespace = name_space
-                self.ipv6_slaves_standby.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-subordinates-active"):
+                self.ipv6_subordinates_active = value
+                self.ipv6_subordinates_active.value_namespace = name_space
+                self.ipv6_subordinates_active.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-subordinates-init"):
+                self.ipv6_subordinates_init = value
+                self.ipv6_subordinates_init.value_namespace = name_space
+                self.ipv6_subordinates_init.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-subordinates-learn"):
+                self.ipv6_subordinates_learn = value
+                self.ipv6_subordinates_learn.value_namespace = name_space
+                self.ipv6_subordinates_learn.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-subordinates-listen"):
+                self.ipv6_subordinates_listen = value
+                self.ipv6_subordinates_listen.value_namespace = name_space
+                self.ipv6_subordinates_listen.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-subordinates-speak"):
+                self.ipv6_subordinates_speak = value
+                self.ipv6_subordinates_speak.value_namespace = name_space
+                self.ipv6_subordinates_speak.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-subordinates-standby"):
+                self.ipv6_subordinates_standby = value
+                self.ipv6_subordinates_standby.value_namespace = name_space
+                self.ipv6_subordinates_standby.value_namespace_prefix = name_space_prefix
             if(value_path == "ipv6-virtual-ip-addresses-active-down"):
                 self.ipv6_virtual_ip_addresses_active_down = value
                 self.ipv6_virtual_ip_addresses_active_down.value_namespace = name_space

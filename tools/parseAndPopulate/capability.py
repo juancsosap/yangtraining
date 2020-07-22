@@ -374,7 +374,7 @@ class Capability:
                 self.owner = 'YangModels'
                 self.repo = 'yang'
                 self.path = None
-                self.branch = 'master'
+                self.branch = 'main'
                 self.feature_set = 'ALL'
                 self.software_version = self.split[5]#repr(165) + self.feature_set
                 self.vendor = self.split[3]
@@ -470,7 +470,7 @@ class Capability:
             self.path = impl['module-list-file']['path']
             self.branch = impl['module-list-file'].get('branch')
             if not self.branch:
-                self.branch = 'master'
+                self.branch = 'main'
 
     def handle_exception(self, field, object, module_name):
         LOGGER.debug('field {} was not found in module {}'.format(field, module_name))
@@ -576,7 +576,7 @@ class Capability:
                 repo_file_path = sdo['source-file']['path']
                 self.branch = sdo['source-file'].get('branch')
                 if not self.branch:
-                    self.branch = 'master'
+                    self.branch = 'main'
                 self.repo = sdo['source-file']['repository'].split('.')[0]
                 root = self.owner + '/' + sdo['source-file']['repository'].split('.')[0] + '/' + self.branch + '/'\
                     + '/'.join(repo_file_path.split('/')[:-1])
@@ -691,7 +691,7 @@ class Capability:
                         if module_submodule != 'wrong file':
                             self.owner = 'YangModels'
                             self.repo = 'yang'
-                            self.branch = 'master'
+                            self.branch = 'main'
                             path = root + '/' + file_name
                             schema = github_raw + self.owner + '/' + self.repo + '/' + self.branch + '/' + path.replace('../', '')
                             conformance_type = None
